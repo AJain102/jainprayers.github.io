@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jain Stavans & Sutras | जैन स्तवन और सूत्र</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tiro+Devanagari:ital@0;1&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--saffron:#C8560A;--gold:#C8960C;--deep:#8B3A0A;--cream:#FAF6EE;--parchment:#F0E8D5;--ink:#1C1208;--muted:#7A6845;--border:#D9C9A3;--white:#FFFDF8;--accent:#FDF4E3}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'IM Fell English',Georgia,serif;background:var(--cream);color:var(--ink);min-height:100vh}
+header{background:linear-gradient(135deg,#1C1208 0%,#2C1A06 100%);color:var(--cream);text-align:center;padding:2.5rem 1.5rem 2rem;position:relative;overflow:hidden;cursor:pointer}
+header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(200,150,12,.04) 30px,rgba(200,150,12,.04) 60px)}
+.hdr-om{font-size:3rem;color:var(--gold);animation:float 4s ease-in-out infinite;display:block;margin-bottom:.3rem}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,4vw,2.8rem);font-weight:600;letter-spacing:.04em;position:relative}
+header h1 span{font-family:'Tiro Devanagari',serif;font-size:clamp(1rem,2.5vw,1.6rem);color:var(--gold);display:block;margin-top:.25rem;font-weight:400}
+.hdr-line{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.8rem auto;position:relative}
+header p{font-style:italic;color:#C8B898;font-size:.88rem;position:relative}
+.jai{display:inline-block;border:1px solid rgba(200,150,12,.35);padding:.18rem .9rem;border-radius:20px;color:var(--gold);font-size:.75rem;margin-top:.6rem;letter-spacing:.15em;position:relative}
+nav{background:var(--ink);display:flex;justify-content:center;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold)}
+.nv{background:none;border:none;color:#C8B898;font-family:'Cormorant Garamond',serif;font-size:.95rem;letter-spacing:.1em;padding:.8rem 2rem;cursor:pointer;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-2px;text-transform:uppercase}
+.nv:hover{color:var(--gold)}
+.nv.on{color:var(--gold);border-bottom-color:var(--gold);background:rgba(200,150,12,.07)}
+.page{display:none;max-width:980px;margin:0 auto;padding:1.5rem}
+.page.active{display:block}
+.home-intro{text-align:center;padding:2rem 0 1.5rem}
+.home-intro h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--deep);margin-bottom:.5rem}
+.home-intro p{color:var(--muted);font-style:italic;font-size:.92rem;max-width:550px;margin:0 auto}
+.search-bar{display:flex;gap:.8rem;margin:1rem 0 1.5rem}
+.srch-wrap{flex:1;position:relative}
+.srch-wrap::before{content:'🔍';position:absolute;left:.7rem;top:50%;transform:translateY(-50%);font-size:.78rem;opacity:.45}
+.srch{width:100%;padding:.6rem 1rem .6rem 2.2rem;border:1.5px solid var(--border);border-radius:6px;font-family:'IM Fell English',serif;font-size:.93rem;background:var(--white);color:var(--ink);outline:none}
+.srch:focus{border-color:var(--saffron)}
+.section-hdr{font-family:'Cormorant Garamond',serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.8rem;margin:1.5rem 0 .8rem}
+.section-hdr::before,.section-hdr::after{content:'';flex:1;height:1px;background:var(--border)}
+.idx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.7rem}
+.idx-card{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:.85rem 1.1rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+.idx-card:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(200,150,12,.13);transform:translateY(-1px)}
+.idx-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--deep);line-height:1.2}
+.idx-sub{font-size:.77rem;color:var(--muted);margin-top:.1rem}
+.idx-arrow{color:var(--gold);font-size:.85rem;flex-shrink:0}
+.tag{font-size:.65rem;padding:.12rem .45rem;border-radius:10px;letter-spacing:.05em;text-transform:uppercase;flex-shrink:0}
+.t-su{background:#EEF0FF;color:#3A3A8B;border:1px solid #C0C4F0}
+.t-st{background:#FFF0E8;color:#8B3A0A;border:1px solid #F0C4A0}
+.no-results{text-align:center;padding:3rem;color:var(--muted);font-style:italic;grid-column:1/-1}
+.item-page{animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.breadcrumb{font-size:.8rem;color:var(--muted);margin-bottom:1.2rem;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
+.breadcrumb a{color:var(--saffron);cursor:pointer}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb span{opacity:.5}
+.item-title-block{text-align:center;margin-bottom:2rem}
+.item-title-block h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:600;color:var(--deep)}
+.item-title-block .sub{font-family:'Tiro Devanagari',serif;color:var(--muted);font-size:.95rem;margin-top:.3rem}
+.item-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto}
+.lang-toggle{display:flex;justify-content:center;margin-bottom:1.5rem;background:var(--parchment);border:1.5px solid var(--border);border-radius:6px;overflow:hidden;width:fit-content;margin-left:auto;margin-right:auto}
+.lb{padding:.5rem 1.1rem;border:none;background:none;cursor:pointer;font-family:'IM Fell English',serif;font-size:.83rem;color:var(--muted);transition:all .2s}
+.lb.on{background:var(--saffron);color:#fff}
+.bilin{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--border);border-radius:10px;overflow:hidden}
+.col-h{background:#FFF8F0;padding:1.4rem 1.5rem;border-right:1.5px solid var(--border)}
+.col-e{background:#F4F8FF;padding:1.4rem 1.5rem}
+.col-lbl{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.9rem}
+.col-h .col-lbl{color:#8B3A0A}
+.col-e .col-lbl{color:#1A3A6B}
+.ht{font-family:'Tiro Devanagari',serif;font-size:1.05rem;line-height:2.05;color:#2A1505;white-space:pre-wrap}
+.et{font-family:'IM Fell English',serif;font-size:.95rem;line-height:1.95;color:#0D1A2A;white-space:pre-wrap;font-style:italic}
+.lm-hindi .col-e{display:none}
+.lm-hindi .bilin{grid-template-columns:1fr}
+.lm-hinglish .col-h{display:none}
+.lm-hinglish .bilin{grid-template-columns:1fr}
+.meaning-box{background:var(--accent);border-left:3px solid var(--gold);padding:.8rem 1rem;margin-top:1.2rem;font-size:.87rem;color:#4A3510;line-height:1.65;border-radius:0 5px 5px 0}
+.meaning-lbl{font-size:.67rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:700;margin-bottom:.35rem}
+.item-nav{display:flex;justify-content:space-between;margin-top:2rem;gap:1rem}
+.inav-btn{background:var(--white);border:1.5px solid var(--border);border-radius:7px;padding:.6rem 1.1rem;cursor:pointer;font-family:'IM Fell English',serif;font-size:.85rem;color:var(--deep);transition:all .2s;display:flex;align-items:center;gap:.4rem;max-width:48%}
+.inav-btn:hover{border-color:var(--gold);background:var(--accent)}
+.inav-btn:disabled{opacity:.3;cursor:default;pointer-events:none}
+footer{text-align:center;padding:2rem;background:var(--ink);color:#7A6845;font-size:.8rem;line-height:1.9;margin-top:3rem}
+footer strong{color:var(--gold)}
+footer em{color:#9A8060}
+@media(max-width:600px){
+  .bilin{grid-template-columns:1fr!important}
+  .col-h{border-right:none;border-bottom:1.5px solid var(--border)}
+  .lm-hindi .col-e,.lm-hinglish .col-h{display:none}
+  .idx-grid{grid-template-columns:1fr}
+  .nv{padding:.7rem 1rem;font-size:.82rem}
+  .inav-btn{font-size:.75rem;padding:.5rem .7rem}
+}
+</style>
+</head>
+<body>
+<header onclick="goHome()">
+  <span class="hdr-om">☸</span>
+  <h1>Jain Stavans &amp; Sutras <span>जैन स्तवन और सूत्र</span></h1>
+  <div class="hdr-line"></div>
+  <p>Sacred hymns, prayers and sutras of the Jain tradition</p>
+  <div class="jai">✦ Jai Jinendra ✦</div>
+</header>
+<nav>
+  <button class="nv on" id="nb-home" onclick="goHome()">Home</button>
+  <button class="nv" id="nb-stavans" onclick="showList('stavan')">Stavans</button>
+  <button class="nv" id="nb-sutras" onclick="showList('sutra')">Sutras</button>
+</nav>
+
+<div class="page active" id="pg-home">
+  <div class="home-intro">
+    <h2>Jai Jinendra!</h2>
+    <p>A collection of Jain Stavans and Sutras — each with Hindi script and Hinglish side by side.</p>
+  </div>
+  <div class="search-bar"><div class="srch-wrap"><input class="srch" id="homeSearch" placeholder="Search all stavans and sutras…" oninput="homeSearchFn()"></div></div>
+  <div id="homeResults"></div>
+  <div id="homeAll">
+    <div class="section-hdr">Sutras</div>
+    <div class="idx-grid" id="homeSutraGrid"></div>
+    <div class="section-hdr">Stavans</div>
+    <div class="idx-grid" id="homeStavanGrid"></div>
+  </div>
+</div>
+
+<div class="page" id="pg-stavans">
+  <div class="section-hdr">All Stavans</div>
+  <div class="search-bar"><div class="srch-wrap"><input class="srch" id="stavSearch" placeholder="Search stavans…" oninput="listSearch('stavan')"></div></div>
+  <div class="idx-grid" id="stavGrid"></div>
+</div>
+
+<div class="page" id="pg-sutras">
+  <div class="section-hdr">All Sutras</div>
+  <div class="search-bar"><div class="srch-wrap"><input class="srch" id="sutSearch" placeholder="Search sutras…" oninput="listSearch('sutra')"></div></div>
+  <div class="idx-grid" id="sutGrid"></div>
+</div>
+
+<div class="page" id="pg-item">
+  <div id="itemContent"></div>
+</div>
+
+<footer>
+  <strong>Jain Stavans &amp; Sutras</strong> — Curated by Kunal Nandawat, Washington<br>
+  Thank you to Anil Jain, Nihal Jain and Monica Bhandari for help with content.<br>
+  <em>Michami Dukkadam — forgive any errors in this humble effort 🙏</em>
+</footer>
+
+<script>
+const D = [
+// ══════ SUTRAS ══════
+{id:'navkar',type:'sutra',title:'Navkar Mantra',sub:'णमो अरिहंताणं',
+hindi:`णमो अरिहंताणं,
+णमो सिद्धाणं,
+णमो आयरियाणं,
+णमो उवज्झायाणं,
+णमो लोए सव्व साहूणं ।
+एसो पंच-णमोक्कारो,
+सव्व-पाव-प्पणासणो ।
+मंगलाणं च सव्वेसिं,
+पढमं हवई मंगलं ।`,
+hinglish:`Namo Arihantanam,
+Namo Siddhanam,
+Namo Ayariyanam,
+Namo Uvajjhayanam,
+Namo Loe Savva-Sahunam.
+Eso Panch Namokaro,
+Savva-Pavappanasano.
+Mangalanam Cha Savvesim,
+Padhamam Havei Mangalam.`,
+meaning:'The most sacred Jain prayer. Salutes five supreme beings. Reciting it destroys all sins and is considered the foremost auspicious mantra.'},
+
+{id:'logassa',type:'sutra',title:'Logassa',sub:'लोगस्स उज्जोअ-गरे',
+hindi:`लोगस्स उज्जोअ-गरे, धम्म-तित्थ-यरे जिणे
+अरिहंते कित्तइस्सं, चउवीसं पि केवली ॥१॥
+उसभ-मजिअं च वंदे, संभव-मभिणंदणं च सुमइं च
+पउम-प्पहं सुपासं, जिणं च चंद-प्पहं वंदे ॥२॥
+सुविहिं च पुप्फ-दंतं, सीअल-सिज्जंस-वासु-पुज्जं च
+विमल-मणंतं च जिणं, धम्मं संतिं च वंदामि ॥३॥
+कुंथुं अरं च मल्लिं, वंदे मुणि-सुव्वयं नमि-जिणं च
+वंदामि रिट्ठ-नेमिं, पासं तह वद्धमाणं च ॥४॥
+एवं मए अभिथुआ, विहुय-रय-मला पहीण-जर-मरणा
+चउ-वीसं पि जिणवरा, तित्थ-यरा मे पसीयंतु ॥५॥
+कित्तिय-वंदिय-महिया, जे ए लोगस्स उत्तमा सिद्धा
+आरुग्ग-बोहि-लाभं, समाहि-वर-मुत्तमं दिंतु ॥६॥
+चंदेसु निम्मल-यरा, आइच्चेसु अहियं पयास-यरा
+सागर-वर-गंभीरा, सिद्धा सिद्धिं मम दिसंतु ॥७॥`,
+hinglish:`Logassa ujjoyagare, dhamma-titthayare jine
+Arihante kittaissam, cauviisam pi kevali..1..
+Usabha-majiam cha vande, sambhava-mabhinandanam cha sumaim cha
+Pauma-ppabham supassam, jinam cha chanda-ppabham vande..2..
+Suvihim cha puppha-damtam, siala-sijjamsa-vasu-pujjam cha
+Vimala-manantam cha jinam, dhammam santim cha vandami..3..
+Kunthum aram cha mallim, vande muni-suvvayam nami-jinam cha
+Vandami ritthanemi, pasam taha vaddhamanam cha..4..
+Evam mae abhithua, vihuya-raya-mala pahina-jara-marana
+Cau-visam pi jinavara, tittha-yara me pasiyantu..5..
+Kittiya-vandiya-mahiya, je e logassa uttama siddha
+Arugga-bohi-labham, samahi-vara-muttamam dintu..6..
+Chandesu nimmala-yara, aiccesu ahiyam payasa-yara
+Sagara-vara-gambhira, siddha siddhim mama disantu..7..`,
+meaning:'Praises all 24 Tirthankaras by name and the Siddhas. Recited during Samayik and Pratikraman.'},
+
+{id:'chattari',type:'sutra',title:'Chattari Mangalam',sub:'चत्तारि मंगलं',
+hindi:`चत्तारि मंगलं, अरिहंता मंगलं,
+सिद्धा मंगलं, साहू मंगलं,
+केवलि-पण्णत्तो धम्मो मंगलं ।
+चत्तारि लोगुत्तमा, अरिहंता लोगुत्तमा,
+सिद्धा लोगुत्तमा, साहू लोगुत्तमा,
+केवलि-पण्णत्तो धम्मो लोगुत्तमो ।
+चत्तारि सरणं पवज्जामि, अरिहंते सरणं पवज्जामि,
+सिद्धे सरणं पवज्जामि, साहू सरणं पवज्जामि,
+केवलि-पण्णत्तं धम्मं सरणं पवज्जामि ।`,
+hinglish:`Chattari Mangalam, Arihanta Mangalam,
+Siddha Mangalam, Sahu Mangalam,
+Kevali-Pannatto Dhammo Mangalam.
+Chattari Loguttama, Arihanta Loguttama,
+Siddha Loguttama, Sahu Loguttama,
+Kevali-Pannatto Dhammo Loguttamo.
+Chattari Saranam Pavajjami, Arihante Saranam Pavajjami,
+Siddhe Saranam Pavajjami, Sahu Saranam Pavajjami,
+Kevali-Pannattam Dhammam Saranam Pavajjami.`,
+meaning:'Declares the four auspicious shelters of Jainism. Chanted as a prayer of refuge and protection.'},
+
+{id:'uvasaggaharam',type:'sutra',title:'Uvasaggaharam Stotra',sub:'उवसग्गहरं स्तोत्र',
+hindi:`उवसग्गहरं पासं, पासं वंदामि कम्म-घण-मुक्कं ।
+विसहर-विस-निन्नासं, मंगल कल्लाण आवासं ।। १।।
+विसहर-फुल्लिंग मंतं, कंठे धारेइ जो सया मणुओ ।
+तस्स गह रोग मारी, दुट्ठ जरा जंति उवसामं ।।२।।
+चिट्ठउ दूरे मंतो, तुज्झ पणामो वि बहु फलो होइ ।
+नर तिरिएसु वि जीवा, पावंति न दुक्ख-दोगच्चं ।।३।।
+तुह सम्मत्ते लद्धे, चिंतामणि कप्प-पाय वब्भहिए ।
+पावंति अविग्घेणं, जीवा अयरामरं ठाणं ।।४।।
+इह संथुओ महायस, भत्तिब्भर निब्भरेण हिअएण ।
+ता देव! दिज्झ बोहिं, भवे-भवे पास जिणचंद ।।५।।`,
+hinglish:`Uvasaggaharam Pasam, Pasam vandami kamma-ghana-mukkam.
+Visahara-visa-ninnasam, Mangala-kallana-avasam..1..
+Visahara-phullinga-mantam, kanthe dharei jo saya manuo.
+Tassa gaha roga mari, duttha-jara janti uvasamam..2..
+Chitthau dure manto, tujjha panamo vi bahu-phalo hoi.
+Nara tiriesu vi jiva, pavanti na dukkha-dogaccam..3..
+Tuha sammatte laddhe, cintamani kappa-paya-vabbhahie.
+Pavanti avigghenam, jiva ayaramaram thanam..4..
+Iha santhuo mahayasa, bhatti-bbhara-nibbharena hiaenam.
+Ta deva! dijjha bohim, bhave-bhave pasa jinacanda..5..`,
+meaning:'Composed by Bhadrabahu Swami in praise of Parshvanatha (23rd Tirthankara). Believed to protect from disease, evil and suffering.'},
+
+{id:'bhaktamar',type:'sutra',title:'Bhaktamar Stotra (Selected)',sub:'भक्तामर स्तोत्र',
+hindi:`भक्तामर-प्रणत-मौलि-मणि-प्रभाणाम्
+उद्द्योतकं दलित-पाप-तमो-वितानम् ।
+सम्यक् प्रणम्य जिन-पाद-युगं युगादा-
+वालम्बनं भवजले पततां जनानाम् ॥१॥
+
+यः संस्तुतः सकल-वाङ्मय-तत्त्वबोधाद्
+उद्भूत-बुद्धि-पटुभिः सुर-लोक-नाथैः ।
+स्तोत्रैर्जगत्-त्रितय-चित्त-हरैरुदारैः
+स्तोष्ये किलाहमपि तं प्रथमं जिनेन्द्रम् ॥२॥
+
+बुद्ध्या विनापि विबुधार्चित-पाद-पीठ!
+स्तोतुं समुद्यत-मतिर्विगत-त्रपोऽहम् ।
+बालं विहाय जलसंस्थितमिन्दु-बिम्बम्
+अन्यः क इच्छति जनः सहसा ग्रहीतुम् ॥३॥`,
+hinglish:`Bhaktamar-pranata-mauli-mani-prabhanam
+Uddyotakam dalita-papa-tamo-vitanam.
+Samyak pranamya jina-pada-yugam yugada-
+Valambanam bhavajale patatam jananam..1..
+
+Yah samstutah sakala-vangmaya-tattvabodha-
+Dudbhuta-buddhi-patubhih sura-loka-nataih.
+Stotrair-jagat-tritaya-citta-harair-udaraih
+Stoshhye kilahama-pi tam prathamam jinendram..2..
+
+Buddhya vinapi vibudha-archita-pada-pitha!
+Stotum samudyata-matir-vigata-trapo'ham.
+Balam vihaya jalasamsthitam indu-bimbam
+Anyah ka icchati janah sahasa grahitum..3..`,
+meaning:'One of the most celebrated Sanskrit Jain hymns by Acharya Manatungasuri. 48 verses praising Adinath (Rishabhadev). Believed to have miraculous protective power.'},
+
+{id:'pratyakhyan',type:'sutra',title:'Pratyakhyan Sutras',sub:'प्रत्याख्यान सूत्र',
+hindi:`नवकारसी — नमोकार मंत्र से भोजन तक का त्याग
+पोरसी — प्रातःकाल की एक प्रहर की साधना
+साड्ढपोरसी — डेढ़ प्रहर की साधना
+पुरिमड्ड — चार प्रहर तक अन्न-जल का त्याग
+अवड्ढ — आधे दिन का उपवास
+एकासना — दिन में एक बार भोजन
+बियासना — दिन में दो बार भोजन
+तिविहार उपवास — रात्रि में जल के अलावा सब का त्याग
+चउविहार उपवास — जल सहित सब का त्याग`,
+hinglish:`Navkarsi — Navakar mantra se bhojan tak ka tyaag
+Porasi — Pratahkaal ki ek prahar ki sadhana
+Saddhporasi — Dedh prahar ki sadhana
+Purimadda — Chaar prahar tak anna-jal ka tyaag
+Avaddha — Aadhe din ka upavas
+Ekasana — Din mein ek baar bhojan
+Biyasana — Din mein do baar bhojan
+Tivihara Upavas — Raatri mein jal ke alaava sab ka tyaag
+Chauvihara Upavas — Jal sahit sab ka tyaag`,
+meaning:'Vows of renunciation (Pachchakhan) taken by Jain householders, ranging from skipping one meal to full fasting.'},
+
+{id:'saagari',type:'sutra',title:'Saagari Santhara (Samayik)',sub:'सागारी संथारा',
+hindi:`करेमि भंते सामाइयं।
+सव्वं सावज्जं जोगं पच्चक्खामि।
+जाव नियमं पज्जुवासामि।
+दुविहं तिविहेणं।
+मणेणं वायाए कायेणं।
+न करेमि न कारवेमि।
+तस्स भंते पडिक्कमामि।
+निंदामि गरिहामि।
+अप्पाणं वोसिरामि।`,
+hinglish:`Karemi Bhante Samaiyam.
+Savvam Savajjam Jogam Paccakkhami.
+Jav Niyamam Pajjuvasami.
+Duviham Tivihena.
+Manena Vayae Kayena.
+Na Karemi Na Karavemi.
+Tassa Bhante Padikkamami.
+Nindami Garihami.
+Appanam Vosiramami.`,
+meaning:'The Samayik vow — a 48-minute period of equanimity and meditation. The foundational spiritual practice for Jain householders.'},
+
+{id:'iriyavahiyam',type:'sutra',title:'Iriyavahiyam Sutra',sub:'इरियावहियं सूत्र',
+hindi:`इरियावहियं पडिक्कमामि।
+भंते! इरियावहियाए विराहणाए।
+गमणागमणे।
+पाणक्कमणे, बीयक्कमणे, हरियक्कमणे।
+ओसा-उत्तिंग-पणग-दग-मट्टी-मक्कडा-संताणा संकमणे।
+जे मे जीवा विराहिया।
+एगिंदिया, दुविंदिया, तेइंदिया, चउरिंदिया, पंचिंदिया।
+अभिहया, वत्तिया, लेसिया, संघाइया, संघट्टिया।
+परियाविया, किलामिया, उद्दविया।
+ठाणाओ ठाणं संकामिया, जीवियाओ ववरोविया।
+तस्स मिच्छामि दुक्कडं।`,
+hinglish:`Iriyavahiyam padikkamami.
+Bhante! Iriyavahiyae virahane.
+Gamanagamane.
+Panakkamane, Biyakkamane, Hariyakkamane.
+Osa-uttinga-panaga-daga-matti-makkada-santana sankamane.
+Je me jiva virahiya.
+Egindia, duvindiya, teindiya, chaurindiya, panchindiya.
+Abhihaya, vattiya, lesiya, sanghaiya, sanghatiya.
+Pariyaviya, kilamiya, uddaviya.
+Thanao thanam sankamiya, jiviyao vavaroviya.
+Tassa michhami dukkadam.`,
+meaning:'Recited at the start of Pratikraman, repenting for harm unknowingly done to living beings while walking. Reflects Jainism\'s deep commitment to ahimsa.'},
+
+{id:'namutthunam',type:'sutra',title:'Namutthunam Sutra',sub:'णमुत्थुणं सूत्र',
+hindi:`णमुत्थुणं अरिहंताणं भगवंताणं।
+आइगराणं, तित्थगराणं, सयंसंबुद्धाणं।
+पुरिसुत्तमाणं, पुरिससीहाणं, पुरिसवरपुंडरीयाणं, पुरिसवर-गंध-हत्थीणं।
+लोगुत्तमाणं, लोगनाहाणं, लोगहियाणं, लोगपईवाणं, लोगपज्जोयगराणं।
+अभयदयाणं, चक्खुदयाणं, मग्गदयाणं, सरणदयाणं, बोहिदयाणं।
+धम्मदयाणं, धम्मदेसयाणं, धम्मनायगाणं, धम्मसारहीणं, धम्मवर-चाउरंत-चक्कवट्टीणं।
+जिणाणं जावयाणं, तिण्णाणं तारयाणं, बुद्धाणं बोहयाणं, मुत्ताणं मोयगाणं।
+सव्वन्नूणं, सव्वदरिसीणं।
+नमो जिणाणं जिअभयाणं।`,
+hinglish:`Namutthunnam Arihantanam Bhagavantanam.
+Aigaranam, Titthagaranam, Sayamsabuddhanam.
+Purisuttamanam, Purisasihanam, Purisavarapundariyanam, Purisavara-gandha-hatthinam.
+Loguttamanam, Loganahanam, Logahiyanam, Logapaivam, Logapajjoyagaranam.
+Abhayadayanam, Cakkhuadayanam, Maggadayanam, Saranadayanam, Bohidayanam.
+Dhammadayanam, Dhammadesa yanam, Dhammanayaganam, Dhammasarahinam, Dhammavaraa-chaurant-cakkavattinam.
+Jinanam javayanam, tinnanam tarayanam, buddhanam bohayanam, muttanam moyaganam.
+Savvannunam, savvadarisinam.
+Namo jinanam jiya-bhayanam.`,
+meaning:'A beautiful elaboration of the attributes of the Arihantas. Recited during Pratikraman. Praises the Tirthankaras with their full list of 32 divine qualities.'},
+
+{id:'annath',type:'sutra',title:'Annath Sutra',sub:'अन्नत्थ सूत्र',
+hindi:`अन्नत्थ ऊसासनिसासेहिं।
+सुहुम-एहिं-अंग-संचालेहिं।
+सुहुम-एहिं खेल-संचालेहिं।
+सुहुम-एहिं दिट्ठि-संचालेहिं।
+एवमादिएहिं आगारेहिं।
+अभग्गो अविराहिओ।
+हुज्ज मे काउस्सग्गो।`,
+hinglish:`Annath ussasanisasehi.
+Suhumaehi-Anga-Sancalehi.
+Suhumaehi-Khela-Sancalehi.
+Suhumaehi-Ditthi-Sancalehi.
+Evamadiehi Agarehi.
+Abhaggo Avirahio.
+Hujja Me Causaggo.`,
+meaning:'Recited before Kayotsarga meditation. Specifies which natural bodily functions are permitted during the standing meditation without breaking the vow.'},
+
+{id:'tassauttari',type:'sutra',title:'Tassa Uttari Sutra',sub:'तस्स उत्तरी सूत्र',
+hindi:`तस्स उत्तरी-करणेणं।
+पायच्छित्त-करणेणं।
+विसोहि-करणेणं।
+विसल्ली-करणेणं।
+पावाणं कम्माणं निग्घायणट्ठाएं।
+ठामि काउस्सग्गं।`,
+hinglish:`Tassa Uttari-Karanennam.
+Payacchitta-Karanennam.
+Visohi-Karanennam.
+Visalli-Karanennam.
+Pavanam Kammanam Nigghayanaṭṭhaem.
+Ṭhami Causaggam.`,
+meaning:'Recited before Kayotsarga — the standing meditation. Declares the purpose: completion, atonement, purification, and removal of karmic thorns.'},
+
+{id:'panch',type:'sutra',title:'Panch Parmesthi Sutra',sub:'पंच परमेष्ठी सूत्र',
+hindi:`पाँच परमेष्ठी :
+
+१. अरिहंत — जिन्होंने राग, द्वेष, मोह, अहंकार को जीत लिया और केवल ज्ञान पाया
+२. सिद्ध — जो सब कर्मों को जलाकर मोक्ष को प्राप्त हो गए, शाश्वत आनंद में
+३. आचार्य — साधु-समाज के नेता, जो पाँच महाव्रत और संघ की रक्षा करते हैं
+४. उपाध्याय — आगम शास्त्र के शिक्षक, जो ज्ञान का प्रसार करते हैं
+५. साधु — सभी निर्ग्रंथ मुनि और साध्वियाँ जो संयम में रहते हैं
+
+णमो अरिहंताणं
+णमो सिद्धाणं
+णमो आयरियाणं
+णमो उवज्झायाणं
+णमो लोए सव्व साहूणं`,
+hinglish:`Paanch Parmesthi:
+
+1. Arihant — Jinhone raag, dvesh, moh, ahankaar ko jeet liya aur keval gyaan paaya
+2. Siddha — Jo sab karmon ko jalakar moksh ko praapt ho gaye, shaashvat aanand mein
+3. Acharya — Saadhu-samaaj ke neta, jo paanch mahavrat aur sangh ki raksha karte hain
+4. Upadhyaaya — Aagam shaastra ke shikshak, jo gyaan ka prasaar karte hain
+5. Saadhu — Sabhi nirgrantha muni aur sadhviyaan jo sanyam mein rahte hain
+
+Namo Arihantanam
+Namo Siddhanam
+Namo Ayariyanam
+Namo Uvajjhayanam
+Namo Loe Savva-Sahunam`,
+meaning:'The five supreme beings central to Jain worship and the Navkar Mantra. Understanding them deepens the meaning of every Jain prayer.'},
+
+// ══════ STAVANS — Original site ══════
+{id:'aeymereprabhu',type:'stavan',title:'Aey Mere Prabhu Mahaveera',sub:'ऐ मेरे प्रभु महावीरा',
+hindi:`(तर्ज़ : ऐ मेरे प्यारे वतन)
+
+ऐ मेरे प्रभु महावीरा, कल्प के तरूवर वीरा,
+तेरी संगत छाँव, तू ही मेरी आस्था,
+तू ही मेरा रास्ता, तू ही अंगद पाँव
+तेरी वाणी में जो बहता तीर्थ जीवन का पयाम
+तपते सहरों में बहे ज्यूँ जल की धारा सुबहोशाम
+
+मनमगन मेरो बसंती, रमते जपते तेरो नाम, तेरी संगत छाँव
+क्षीर सागर सा तू गहरा, मर्म की पोथी भी तू
+बाँच ले तुझको जो चाहे, मैं कहूँ मन मौजी तू
+नैन की ज्योती भी तू, सीप का मोती भी तू, तेरी संगत छाँव
+
+तेरी राहों में बिछे थे, राग रंगी मायाजाल
+तू सजग प्रहरी बना यूँ, थाम संयम की मशाल
+त्रिशला की कुक्षी के लाल, पितु सिद्धार्थ जिन के भाल, तेरी संगत छाँव
+
+ऐ मेरे प्रभु महावीरा, कल्प के तरूवर वीरा, तेरी संगत छाँव`,
+hinglish:`(Tarz: Ae mere pyaare vatan)
+
+Ae mere prabhu mahaaveera, kalp ke taroovar veera,
+Teree sangat chhaanv, too hee meree aastha,
+Too hee mera raasta, too hee angad paanv
+Teree vaanee mein jo bahata teerth jeevan ka payaam
+Tapate saharon mein bahe jyoon jal kee dhaara subahoshaam
+
+Manamagan mero basantee, ramate japate tero naam, teree sangat chhaanv
+Ksheer saagar sa too gahara, marm kee pothee bhee too
+Baanch le tujhako jo chaahe, main kahoon man maujee too
+Nain kee jyotee bhee too, seep ka motee bhee too, teree sangat chhaanv
+
+Teree raahon mein bichhe the, raag rangee maayaajaal
+Too sajag praharee bana yoon, thaam sanyam kee mashaal
+Trishala kee kukshee ke laal, pitu siddhaarth jin ke bhaal, teree sangat chhaanv
+
+Ae mere prabhu mahaaveera, kalp ke taroovar veera, teree sangat chhaanv`,
+meaning:'A devotional stavan to Mahavir Bhagwan sung to the tune of the patriotic song "Ae mere pyaare vatan". Describes the Lord as shade, path, jewel and beacon.'},
+
+{id:'aisaapna',type:'stavan',title:'Aisa Apana Ghar Ho',sub:'ऐसा अपना घर हो',
+hindi:`गुण सौरभ से रहे महकता, जहाँ जीवन सुखकर हो
+ऐसा अपना घर हो
+कथनी करनी रहे एक सी, नहीं जिसमें अंतर हो
+ऐसा अपना घर हो
+
+विनय विवेक की नींव हो जिसमें, प्रेम प्यार की छत हो
+रहे मधुर व्यवहार सभी से, वचनों में अमृत हो
+सहनशीलता का हो आँगन, कटुता का न ज़हर हो
+ऐसा अपना घर हो
+
+उस घर में मज़बूत बने, विश्वास की सब दीवारें
+कठिन घड़ी में बन जायें सब, एक दूजे के सहारे
+खिड़की हो अनुशासन की तो, विघटन का न असर हो
+ऐसा अपना घर हो
+
+मर्यादा की चार दीवारों, में सब मर्यादित हो
+सादा जीवन उच्च विचारों, से सब ही प्रमुदित हो
+बड़े जनों का हो आदर और, छोटों पर भी महर हो
+ऐसा अपना घर हो
+
+सेवा और सहयोग का जिसमें, हो दरवाजा सुंदर
+चित्र नहीं चारित्र की पूजा, हो जिस घर के अंदर
+धर्म के सम्मुख रहे सदा सब, पापों से जहाँ डर हो
+ऐसा अपना घर हो
+
+स्वच्छ आचरण की हो बहारें, ज्ञान प्रकाश हो पूरा
+मोक्ष लक्ष्य की सीढ़ी हो तो, काम रहे न अधूरा
+गौतम से प्रभु फ़रमाते हैं, अब तो शास्वत घर हो
+ऐसा अपना घर हो`,
+hinglish:`Gun saurabh se rahe mahakta, jahaan jeevan sukhakar ho
+Aisa apna ghar ho
+Kathni karni rahe ek si, nahi jismein antar ho
+Aisa apna ghar ho
+
+Vinay vivek ki neenv ho jismein, prem pyaar ki chhat ho
+Rahe madhur vyavahaar sabhi se, vachno mein amrit ho
+Sahansheelta ka ho aangan, katuta ka na zehar ho
+Aisa apna ghar ho
+
+Us ghar mein mazboot bane, vishvaas ki sab deevarein
+Kathin ghadi mein ban jayein sab, ek dooje ke sahaare
+Khidki ho anushasan ki to, vigtan ka na asar ho
+Aisa apna ghar ho
+
+Maryada ki chaar deevaaron, mein sab maryaadit ho
+Saada jeevan uchcha vichaaron, se sab hi pramudit ho
+Bade janon ka ho aadar aur, chhoton par bhi mahar ho
+Aisa apna ghar ho
+
+Seva aur sahayog ka jismein, ho darvaaja sundar
+Chitr nahi charitr ki puja, ho jis ghar ke andar
+Dharm ke sammukh rahe sada sab, paapon se jahaan dar ho
+Aisa apna ghar ho
+
+Svachch aacharan ki ho bahaaren, gyaan prakaash ho poora
+Moksh lakshya ki seedhi ho to, kaam rahe na adhoora
+Gautam se Prabhu farmaate hain, ab to shaashat ghar ho
+Aisa apna ghar ho`,
+meaning:'Describes the ideal Jain household built on virtues like humility, love, restraint, and dharma. Inspired by Mahavir\'s teachings to Gautam Swami.'},
+
+{id:'arihantajay',type:'stavan',title:'Arihanta Jaya Jaya (Mangal Paath)',sub:'अरिहंत जय जय',
+hindi:`अरिहंत जय जय, सिद्ध प्रभु जय जय ।
+साधू जीवन जय जय, जैन धर्म जय जय ॥
+
+अरिहंत मंगल, सिद्ध प्रभु मंगल ।
+साधू जीवन मंगल, जैन धर्म मंगल ॥
+
+अरिहंत उत्तम, सिद्ध प्रभु उत्तम ।
+साधू जीवन उत्तम, जैन धर्म उत्तम ॥
+
+अरिहंत शरणम, सिद्ध प्रभु शरणम ।
+साधू जीवन शरणम, जैन धर्म शरणम ॥
+
+चार शरण दुःख हरण जगत में ।
+और न शरणा कोई होगा ॥
+
+जो भव्य प्राणी करे आराधन ।
+उसका अजर अमर पद होगा ॥`,
+hinglish:`Arihant jay jay, Siddha Prabhu jay jay.
+Saadhu jeevan jay jay, Jain dharm jay jay.
+
+Arihant mangal, Siddha Prabhu mangal.
+Saadhu jeevan mangal, Jain dharm mangal.
+
+Arihant uttam, Siddha Prabhu uttam.
+Saadhu jeevan uttam, Jain dharm uttam.
+
+Arihant sharanam, Siddha Prabhu sharanam.
+Saadhu jeevan sharanam, Jain dharm sharanam.
+
+Chaar sharan dukh haran jagat mein.
+Aur na sharana koi hoga.
+
+Jo bhavya praani kare aaraadhan.
+Uska ajar amar pad hoga.`,
+meaning:'A Mangal Paath (auspicious chant) for the beginning of religious gatherings. Invokes all four pillars of Jain dharma.'},
+
+{id:'arihantonamaskar',type:'stavan',title:'Arihanto Ko Namaskar',sub:'अरिहंतों को नमस्कार',
+hindi:`अरिहंतों को नमस्कार, श्री सिद्धों को नमस्कार,
+आचार्यों को नमस्कार, उपाध्यायों को नमस्कार,
+जग में जितने साधु गण है, मैं सबको बंदू बार-बार
+… अरिहंतों को नमस्कार…
+
+ऋषभ अजित संभव अभिनंदन, सुमति पद्म सुपार्श्व जिनराय
+चंद्र पुष्प शीतल श्रेयांस नमी, वासुपूज्य पूजित सुरिराय
+
+विमल अनंत धर्म जस उज्जवल, शांती कुंथु अर मल्लीनाथ
+मुनीसुवृत नमि नेमी पार्श्व प्रभु, वर्धमान पद पुष्प चढाय
+
+चोविसो के चरण कमल में, मेरा वंदन बार बार
+… अरिहंतों को नमस्कार…
+
+जिसने रागद्वेष कामादिक जीते, सब जग जान लिया
+सब जीवों को मोक्ष मार्ग का, निस्पृह हो उपदेश दिया
+
+बुद्ध वीर जिन हरि हर ब्रम्हा, या पैगम्बर हो अवतार
+सबके चरण कमल में मेरा, वंदन हो बार बार
+… अरिहंतों को नमस्कार…`,
+hinglish:`Arihanton ko namaskar, Shri Siddhon ko namaskar,
+Acharyyon ko namaskar, Upadhyayon ko namaskar,
+Jag mein jitne sadhu gan hai, mai sabko vandu baar baar.
+Arihanton ko namaskar.
+
+Rushabh Ajit Sambhav Abhinandan, Sumati Padma Suparsh Jinray,
+Chandra Pushpa Shital Shreyans Nami, Vasupujya Pujit Suriray.
+
+Vimal Anant Dharm jas ujjaval, Shanti Kunthu Ara Mallinath,
+Munisuvrat Nami Nemi Parshwa Prabhu, Vardhaman pad pushpa chaday.
+
+Chovisho ke charan kamal mein, mera vandan baar baar.
+Arihanton ko namaskar.
+
+Jisne raagdvesha kamadik jeete, sab jag jaan liya,
+Sab jeevon ko moksha marg ka, nisprah ho updesh diya.
+
+Buddh Veer Jin Hari Har Brahma, ya Paigambar ho Avatar,
+Sabke charan kamal mein mera, vandan ho baar baar.
+Arihanton ko namaskar.`,
+meaning:'Names all 24 Tirthankaras and expresses respect for all enlightened beings across traditions. Based on the Navkar Mantra.'},
+
+{id:'barahbhavana',type:'stavan',title:'Barah Bhavana',sub:'बारह भावना',
+hindi:`(अनित्य भावना)
+राजा राणा छत्रपति, हथियन के असवार |
+मरना सबको एक दिन, अपनी-अपनी बार ||१||
+
+(अशरण भावना)
+दल-बल देवी-देवता, मात-पिता-परिवार |
+मरती-बिरियाँ जीव को, कोई न राखनहार ||२||
+
+(संसार भावना)
+दाम-बिना निर्धन दु:खी, तृष्णावश धनवान |
+कहूँ न सुख संसार में, सब जग देख्यो छान ||३||
+
+(एकत्व भावना)
+आप अकेला अवतरे, मरे अकेला होय |
+यों कबहूँ या जीव को, साथी-सगो न कोय ||४||
+
+(अन्यत्व भावना)
+जहाँ देह अपनी नहीं, तहाँ न अपना कोय |
+घर-सम्पत्ति पर प्रकट ये, पर हैं परिजन लोय ||५||
+
+(अशुचि भावना)
+दीपै चाम-चादर-मढ़ी, हाड़-पींजरा देह |
+भीतर या-सम जगत् में, और नहीं घिन-गेह ||६||
+
+(आस्रव भावना)
+जगवासी घूमें सदा, मोह-नींद के जोर |
+सब लूटें नहीं दिसता, कर्म-चोर चहुँ-ओर ||७||
+
+(संवर भावना)
+मोह-नींद जब उपशमे, सतगुरु देय जगाय |
+कर्म-चोर आवत रुकें, तब कुछ बने उपाय ||८||
+
+(निर्जरा भावना)
+ज्ञान-दीप तप-तेल भर, घर शोधें भ्रम-छोर |
+पंच-महाव्रत संचरण, समिति पंच-परकार |
+प्रबल पंच-इन्द्रिय-विजय, धार निर्जरा सार ||९||
+
+(लोक भावना)
+चौदह राजु उत्तुंग नभ, लोक-पुरुष-संठान |
+तामें जीव अनादि से, भरमत हैं बिन-ज्ञान ||१०||
+
+(बोधिदुर्लभ भावना)
+धन-जन-कंचन राज-सुख, सबहि सुलभ कर जान |
+दुर्लभ है संसार में, एक यथारथ-ज्ञान ||११||
+
+(धर्म भावना)
+धर्म करत संसार सुख, धर्म करत निरवान |
+धर्म पंथ साधे बिना, नर तिर्यंच समान ||१२||`,
+hinglish:`(Anitya Bhavana)
+Raja rana chhatrapati, hathiyan ke asvaar.
+Marna sabko ek din, apni-apni baar..1..
+
+(Asharan Bhavana)
+Dal-bal devi-devta, maat-pita-parivaar.
+Marti-biriyaan jeev ko, koi na raakhanhar..2..
+
+(Sansaar Bhavana)
+Daam-bina nirdan duhkhi, trishnavaash dhanvaan.
+Kahoon na sukh sansaar mein, sab jag dekhyo chhan..3..
+
+(Ekatva Bhavana)
+Aap akela avatare, mare akela hoy.
+Yon kabhoon ya jeev ko, saathi-sago na koy..4..
+
+(Anyatva Bhavana)
+Jahaan deh apni nahi, tahaan na apna koy.
+Ghar-sampatti par prakat ye, par hain parijan loy..5..
+
+(Ashuchi Bhavana)
+Deepai chaam-chaadar-madhi, haad-peenjara deh.
+Bheetar ya-sam jagat mein, aur nahi ghin-geh..6..
+
+(Aasrav Bhavana)
+Jagvaasi ghoomein sada, moh-nind ke jor.
+Sab lootein nahi disata, karma-chor chahun-or..7..
+
+(Samvar Bhavana)
+Moh-nind jab upashame, satguru dey jagay.
+Karma-chor aavat rukein, tab kuch bane upaay..8..
+
+(Nirjara Bhavana)
+Gyaan-deep tap-tel bhar, ghar shodhein bhram-chhor.
+Panch-mahavrat sancharan, samiti panch-parkaar.
+Prabal panch-indriya-vijay, dhaar nirjara saar..9..
+
+(Lok Bhavana)
+Chaudah raaju uttung nabh, lok-purush-santhaan.
+Taamein jeev anaadi se, bharmat hain bin-gyaan..10..
+
+(Bodhi-durlabh Bhavana)
+Dhan-jan-kanchan raaj-sukh, sabahi sulabh kar jaan.
+Durlabh hai sansaar mein, ek yatharath-gyaan..11..
+
+(Dharm Bhavana)
+Dharm karat sansaar sukh, dharm karat nirvaan.
+Dharm panth saathe bina, nar tiryach samaan..12..`,
+meaning:'The Twelve Reflections — fundamental meditations on impermanence, helplessness at death, solitude, the nature of the world, and the importance of dharma.'},
+
+{id:'bhaktihai',type:'stavan',title:'Bhakti Kee Hai Raat',sub:'भक्ति की है रात',
+hindi:`भक्ति की है रात,
+भक्ति की है रात, दादा आज थाने आणो है
+भक्ति की है रात, कौल निभाणो है
+
+दरबार प्रभुवर कैसो, सज्यो प्यारो, दयालु आपरो
+सेवा में दादा, सगडा खड़ा है आज, हुक्म बस आपरो
+सेवा में थांरी, म्हाने आज बिछ जाणो है
+सेवा में थांरी, कौल निभाणो है
+भक्ति की है रात
+
+भक्ति की है प्यारी, भक्ति करां जमकर, दादा क्यूँ देर करो
+वादो थांरो दादा, भक्ति में आणे को, घणी क्यूँ देर करो
+गीतों सुं थाने, म्हाने आज रिझाणो है
+गीतों सुं थाने, कौल निभाणो है
+भक्ति की है रात
+
+जो कुछ बण्यो म्हासुं, अर्पण प्रभु सारो, दादा स्वीकार करो
+नादान सुं ग़लती, होती ही आई है, प्रभु मत ध्यान धरो
+गुंजन प्रभुवर जी, थांरो दास पुराणो है
+गुंजन प्रभुवर जी, कौल निभाणो है
+भक्ति की है रात`,
+hinglish:`Bhakti ki hai raat, bhakti ki hai raat,
+Dada aaj thaane aano hai, kaul nibhaano hai.
+
+Darbaar prabhuvar kaiso, sajyo pyaaro, dayaalu aaparo.
+Seva mein daada, sagada khada hai aaj, hukm bas aaparo.
+Seva mein thaanri, mhaane aaj bichh jaano hai.
+Seva mein thaanri, kaul nibhaano hai. Bhakti ki hai raat.
+
+Bhakti ki hai pyaari, bhakti karaan jamakar, daada kyoon der karo.
+Vaado thaanro daada, bhakti mein aane ko, ghani kyoon der karo.
+Geeton sun thaane, mhaane aaj rijhaano hai.
+Geeton sun thaane, kaul nibhaano hai. Bhakti ki hai raat.
+
+Jo kuchh banyo mhaasun, arpan prabhu saaro, daada sveekaar karo.
+Naadaan sun galati, hoti hi aayi hai, prabhu mat dhyaan dharo.
+Gunjan prabhuvar ji, thaanro daas puraano hai.
+Gunjan prabhuvar ji, kaul nibhaano hai. Bhakti ki hai raat.`,
+meaning:'A Rajasthani devotional stavan inviting Dada Bhagwan to come on this night of bhakti. The Rajasthani-Hindi mix gives it a unique folk flavor.'},
+
+{id:'chaudahswapna',type:'stavan',title:'Chaudah Swapna Mahaan',sub:'चौदह स्वप्न महान',
+hindi:`तीर्थंकर चौबीस वे, जैन धर्म की शान
+अमृतमय वाणी का आओ, हम सब करलें ध्यान
+
+जैन धर्म में तीर्थंकर, महिमा बड़ी महान
+आओ ध्यायें इनको हम सब, पायें आत्म ज्ञान
+
+जिस समय माता को आए, चौदह स्वप्न महान
+जन्म तीर्थंकर का होगा, लक्ष्य हो जन कल्याण
+
+चौदह स्वप्न एसे जिसमें, प्रथम दिखे गजराज
+दूजे ऋषभ तीजे सिंह, चौथे में लक्ष्मी मात
+
+पाँचवे स्वप्ने फूल की माला, छट्टे में चाँद दिखा
+सातवाँ स्वप्न सूरज देखा, आठवें में ध्वजा
+
+नवमें स्वप्ने कलश देखा, दसवाँ पद्म सरोवर था
+ग्यारहवाँ शीर समुद्र देखा, बारहवाँ था देव विमान
+
+तेरहवें स्वप्ने में देखी, रत्नों की राशी
+चौदहवें स्वप्ने में उसने, अग्नि शिखा देखी
+
+तीर्थंकर की माता देखे, चौदह स्वप्न महान ऐसी महान
+माता को मैं, शत शत करूँ प्रणाम
+
+जय जिनवर भगवान, शत शत करें प्रणाम`,
+hinglish:`Teerthankar chaubees ve, Jain dharm ki shaan
+Amritamay vaani ka aao, ham sab karlen dhyaan
+
+Jain dharm mein Teerthankar, mahima badi mahaan
+Aao dhyaayen inako ham sab, paayen aatm gyaan
+
+Jis samay maata ko aae, chaudah svapn mahaan
+Janm Teerthankar ka hoga, lakshya ho jan kalyaan
+
+Chaudah svapn ese jismein, pratham dikhe gajaraaj
+Dooje Rushabh teeje sinh, chauthe mein Lakshmi maat
+
+Paanchave svapne phool ki maala, chhatte mein chaand dikha
+Saatavaan svapn sooraj dekha, aathaven mein dhvaja
+
+Navamen svapne kalash dekha, dasavaan padm sarovar tha
+Gyaarahavaan sheer samudr dekha, baarahavaan tha dev vimaan
+
+Terahaven svapne mein dekhee, ratnon ki raashee
+Chaudahaven svapne mein usane, agni shikha dekhee
+
+Teerthankar ki maata dekhe, chaudah svapn mahaan aisee mahaan
+Maata ko main, shat shat karun pranaam
+
+Jay jinavar bhagavaan, shat shat karen pranaam`,
+meaning:'Describes the 14 auspicious dreams seen by the mother of a Tirthankara before his birth. Each dream is a sign of the future greatness of the unborn soul.'},
+
+{id:'daadafarz',type:'stavan',title:'Daada Tera Kya Farz Nahin',sub:'दादा तेरा क्या फ़र्ज़ नहीं',
+hindi:`नाकोड़ा वाले सुन लेना एक सवाल दीवाने का,
+अगर समझ में आ जाए, तो भक्तो को समझा देना ।
+हमने अपना नियम निभाया, नाकोड़ा पैदल आने का,
+दादा तेरा क्या फ़र्ज़ नहीं भक्तो के घर आने का ॥
+
+जिसका घर छोटा सा हो, क्या उसके घर नहीं आते,
+या फिर मुझसे प्रेम नहीं, क्यों मेरे घर नहीं आते ।
+अब इतना बतलादो दादा कैसे तुझे मनाने का,
+दादा तेरा क्या फ़र्ज़ नहीं भक्तो के घर आने का ॥
+
+ऐसा रास्ता ढूंढ़ लिया रोज मिले तो चैन आए,
+इक दिन मिलने तुम आयो, इक दिन मिलने हम आए ।
+अब तो पक्का सोच लिया घर नाकोड़ा में बनाने का,
+दादा तेरा क्या फ़र्ज़ नहीं भक्तो के घर आने का ॥
+
+जिसका जिसका घर देखा वो क्या तेरे लगते हैं,
+रिश्तेदारी में दादा वो क्या हमसे बढ़के हैं ।
+क्या मेरा हक्क नहीं बनता है तुझको घर पे बुलाने का,
+दादा तेरा क्या फ़र्ज़ नहीं भक्तो के घर आने का ॥`,
+hinglish:`Naakoda vaale sun lena ek savaal deevaane ka,
+Agar samajh mein aa jae, to bhakto ko samajha dena.
+Hamane apana niyam nibhaaya, naakoda paidal aane ka,
+Daada tera kya farz nahin bhakto ke ghar aane ka.
+
+Jisaka ghar chhota sa ho, kya usake ghar nahin aate,
+Ya phir mujhase prem nahin, kyon mere ghar nahin aate.
+Ab itana batalaado daada kaise tujhe manaane ka,
+Daada tera kya farz nahin bhakto ke ghar aane ka.
+
+Aisa raasta dhoondh liya roj mile to chain aae,
+Ik din milane tum aayo, ik din milane ham aae.
+Ab to pakka soch liya ghar naakoda mein banaane ka,
+Daada tera kya farz nahin bhakto ke ghar aane ka.
+
+Jisaka jisaka ghar dekha vo kya tere lagate hain,
+Rishtedaaree mein daada vo kya hamase badhake hain.
+Kya mera hakk nahin banata hai tujhako ghar pe bulaane ka,
+Daada tera kya farz nahin bhakto ke ghar aane ka.`,
+meaning:'A playful yet deeply devotional stavan addressed to Nakoda Bhairav. The devotee lovingly questions why the Lord visits others but not his humble home.'},
+
+{id:'dekhoparyushan',type:'stavan',title:'Dekho Parv Paryushan Aaya',sub:'देखो पर्व पर्युषण आया',
+hindi:`हमने सबको है खमाया, आत्मा को शुद्ध बनाया
+ये पावन अवसर आया देखो, पर्व पर्युषण आया
+
+जप तप से कर्म खपाएँ, संयम की ज्योत जलाएँ
+जैनों का उत्सव आया देखो, पर्व पर्युषण आया
+
+स्थानक में और मंदिर में, देखो साधु संत है बिराजे
+उनकी अमृत वाणी से हम, मन को शुद्ध बनाएँ
+
+प्रतिक्रमण करें हम मिलकर, ये मंगल पल है आया
+जैनों का उत्सव आया देखो, पर्व पर्युषण आया
+
+कर्मों का भार हटाएँ, हम राग द्वेष को मिटाएँ
+मिच्छामि दुक्कडं बोलें और क्षमा का धर्म निभाएँ
+
+महावीर का ये संदेशा, घर घर तक है पहुँचाना
+जैनों का उत्सव आया देखो, पर्व पर्युषण आया`,
+hinglish:`Hamane sabako hai khamaaya, aatma ko shuddh banaaya
+Ye paavan avasar aaya dekho, parv paryushan aaya
+
+Jap tap se karm khapaen, sanyam ki jyot jalaen
+Jainon ka utsav aaya dekho, parv paryushan aaya
+
+Sthaanak mein aur mandir mein, dekho saadhu sant hai biraaje
+Unaki amrit vaanee se ham, man ko shuddh banaen
+
+Pratikraman karen ham milakar, ye mangal pal hai aaya
+Jainon ka utsav aaya dekho, parv paryushan aaya
+
+Karmon ka bhaar hataen, ham raag dvesh ko mitaen
+Michhami dukkadam bolen aur kshama ka dharm nibhaen
+
+Mahaveer ka ye sandesh, ghar ghar tak hai pahunchaana
+Jainon ka utsav aaya dekho, parv paryushan aaya`,
+meaning:'A celebratory Paryushan festival stavan. Invites all to join in fasting, Pratikraman, and the asking of forgiveness during Jainism\'s holiest festival.'},
+
+{id:'devarihantsharana',type:'stavan',title:'Dev Arihant Sharan Uttam',sub:'देव अरिहंत शरण उत्तम',
+hindi:`देव अरिहंत शरण उत्तम, दिव्य जिनकी देशणा हे
+वीतरागी सिद्ध प्रभु, तुझसे मिलूँ यह प्रार्थना
+
+आचार्य संघ के सारथी, उवज्झाय मुझको ज्ञान दो
+निर्ग्रंथ गुरुओं से विनय, निज की मुझे पहचान दो
+देव अरिहंत शरण उत्तम, दिव्य जिनकी देशणा हे
+
+वंदना परमेष्टी को, करता हुँ अंतर भाव से
+बल बुद्धि दो ऐसे प्रभु, बचता रहुँ दुर्भाव से
+देव अरिहंत शरण उत्तम, दिव्य जिनकी देशणा हे
+
+गौतम सी हो श्रद्धा घणी, गुरु भक्ति मेरा प्राण हो
+बढ़ता रहुँ निज लक्ष्य पे, आगम वचन, प्रमाण हो
+देव अरिहंत शरण उत्तम, दिव्य जिनकी देशणा हे`,
+hinglish:`Dev Arihant sharan uttam, divya jinki deshna he
+Veetraagi Siddha Prabhu, tujhse milun yeh praarthana
+
+Acharya sangh ke saarthi, Uvjhaay mujhko gyaan do
+Nirgrantha guruon se vinay, nij ki mujhe pehchan do
+Dev Arihant sharan uttam, divya jinki deshna he
+
+Vandana Parmesthi ko, karta hun antar bhaav se
+Bal buddhi do aise Prabhu, bachta rahun durbhaav se
+Dev Arihant sharan uttam, divya jinki deshna he
+
+Gautam si ho shraddha ghani, guru bhakti mera praan ho
+Badhta rahun nij lakshya pe, aagam vachan, pramaan ho
+Dev Arihant sharan uttam, divya jinki deshna he`,
+meaning:'A prayer seeking the shelter of the five Parmesthis — Arihant, Siddha, Acharya, Upadhyaya, and Sadhu. Expresses the wish to progress on the spiritual path like Gautam Swami.'},
+
+{id:'ekbaarmukha',type:'stavan',title:'Ek Baar Mukhado Batao Deenaathji',sub:'एक बार मुखड़ो बताओ दीनानाथजी',
+hindi:`एक बार मुखड़ो बताओ दीनानाथजी
+बार बार मुखड़ो बताओ दीनानाथजी
+
+थांरी मोहणी मूरत लागे प्यारी, आदेश्वर अरज सुणो
+एक बार मुखड़ो बताओ दीनानाथजी
+
+सिद्धाचल रा राजा थें तो विमलाचल रा राजा हो
+मरुदेवी रा लाड़ला लाल, आदेश्वर अरज सुणो
+एक बार मुखड़ो बताओ दीनानाथजी
+
+युगला धर्म निवारक दादा भवतारक भगवान हो
+मारा वालाजी सुनंदा रा कंत, आदेश्वर अरज सुणो
+एक बार मुखड़ो बताओ दीनानाथजी
+
+बाहुबली तार्या दादा भरत जी तार्या हो
+मारी नाव लगादो भवपार, आदेश्वर अरज सुणो
+एक बार मुखड़ो बताओ दीनानाथजी
+
+कोयलडी बोले मीठा मोरयाजी बोले हो
+सियेटल मंडल करे है पुकार, आदेश्वर अरज सुणो
+एक बार मुखड़ो बताओ दीनानाथजी`,
+hinglish:`Ek baar mukhdo bataao Deenanathji,
+Baar baar mukhdo bataao Deenanathji.
+
+Thaanri mohni moort laage pyaari, Aadeshvar araj suno.
+Ek baar mukhdo bataao Deenanathji.
+
+Siddhaachal ra raja then to Vimalaachal ra raja ho,
+Marudevee ra laadlaa laal, Aadeshvar araj suno.
+Ek baar mukhdo bataao Deenanathji.
+
+Yugla dharm nivaarak daada bhavtaarak bhagwaan ho,
+Maara vaalaji Sunanda ra kant, Aadeshvar araj suno.
+Ek baar mukhdo bataao Deenanathji.
+
+Baahubali taarya daada Bharat ji taarya ho,
+Maari naav lagaado bhavpaar, Aadeshvar araj suno.
+Ek baar mukhdo bataao Deenanathji.
+
+Koyaladi bole meetha Morayaji bole ho,
+Seattle mandal kare hai pukaar, Aadeshvar araj suno.
+Ek baar mukhdo bataao Deenanathji.`,
+meaning:'A Rajasthani stavan addressing Lord Aadinath (Aadeshvar). Written partly by the Seattle Jain mandal. A heartfelt plea to the Lord to reveal his face to this devotee.'},
+
+{id:'jabkoinahi',type:'stavan',title:'Jab Koi Nahi Aata Mere Dada',sub:'जब कोई नहीं आता मेरे दादा',
+hindi:`जब कोई नहीं आता, मेरे दादा आते हैं
+मेरे दुःख के दिनों में वो, बड़े काम आते हैं
+
+मेरी नैयाँ चलती है, पतवार नहीं चलती,
+किसी और की अब मुझको, दरकार नहीं होती,
+मैं डरता नहीं जग से, जब दादा साथ में हैं
+मेरे दुःख के दिनों में वो, बड़े काम आते हैं
+
+जो याद करें उनको, दुःख हलका हो जाये
+जो भक्ति करे उनकी, वे उनके हो जाये,
+ये बिन बोले कुछ भी, पहचान जाते हैं
+मेरे दुःख के दिनों में वो, बड़े काम आते हैं
+
+ये इतने बड़े होकर, दीन्हों से प्यार करे
+अपने भक्तो के दुःख को, प्रभु पलभर में दूर करे
+सब भक्तो का कहना, प्रभु मान जाते हैं
+मेरे दुःख के दिनों में वो, बड़े काम आते हैं
+
+मेरे मन के मंदिर में दादा का वास रहे,
+कोई पास रहे न रहे, दादा मेरे पास रहे,
+मेरे व्याकुल मन को ये जान जाते हैं
+मेरे दुःख के दिनों में वो बड़े काम आते हैं`,
+hinglish:`Jab koi nahi aata, mere dada aate hain.
+Mere dukh ke dino mein vo, bade kaam aate hain.
+
+Meri naiyaan chalti hai, patavaar nahi chalti,
+Kisi aur ki ab mujhako, darakaar nahi hoti,
+Main darata nahi jag se, jab dada saath mein hain.
+Mere dukh ke dino mein vo, bade kaam aate hain.
+
+Jo yaad karein unako, dukh halka ho jaaye
+Jo bhakti kare unaki, ve unake ho jaaye,
+Ye bin bole kuchh bhi, pehchaan jaate hain.
+Mere dukh ke dino mein vo, bade kaam aate hain.
+
+Ye itane bade hokar, dinon se pyaar kare
+Apane bhakton ke dukh ko, Prabhu palbhar mein door kare
+Sab bhakton ka kahana, Prabhu maan jaate hain.
+Mere dukh ke dino mein vo, bade kaam aate hain.
+
+Mere man ke mandir mein dada ka vaas rahe,
+Koi paas rahe na rahe, dada mere paas rahe,
+Mere vyaakul man ko ye jaan jaate hain.
+Mere dukh ke dino mein vo bade kaam aate hain.`,
+meaning:'A deeply emotional and popular stavan expressing complete trust in the Lord. The devotee says: when no one else comes to help, Dada (the Lord) always comes.'},
+
+{id:'meribhavna',type:'stavan',title:'Meri Bhavna',sub:'मेरी भावना',
+hindi:`जिसने राग द्वेष कामादिक जीते, सब जग जान लिया
+सब जीवों को मोक्षमार्ग का, निस्पृह हो उपदेश दिया
+बुध्ध, वीर, जिन, हरि, हर, ब्रम्हा, या उसको स्वाधीन कहो
+भक्ति-भाव से प्रेरित हो यह, चित्त उसी में लीन रहो ||१||
+
+विषयो की आशा नहि जिनके, साम्य भाव धन रखते हैं
+निज पर के हित-साधन में जो, निश दिन तत्पर रहते हैं
+स्वार्थ त्याग की कठिन तपस्या, बिना खेद जो करते हैं
+ऐसे ज्ञानी साधू जगत के, दुःख समूह को हरते हैं ||२||
+
+रहे सदा सत्संग उन्ही का, ध्यान उन्ही का नित्य रहे
+उन्ही जैसी चर्या में यह, चित्त सदा अनुरक्त रहे
+नहीं सताऊ किसी जीव को, झूठ कभी नहीं कहा करूँ
+परधन वनिता पर न लुभाऊ, संतोशामृत पीया करूँ ||३||
+
+अहंकार का भाव न रखु, नहीं किसी पर क्रोध करूँ
+देख दुसरो की बढती को, कभी न ईर्ष्या भाव धरूँ
+रहे भावना ऐसी मेरी, सरल सत्य व्यव्हार करूँ
+बने जहाँ तक इस जीवन में, औरो का उपकार करूँ ||४||
+
+मैत्री भाव जगत में मेरा, सब जीवो से नित्य रहे
+दींन दुखी जीवो पर मेरे, उर से करुना-स्रोत बहे
+दुर्जन क्रूर कुमार्ग रतो पर, क्षोभ नहीं मुझको आवे
+साम्यभाव रखूँ मैं उन पर, ऐसी परिणति हो जावे ||५||
+
+सुखी रहे सब जीव जगत के, कोई कभी न घबरावे
+बैर पाप अभिमान छोड़ जग, नित्य नए मंगल गावे
+घर घर चर्चा रहे धर्मं की, दुष्कृत दुष्कर हो जावे
+ज्ञान चारित्र उन्नत कर अपना, मनुज जन्म फल सब पावे ||६||`,
+hinglish:`Jisne raag dvesh kamadik jeete, sab jag jaan liya
+Sab jeevon ko moksha marg ka, nisprah ho updesh diya
+Buddh Veer Jin Hari Har Brahma, ya usko swaadhin kaho
+Bhakti bhaav se prerit ho yeh, chitt usi mein leen raho..1..
+
+Vishayon ki aasha nahi jinke, saamya bhaav dhan rakhte hain
+Nij par ke hit-saadhan mein jo, nish din tatpar rehte hain
+Swarth tyaag ki kathin tapsya, bina khed jo karte hain
+Aise gyaani saadhu jagat ke, dukh samooh ko harte hain..2..
+
+Rahe sada satsang unhi ka, dhyaan unhi ka nitya rahe
+Unhi jaisi charya mein yeh, chitt sada anurakt rahe
+Nahi sataaun kisi jeev ko, jhooth kabhi nahi kaha karun
+Par dhan vanita par na lubhaaun, santoshamrit piya karun..3..
+
+Ahankaar ka bhaav na rakhu, nahi kisi par krodh karun
+Dekh dusron ki badhti ko, kabhi na irsha bhaav dharun
+Rahe bhavna aisi meri, saral satya vyavahaar karun
+Bane jahaan tak is jeevan mein, auron ka upkaar karun..4..
+
+Maitri bhaav jagat mein mera, sab jeevon se nitya rahe
+Deen dukhi jeevon par mere, ur se karuna-srot bahe
+Durjan kroor kumaarg raton par, kshobh nahi mujhko aave
+Saamyabhaav rakhun main unpar, aisi parinati ho jaave..5..
+
+Sukhi rahein sab jeev jagat ke, koi kabhi na ghabraave
+Bair paap abhimaan chhod jag, nitya naye mangal gaave
+Ghar ghar charcha rahe dharma ki, dushkrit dushkar ho jaave
+Gyaan charitr unnat kar apna, manuj janam phal sab paave..6..`,
+meaning:'One of the most beloved Jain stavans — a 9-verse poem expressing the four divine attitudes: Maitri (friendship), Karuna (compassion), Mudita (joy in others\' virtue), and Upeksha (equanimity).'},
+
+{id:'mevamile',type:'stavan',title:'Meva Mile Ke Na Mile',sub:'मेवा मिले के न मिले',
+hindi:`मेवा मिले के न मिले, नवकार मिल्यो
+मेवा मिले के न मिले, नवकार मिल्यो
+इण जनम रो घणो फायदो, नवकार मिल्यो
+
+पाणी मिले के न मिले, नवकार मिल्यो
+राजा मिले के न मिले, नवकार मिल्यो
+रानी मिले के न मिले, नवकार मिल्यो
+धन मिले के न मिले, नवकार मिल्यो
+जन मिले के न मिले, नवकार मिल्यो
+
+इण जनम रो घणो फायदो, नवकार मिल्यो`,
+hinglish:`Meva mile ke na mile, Navkaar milyo
+Meva mile ke na mile, Navkaar milyo
+Inn janam ro ghano faaydo, Navkaar milyo
+
+Paani mile ke na mile, Navkaar milyo
+Raja mile ke na mile, Navkaar milyo
+Rani mile ke na mile, Navkaar milyo
+Dhan mile ke na mile, Navkaar milyo
+Jan mile ke na mile, Navkaar milyo
+
+Inn janam ro ghano faaydo, Navkaar milyo`,
+meaning:'A simple Rajasthani stavan with a profound message: whether or not we get food, water, wealth or fame — the real gain of this life is having received the Navkar Mantra.'},
+
+{id:'mujhejainee',type:'stavan',title:'Mujhe Jainee Kul Parivaar Mila',sub:'मुझे जैनी कुल परिवार मिला',
+hindi:`मुझे जैनी कुल परिवार मिला, यह मेरा सौभाग्य है
+जिनवर के धर्म में जन्म मिला, यह मेरा सौभाग्य है
+
+अहिंसा की राह पर चलना, सत्य को अपनाना
+त्याग, तप और संयम से, जीवन को सँवारना
+जैन धर्म की छाया में, यह मेरा सौभाग्य है
+
+नवकार मंत्र मिला हमको, पंच परमेष्ठी का ज्ञान
+सामायिक प्रतिक्रमण से, पावन होता मेरा प्राण
+जिनवर की शरण में आना, यह मेरा सौभाग्य है
+
+मुझे जैनी कुल परिवार मिला, यह मेरा सौभाग्य है`,
+hinglish:`Mujhe Jainee kul parivaar mila, yeh mera saubhaagya hai
+Jinavar ke dharm mein janm mila, yeh mera saubhaagya hai
+
+Ahimsa ki raah par chalna, satya ko apnaana
+Tyaag, tap aur sanyam se, jeevan ko sanvaarna
+Jain dharm ki chhaaya mein, yeh mera saubhaagya hai
+
+Navkaar mantra mila hamako, Panch Parmesthi ka gyaan
+Samaayik Pratikraman se, paavan hota mera praan
+Jinavar ki sharan mein aana, yeh mera saubhaagya hai
+
+Mujhe Jainee kul parivaar mila, yeh mera saubhaagya hai`,
+meaning:'A stavan expressing gratitude for being born in a Jain family with access to the Navkar Mantra, the teachings of ahimsa, and the path to liberation.'},
+
+{id:'omjaiarihantanam',type:'stavan',title:'Om Jai Arihantanam',sub:'ॐ जय अरिहंतानम',
+hindi:`ॐ जय अरिहंतानम, जय जय सिद्धानाम
+जय आचार्यानाम, जय उपाध्यायानाम
+जय साधु-साध्वीनाम, सब मिलकर गाओ
+जय पंच परमेष्ठी, जय-जय हो जाओ
+
+राग-द्वेष-विजेता, वीतराग प्रभु हो
+सर्वज्ञ सर्वदर्शी, परमात्मा तुम हो
+नाम तेरा लेने से, पाप सभी जाओ
+ॐ जय अरिहंतानम, जय-जय गाओ
+
+मोक्षमार्ग दिखाया, धर्म का प्रकाश
+अहिंसा और सत्य, तेरा उपदेश
+भव-सागर से पार, हमको लगा दो
+ॐ जय अरिहंतानम, शरण में ले लो`,
+hinglish:`Om jay Arihantanam, jay jay Siddhanam
+Jay Acharyaanam, jay Upadhyaayanam
+Jay saadhu-sadhvinam, sab milkar gaao
+Jay Panch Parmeshti, jay-jay ho jaao
+
+Raag-dvesh-vijeta, veetraag prabhu ho
+Sarvagya sarvadarshi, parmaatma tum ho
+Naam tera lene se, paap sabhi jaao
+Om jay Arihantanam, jay-jay gaao
+
+Mokshamaarg dikhaaya, dharm ka prakaash
+Ahimsaa aur satya, tera updesh
+Bhav-saagar se paar, hamko lagaa do
+Om jay Arihantanam, sharan mein le lo`,
+meaning:'An aarti sung to the tune of the popular Hindu aarti format, adapted for the Panch Parmesthis. Widely used in Jain temples and satsangs.'},
+
+{id:'omjaimahaveer',type:'stavan',title:'Om Jai Mahaveer Prabhu',sub:'ॐ जय महावीर प्रभु',
+hindi:`ॐ जय महावीर प्रभु, स्वामी जय महावीर
+मातु त्रिशला नंदन, वर्धमान महावीर
+ॐ जय महावीर प्रभु
+
+राग द्वेष मोह रहित, वीतराग परमेश
+सर्वज्ञ सर्वदर्शी, प्रभु जगदीश
+ॐ जय महावीर प्रभु
+
+पाँच महाव्रत धारी, मुनि राज कहावे
+पंच समिति त्रिगुप्ती, मोक्ष मार्ग पावे
+ॐ जय महावीर प्रभु
+
+चौबीसवें तीर्थंकर, अंतिम जिनराज
+वज्रषभनाराच संहनन, मेरे प्रभुराज
+ॐ जय महावीर प्रभु`,
+hinglish:`Om jay Mahaveer Prabhu, Swami jay Mahaveer
+Maatu Trishala nandan, Vardhaman Mahaveer
+Om jay Mahaveer Prabhu
+
+Raag dvesh moh rahit, veetraag parmesh
+Sarvagya sarvadarshi, Prabhu jagdeesh
+Om jay Mahaveer Prabhu
+
+Paanch mahavrat dhaari, muni raaj kahaave
+Panch samiti tri-gupti, moksh maarg paave
+Om jay Mahaveer Prabhu
+
+Chaubisven Tirthankara, antim Jinraaj
+Vajrashabha-naraach sanhanan, mere Prabhuraaj
+Om jay Mahaveer Prabhu`,
+meaning:'An aarti dedicated to Lord Mahavir, the 24th and last Tirthankara of this cosmic cycle. Sung during puja and aarti ceremonies.'},
+
+{id:'navkarmaha',type:'stavan',title:'Navkar Manthra Hai Maha Manthra',sub:'नवकार मंत्र है महा मंत्र',
+hindi:`नवकार मंत्र है महा मंत्र, जप लो इसको हर पल
+यह मंत्र मुक्ति का पथ दिखाए, भव-सागर पार करे
+
+अरिहंत सिद्ध आचार्य को, वंदन करते हम
+उपाध्याय और साधुओं को, नमन करते हम
+पंच परमेष्ठी के चरणों में, शीश नवाते हम
+नवकार मंत्र है महा मंत्र
+
+पाप सभी धुल जाते हैं, जब नवकार जपें
+कर्म बंधन टूट जाते हैं, जब नवकार जपें
+मोक्ष का द्वार खुल जाता है, जब नवकार जपें
+नवकार मंत्र है महा मंत्र`,
+hinglish:`Navkaar mantra hai maha mantra, jap lo isko har pal
+Yeh mantra mukti ka path dikhaaye, bhav-saagar paar kare
+
+Arihant Siddh Acharya ko, vandan karte hum
+Upadhyaaya aur saadhuon ko, naman karte hum
+Panch Parmesthi ke charno mein, sheesh navaate hum
+Navkaar mantra hai maha mantra
+
+Paap sabhi dhul jaate hain, jab Navkaar japein
+Karma bandhan toot jaate hain, jab Navkaar japein
+Moksh ka dwaar khul jaata hai, jab Navkaar japein
+Navkaar mantra hai maha mantra`,
+meaning:'Glorifies the Navkar Mantra as the supreme mantra, emphasizing its power to destroy sins, break karma, and open the door to liberation.'},
+
+{id:'naamtera',type:'stavan',title:'Naam Hai Tera Taran Hara',sub:'नाम है तेरा तारण हारा',
+hindi:`नाम है तेरा तारण हारा, नाम है तेरा तारण हारा
+भव-सागर से पार लगाए, प्रभु का नाम हमारा
+
+जब-जब मन घबरावे मेरा, याद करूँ मैं तुझे
+नाम तेरे की ताकत से ही, पार उतरूँ मैं झट से
+नाम है तेरा तारण हारा
+
+अरिहंत का नाम है प्यारा, सिद्ध का नाम सुहाना
+नाम लिए बिन एक पल भी, जाए न सुख का खजाना
+नाम है तेरा तारण हारा`,
+hinglish:`Naam hai tera taaran hara, naam hai tera taaran hara
+Bhav-saagar se paar lagaaye, Prabhu ka naam hamaara
+
+Jab-jab man ghabraave mera, yaad karun main tujhe
+Naam tere ki taakat se hi, paar utarun main jhat se
+Naam hai tera taaran hara
+
+Arihant ka naam hai pyaara, Siddha ka naam suhaana
+Naam liye bin ek pal bhi, jaaye na sukh ka khajaana
+Naam hai tera taaran hara`,
+meaning:'A melodic stavan on the power of the Lord\'s name to help the soul cross the ocean of worldly existence.'},
+
+{id:'maitribhav',type:'stavan',title:'Maitribhav Nu Pavitra Jharna',sub:'मैत्री भाव का पवित्र झरना',
+hindi:`मैत्री भाव का पवित्र झरना मेरे मन में बहता रहे,
+खुद तो खुश हों पर औरों की, खुशियों में भी मन रहे।
+
+जो दुखी हैं जग में प्राणी, उनका दुख मैं हरूँ सदा,
+गुणीजन देख प्रेम उमड़े, मन में मेरे भाव सदा।
+
+जो राह भटके जग में, उन पर क्षोभ न मन में आए,
+मैत्री करुणा मुदिता उपेक्षा, यही चार भाव अपनाए।
+
+मैत्री भाव का पवित्र झरना मेरे मन में बहता रहे,
+जब तक जीऊँ इस दुनिया में, यह भावना मन में रहे।`,
+hinglish:`Maitri bhaav ka pavitra jharna mere man mein bahta rahe,
+Khud to khush hon par auron ki, khushiyon mein bhi man rahe.
+
+Jo dukhi hain jag mein praani, unka dukh main harun sada,
+Gunijan dekh prem umde, man mein mere bhaav sada.
+
+Jo raah bhaatke jag mein, un par kshobh na man mein aaye,
+Maitri karuna mudita upeksha, yahi chaar bhaav apnaaye.
+
+Maitri bhaav ka pavitra jharna mere man mein bahta rahe,
+Jab tak jiun is duniya mein, yeh bhavna man mein rahe.`,
+meaning:'One of the most beloved Jain stavans expressing Maitri (friendship), Karuna (compassion), Mudita (joy in others\' virtue), and Upeksha (equanimity) — the four divine attitudes.'},
+
+{id:'sunchettan',type:'stavan',title:'Sun Chetan Sun Chetan',sub:'सुन चेतन सुन चेतन',
+hindi:`सुन चेतन, सुन चेतन, सुन चेतन
+तेरी चेतना जागी कि नहीं?
+
+इस जग में आया था तू, मोक्ष पाने को
+राग-द्वेष छोड़ के तू, आत्मा पहचानने को
+पर अब तक सोया है क्यों, जाग ज़रा चेतन
+सुन चेतन, सुन चेतन
+
+जन्म-मरण के फेरे में, भटक रहा है तू
+कर्म के बोझ तले, दब रहा है तू
+छोड़ मोह-माया को, जाग ज़रा चेतन
+सुन चेतन, सुन चेतन`,
+hinglish:`Sun chetan, sun chetan, sun chetan
+Teri chetna jaagi ki nahi?
+
+Is jag mein aaya tha tu, moksh paane ko
+Raag-dvesh chhod ke tu, aatma pahchaanne ko
+Par ab tak soya hai kyun, jaag zara chetan
+Sun chetan, sun chetan
+
+Janam-maran ke phere mein, bhatak raha hai tu
+Karma ke bojh tale, dab raha hai tu
+Chhod moh-maaya ko, jaag zara chetan
+Sun chetan, sun chetan`,
+meaning:'A call to the soul to wake up from ignorance and seek liberation. "Chetan" means the conscious soul. Urges the soul to stop its slumber and recognise its true nature.'},
+
+{id:'swargsundar',type:'stavan',title:'Swarg Se Sundar',sub:'स्वर्ग से सुंदर',
+hindi:`स्वर्ग से सुंदर देश हमारा, जहाँ जिनेश्वर का वास है
+धर्म की धरा यह पावन, जहाँ मोक्ष का प्रकाश है
+
+जिनवर का यह देश अनूठा, जहाँ अहिंसा राज करे
+सत्य, अचौर्य, ब्रह्मचर्य से, जीवन को हम सँवारें
+
+इस देश की शान है जैन धर्म, इस धर्म की शान है अहिंसा
+त्याग, तपस्या, संयम से ही, जीवन होता निर्मल कैसा
+
+स्वर्ग से सुंदर देश हमारा, जहाँ जिनेश्वर का वास है`,
+hinglish:`Swarg se sundar desh hamaara, jahaan Jineshvar ka vaas hai
+Dharm ki dhara yeh paavan, jahaan moksh ka prakaash hai
+
+Jinvar ka yeh desh anoota, jahaan ahimsa raaj kare
+Satya, achaurya, brahmacharya se, jeevan ko hum sanvaaren
+
+Is desh ki shaan hai Jain dharm, is dharm ki shaan hai ahimsaa
+Tyaag, tapasya, sanyam se hi, jeevan hota nirmal kaisa
+
+Swarg se sundar desh hamaara, jahaan Jineshvar ka vaas hai`,
+meaning:'A patriotic-devotional stavan celebrating the Jain spiritual homeland where ahimsa, truth, and the teachings of the Tirthankaras guide life.'},
+
+{id:'mangaldivo',type:'stavan',title:'Mangal Divo',sub:'मंगल दीवो',
+hindi:`मंगल दीवो, मंगल दीवो,
+जिनेश्वर के चरणों में मंगल दीवो।
+आरती करूँ मैं प्रभु की,
+मन-वचन-काय से, मंगल दीवो।
+
+जय हो प्रभु की, जय हो जिन की,
+जय हो जग-नायक अरिहंत की।
+दीप जलाकर भक्ति से मैं,
+करूँ आरती, मंगल दीवो।
+
+ज्ञान का दीपक जलाओ प्रभु,
+अज्ञान का अंधेरा भगाओ।
+जिनेश्वर की महिमा गाते,
+सब मिलकर हम, मंगल दीवो।`,
+hinglish:`Mangal divo, mangal divo,
+Jineshvar ke charno mein mangal divo.
+Aarti karun main prabhu ki,
+Man-vachan-kaay se, mangal divo.
+
+Jay ho prabhu ki, jay ho jin ki,
+Jay ho jag-naayak Arihant ki.
+Deep jalakar bhakti se main,
+Karun aarti, mangal divo.
+
+Gyaan ka deepak jalaao prabhu,
+Agyaan ka andhera bhaagao.
+Jineshvar ki mahima gaate,
+Sab milkar hum, mangal divo.`,
+meaning:'The traditional Jain aarti song sung while waving a lamp before the idol of a Tirthankara. "Mangal" means auspicious and "Divo" means lamp.'},
+
+{id:'uthbhor',type:'stavan',title:'Uth Bhor Bayi Tuk Jag Sahi',sub:'उठ भोर भई तुक जाग सही',
+hindi:`उठ भोर भई, तुक जाग सही,
+सुमिरन करले, जिन का नाम लेही।
+
+रात गई, दिन आया है,
+नया सवेरा छाया है।
+उठकर पहले जिन को नमन कर,
+दिन की शुरुआत यही।
+
+उठ भोर भई, तुक जाग सही,
+सुमिरन करले, जिन का नाम लेही।
+
+नवकार मंत्र जप कर लेना,
+मन में भक्ति भर लेना।
+दिन की शुरुआत जिन के नाम से,
+यह है सच्ची रीत यही।
+
+उठ भोर भई, तुक जाग सही।`,
+hinglish:`Uth bhor bhai, tuk jaag sahi,
+Sumiran karle, jin ka naam lehi.
+
+Raat gayi, din aaya hai,
+Naya savera chhaaya hai.
+Uthkar pehle jin ko naman kar,
+Din ki shuruaat yahi.
+
+Uth bhor bhai, tuk jaag sahi,
+Sumiran karle, jin ka naam lehi.
+
+Navkaar mantra jap kar lena,
+Man mein bhakti bhar lena.
+Din ki shuruaat jin ke naam se,
+Yeh hai sachchi reet yahi.
+
+Uth bhor bhai, tuk jaag sahi.`,
+meaning:'A morning wake-up stavan reminding the devotee to begin the day by chanting the Navkar Mantra and remembering the Jinas.'},
+
+// ══════ NEW STAVANS (not on original site) ══════
+{id:'jaineminath',type:'stavan',title:'Jai Jai Neminath',sub:'जय जय नेमिनाथ',
+hindi:`जय जय नेमिनाथ, जय जय नेमिनाथ।
+बाईसवें तीर्थंकर, जगत के नाथ।
+जय जय नेमिनाथ।
+
+राजुल का प्रेम तजकर, वैराग्य धारण किया।
+जीव दया के खातिर, संन्यास ग्रहण किया।
+जय जय नेमिनाथ।
+
+गिरनार पर्वत पर, मोक्ष को पाया था।
+नेमिनाथ जिनेश्वर, जग में आया था।
+जय जय नेमिनाथ।`,
+hinglish:`Jay jay Neminath, jay jay Neminath.
+Baaisven Tirthankara, jagat ke Nath.
+Jay jay Neminath.
+
+Rajul ka prem tajkar, vairaagya dharan kiya.
+Jeev daya ke khaatir, sanyaas grahan kiya.
+Jay jay Neminath.
+
+Girnaaar parvat par, moksh ko paaya tha.
+Neminath Jineshvar, jag mein aaya tha.
+Jay jay Neminath.`,
+meaning:'Neminath, the 22nd Tirthankara, renounced his wedding out of compassion for animals being slaughtered. He attained liberation on Girnar mountain in Gujarat.'},
+
+{id:'parsvanathstavan',type:'stavan',title:'Parsvanath Stavan',sub:'पार्श्वनाथ स्तवन',
+hindi:`हे पार्श्वनाथ प्रभु, तुमको नमन।
+तेईसवें तीर्थंकर, पावन हैं चरण।
+
+नीले वर्ण, सर्प-फण की छाया में,
+बैठे हो ध्यान में।
+धरणेंद्र देव की सेवा में,
+मोक्ष के विधान में।
+हे पार्श्वनाथ प्रभु।
+
+काशी की पावन नगरी में,
+जन्म लिया था तुमने।
+वैशाख शुक्ल दशमी को,
+मोक्ष पाया था तुमने।
+हे पार्श्वनाथ प्रभु।`,
+hinglish:`He Parshvanath Prabhu, tumko naman.
+Teesven Tirthankara, paavan hain charan.
+
+Neele varn, sarp-phan ki chhaaya mein,
+Baithe ho dhyaan mein.
+Dharnendr dev ki seva mein,
+Moksh ke vidhaan mein.
+He Parshvanath Prabhu.
+
+Kaashi ki paavan nagari mein,
+Janam liya tha tumne.
+Vaishakh Shukla Dashami ko,
+Moksh paaya tha tumne.
+He Parshvanath Prabhu.`,
+meaning:'Parshvanath, the 23rd Tirthankara, is shown with a five-hooded serpent. Born in Kashi (Varanasi), he lived about 800 years before Mahavir. The Uvasaggaharam Stotra is dedicated to him.'},
+
+{id:'jayjayaadinath',type:'stavan',title:'Jay Jay Aadinath',sub:'जय जय आदिनाथ',
+hindi:`जय जय आदिनाथ, जय जय आदिनाथ।
+पहले तीर्थंकर, जगत के नाथ।
+जय जय आदिनाथ।
+
+सुमेरु पर्वत पर इंद्रों ने,
+किया अभिषेक महान।
+ऋषभदेव जिनेश्वर ने,
+दिया जीवन का ज्ञान।
+जय जय आदिनाथ।
+
+असि, मसि, कृषि का ज्ञान दिया,
+संसार को सिखाया।
+पहले तीर्थंकर भगवान ने,
+धर्म का मार्ग दिखाया।
+जय जय आदिनाथ।`,
+hinglish:`Jay jay Aadinath, jay jay Aadinath.
+Pahle Tirthankara, jagat ke Nath.
+Jay jay Aadinath.
+
+Sumeru parvat par Indron ne,
+Kiya abhishek mahaan.
+Rishabhadev Jineshvar ne,
+Diya jeevan ka gyaan.
+Jay jay Aadinath.
+
+Asi, masi, krishi ka gyaan diya,
+Sansaar ko sikhaaya.
+Pahle Tirthankara Bhagawan ne,
+Dharm ka maarg dikhaaya.
+Jay jay Aadinath.`,
+meaning:'Aadinath (Rishabhadev) is the first of 24 Tirthankaras. He taught humanity the arts of defense, writing, and agriculture, and established the path of dharma for this cosmic cycle.'},
+
+{id:'daslakshan',type:'stavan',title:'Das Lakshan Ke Din Aaye',sub:'दस लक्षण के दिन आए',
+hindi:`दस लक्षण के दिन आए,
+भाद्रव शुक्ल पंचमी आई।
+दस लक्षण का पर्व मनाएँ,
+धर्म की वर्षा लाई।
+
+क्षमा, मार्दव, आर्जव, सत्य,
+शौच, संयम और तप।
+त्याग, आकिंचन्य, ब्रह्मचर्य,
+ये दस धर्म अनुपम।
+
+पर्युषण के बाद आता है,
+दस लक्षण का पर्व महान।
+दिगंबर भाइयों का है यह,
+विशेष धर्म का अवसर।`,
+hinglish:`Das lakshan ke din aaye,
+Bhadrav Shukla Panchami aayi.
+Das lakshan ka parv manaayen,
+Dharm ki varsha laayi.
+
+Kshamaa, maardav, aarjav, satya,
+Shauch, sanyam aur tap.
+Tyaag, aakincanya, brahmacharya,
+Ye das dharm anupam.
+
+Paryushan ke baad aata hai,
+Das lakshan ka parv mahaan.
+Digambar bhaiyon ka hai yeh,
+Vishesh dharm ka avsar.`,
+meaning:'Das Lakshan Parva is the 10-day festival of Digambara Jains after Paryushan. Each day is dedicated to one of ten supreme qualities (Uttam Dharmas) of the soul.'},
+
+{id:'kshamavani',type:'stavan',title:'Kshamavani Stavan',sub:'क्षमावाणी — मिच्छामि दुक्कडं',
+hindi:`मिच्छामि दुक्कडं, मिच्छामि दुक्कडं।
+सबसे माफी माँगूँ मैं, मिच्छामि दुक्कडं।
+
+मन से, वचन से, काया से जो,
+भूल कभी मैंने की।
+जाने-अनजाने सबको जो,
+पीड़ा मैंने दी।
+
+क्षमा करो, क्षमा करो,
+मैं भी क्षमा करता हूँ।
+वैर-भाव छोड़कर सबसे,
+प्रेम मैं करता हूँ।
+मिच्छामि दुक्कडं।`,
+hinglish:`Michhami Dukkadam, Michhami Dukkadam.
+Sabse maafi maangun main, Michhami Dukkadam.
+
+Man se, vachan se, kaaya se jo,
+Bhool kabhi maine ki.
+Jaane-anjaane sabko jo,
+Peeda maine di.
+
+Kshamaa karo, kshamaa karo,
+Main bhi kshamaa karta hun.
+Vair-bhaav chhod kar sabse,
+Prem main karta hun.
+Michhami Dukkadam.`,
+meaning:'Sung on Samvatsari, the last day of Paryushan. "Michhami Dukkadam" means "may my wrongdoings be forgiven." Jains ask forgiveness from all living beings on this day.'},
+
+{id:'guruvandana',type:'stavan',title:'Guru Vandana',sub:'गुरु वंदना',
+hindi:`गुरु वंदना, गुरु वंदना।
+गुरुदेव चरण में, गुरु वंदना।
+
+जिन्होंने हमें राह दिखाई,
+मोक्ष की राह बताई।
+उन गुरुओं के चरणों में,
+शत-शत नमन।
+
+पंच महाव्रत के धारक,
+संयम के पालक।
+त्याग, तप, ब्रह्मचर्य के,
+महान साधक।
+गुरु वंदना।`,
+hinglish:`Guru vandana, guru vandana.
+Gurudev charan mein, guru vandana.
+
+Jinhone hamen raah dikhaai,
+Moksh ki raah bataai.
+Un guruon ke charno mein,
+Shat-shat naman.
+
+Panch mahavrat ke dharak,
+Sanyam ke paalak.
+Tyaag, tap, brahmacharya ke,
+Mahaan sadhak.
+Guru vandana.`,
+meaning:'Expresses deep reverence for Jain monks and nuns who hold the five great vows. Paying respects to ascetics (vandana) is an important daily Jain practice.'},
+
+{id:'haiyepaawan',type:'stavan',title:'Hai Ye Paawan Bhumi',sub:'है ये पावन भूमि',
+hindi:`है ये पावन भूमि, यहाँ बार-बार आना ।
+शांतिनाथ के चरणों में आ करके झुक जाना ॥
+
+है ये पावन भूमि, यहाँ बार-बार आना ।
+
+तेरे मस्तक पे मुकुट है, तेरे कानों में कुंडल है
+तू करुणा सागर है, मुझपर करुणा करना
+है ये पावन भूमि, यहाँ बार-बार आना ।
+
+तेरा तीर्थ सुंदर है, तू प्राणों से प्यारा है
+मेरी बिनती सुन लेना, बेड़ा पार लगा देना
+है ये पावन भूमि, यहाँ बार-बार आना ।
+
+तेरी साँवली सूरत है, मेरे मन को लुभाती है
+प्रभु मेरी भक्ति को, स्वीकार तू कर लेना
+है ये पावन भूमि, यहाँ बार-बार आना ।
+शांतिनाथ के चरणों में आ करके झुक जाना ।`,
+hinglish:`Hai ye paawan bhumi, yahaan baar-baar aana.
+Shantinath ke charno mein aa karke jhuk jaana.
+
+Hai ye paawan bhumi, yahaan baar-baar aana.
+
+Tere mastak pe mukut hai, tere kaanon mein kundal hai
+Tu karuna saagar hai, mujhpar karuna karna.
+Hai ye paawan bhumi, yahaan baar-baar aana.
+
+Tera teerth sundar hai, tu praanon se pyaara hai
+Meri binti sun lena, beda paar laga dena.
+Hai ye paawan bhumi, yahaan baar-baar aana.
+
+Teri saanvali soorat hai, mere man ko lubhaati hai
+Prabhu meri bhakti ko, sweekar tu kar lena.
+Hai ye paawan bhumi, yahaan baar-baar aana.
+Shantinath ke charno mein aa karke jhuk jaana.`,
+meaning:'A devotional stavan addressed to Shantinath, the 16th Tirthankara. The devotee is drawn to the Lord\'s beautiful form and begs to be taken across the ocean of existence.'},
+
+{id:'heropaayo',type:'stavan',title:'Hero Paayo',sub:'हीरो पायो महावीर रे नाम रो',
+hindi:`हीरो पायो... हो हो
+हीरो पायो... हो हो
+हीरो पायो महावीर रे नाम रो जी
+ओ तो नहीं है अज्ञानियों रे काम रो जी
+
+म्हारे आँगनिये प्रभु सा पधारिया जी
+तीरथ करिया मैं तो चारों धाम रा जी
+हीरो पायो महावीर रे नाम रो जी
+ओ तो नहीं है अज्ञानियों रे काम रो जी
+
+म्हारे ऊपर प्रभु सा री मेहरबानी
+प्रभु महावीर सा दुनिया में नहीं शाह नी
+हीरो पायो महावीर रे नाम रो जी
+ओ तो नहीं है अज्ञानियों रे काम रो जी`,
+hinglish:`Heero paayo... ho ho
+Heero paayo... ho ho
+Heero paayo Mahaveer re naam ro ji
+O to nahi hai agyaaniyon re kaam ro ji
+
+Mhaare aanganiyen prabhu sa padhaaria ji
+Teerath kariyo main to chaaron dhaam ra ji
+Heero paayo Mahaveer re naam ro ji
+O to nahi hai agyaaniyon re kaam ro ji
+
+Mhaare upar prabhu sa ri meharbani
+Prabhu Mahaveer sa duniya mein nahi shaah ni
+Heero paayo Mahaveer re naam ro ji
+O to nahi hai agyaaniyon re kaam ro ji`,
+meaning:'A joyful Rajasthani stavan declaring that reciting Mahavir\'s name is like finding a jewel (heero/heera). It says the name of Mahavir is not for the ignorant — it takes sincere devotion to understand its value.'},
+
+{id:'jagatkerang',type:'stavan',title:'Jagat Ke Rang Kya Dekhoon',sub:'जगत के रंग क्या देखूँ',
+hindi:`जगत के रंग क्या देखूँ तेरा दीदार काफी है।
+क्यों भटकूँ गैरों के दर पे तेरा दरबार काफी है ॥
+
+नहीं चाहिए ये दुनियाँ के निराले रंग ढंग मुझको,
+चली जाऊँ मैं मंदिर में तेरा श्रृंगार काफी है।
+जगत के रंग क्या देखूँ तेरा दीदार काफी है।
+
+जगत के साज बाजों से हुए हैं कान अब बहरे,
+कहाँ जाके सुनूँ बंशी, मधुर वो तान काफी है।
+जगत के रंग क्या देखूँ तेरा दीदार काफी है।
+
+जगत के रिश्तेदारों ने बिछाया जाल माया का,
+तेरे भक्तों से हो प्रीति, वीर परिवार काफी है।
+जगत के रंग क्या देखूँ तेरा दीदार काफी है।
+
+जगत की झूठी रौनक से हैं आँखें भर गयी मेरी,
+चले आओ मेरे वीरा, दरश की प्यास काफी है।
+जगत के रंग क्या देखूँ तेरा दीदार काफी है।`,
+hinglish:`Jagat ke rang kya dekhoon tera deedaar kaafi hai.
+Kyoon bhatakoon gairon ke dar pe tera darbaar kaafi hai.
+
+Nahi chahiye ye duniyaan ke niraale rang dhang mujhko,
+Chali jaaun main mandir mein tera shrungaar kaafi hai.
+Jagat ke rang kya dekhoon tera deedaar kaafi hai.
+
+Jagat ke saaj baajon se hue hain kaan ab bahre,
+Kahaan jaake sunoon banshi, madhur vo taan kaafi hai.
+Jagat ke rang kya dekhoon tera deedaar kaafi hai.
+
+Jagat ke rishtedaaron ne bichhaaya jaal maya ka,
+Tere bhakton se ho preeti, Veer parivaar kaafi hai.
+Jagat ke rang kya dekhoon tera deedaar kaafi hai.
+
+Jagat ki jhooti raunak se hain aankhein bhar gayi meri,
+Chale aao mere Veera, darash ki pyaas kaafi hai.
+Jagat ke rang kya dekhoon tera deedaar kaafi hai.`,
+meaning:'A stavan expressing complete disillusionment with the world and total devotion to the Lord. The devotee says: your darshan (vision) is enough — I need nothing else the world offers.'},
+
+{id:'shaasanmila',type:'stavan',title:'Shaasan Mila Prabhu Ka',sub:'शासन मिला प्रभु का',
+hindi:`शासन मिला प्रभु का, सौभाग्य है हमारा
+आराधना हो ऐसी, नहीं जन्म लें दोबारा
+शासन मिला प्रभु का, सौभाग्य है हमारा
+
+रिश्ते अनंत हमने, हर जीव से बनाये
+कोई जगह न ऐसी, जहाँ पर न जन्म पाये
+चारों गति भटकते, नहीं पा सके किनारा
+आराधना हो ऐसी, नहीं जन्म लें दोबारा
+शासन मिला प्रभु का, सौभाग्य है हमारा
+
+नर भव मिले थे पहले, उपयोग कर ना पाये
+सम्यक्त्व में ही जीना, वो भावना ना लाये
+हर क़ीमती समय को, अज्ञान में गुज़ारा
+आराधना हो ऐसी, नहीं जन्म लें दोबारा
+शासन मिला प्रभु का, सौभाग्य है हमारा
+
+आओ रचें अभी हम, संकल्प की कहानी
+प्रतिकूलता हो कैसी, बनना है पूर्ण ज्ञानी
+संयम की राह चलके, छोड़ें प्रमाद सारा
+आराधना हो ऐसी, नहीं जन्म लें दोबारा
+शासन मिला प्रभु का, सौभाग्य है हमारा
+
+गौतम से कहते प्रभुवर, लो सत्य का सहारा
+पाकर रहोगे मुक्ति, पंचम हो चाहे आरा
+आराधना हो ऐसी, नहीं जन्म लें दोबारा
+शासन मिला प्रभु का, सौभाग्य है हमारा`,
+hinglish:`Shaasan mila Prabhu ka, saubhaagy hai hamaara
+Aaraadhanaa ho aisi, nahi janm len dobaara.
+Shaasan mila Prabhu ka, saubhaagy hai hamaara.
+
+Rishte anant hamane, har jeev se banaaye
+Koi jagah na aisi, jahaan par na janm paaye
+Chaaron gati bhatakte, nahi paa sake kinaara.
+Aaraadhanaa ho aisi, nahi janm len dobaara.
+Shaasan mila Prabhu ka, saubhaagy hai hamaara.
+
+Nar bhav mile the pahale, upayog kar na paaye
+Samyaktv mein hi jeena, vo bhaavana na laaye
+Har kimati samay ko, agyaan mein guzaara.
+Aaraadhanaa ho aisi, nahi janm len dobaara.
+Shaasan mila Prabhu ka, saubhaagy hai hamaara.
+
+Aao rachain abhi ham, sankalp ki kahaani
+Pratikoolata ho kaisi, banana hai poorn gyaani
+Sanyam ki raah chalake, chhodein pramaad saara.
+Aaraadhanaa ho aisi, nahi janm len dobaara.
+Shaasan mila Prabhu ka, saubhaagy hai hamaara.
+
+Gautam se kahate Prabhavar, lo satya ka sahara
+Paakar rahoge mukti, pancham ho chaahe aara.
+Aaraadhanaa ho aisi, nahi janm len dobaara.
+Shaasan mila Prabhu ka, saubhaagy hai hamaara.`,
+meaning:'A stavan urging the soul to make the most of this rare human birth under the Lord\'s Shaasan (spiritual order). It warns that we have wasted countless past lives and must not repeat that mistake.'},
+
+{id:'shreemahavir',type:'stavan',title:'Shree Mahavir Swami Ki Sada Jay Ho',sub:'श्री महावीर स्वामी की सदा जय हो',
+hindi:`श्री महावीर स्वामी की, सदा जय हो सदा जय हो।
+पवित्र पावन जिनेश्वर की, सदा जय हो सदा जय हो॥
+
+तुम्हीं हो, देव देवन के, तुम्हीं हो पीर पैगम्बर।
+तुम्हीं ब्रह्मा, तुम्हीं विष्णु, सदा जय हो सदा जय हो॥
+
+तुम्हारे ज्ञान ख़ज़ाने की, महिमा बहुत भारी है।
+लुटाने से बढ़े हरदम, सदा जय हो सदा जय हो॥
+
+तुम्हारी ध्यान मुद्रा से, अलौकिक शांति झरती है।
+सिंह भी गोद पर सोते, सदा जय हो सदा जय हो॥
+
+तुम्हारा नाम लेने से, जागती वीरता भारी।
+हटाते कर्म लश्कर को, सदा जय हो सदा जय हो॥`,
+hinglish:`Shree Mahaveer Swami ki, sada jay ho sada jay ho.
+Pavitra paavan Jineshvar ki, sada jay ho sada jay ho.
+
+Tumhi ho dev devan ke, tumhi ho peer paigambar.
+Tumhi Brahma, tumhi Vishnu, sada jay ho sada jay ho.
+
+Tumhaare gyaan khazaane ki, mahima bahut bhaari hai.
+Lutaane se badhe hardam, sada jay ho sada jay ho.
+
+Tumhaari dhyaan mudra se, alaaukik shaanti jhartee hai.
+Sinh bhi god par sote, sada jay ho sada jay ho.
+
+Tumhaara naam lene se, jaagati veerata bhaari.
+Hataate karma lashkar ko, sada jay ho sada jay ho.`,
+meaning:'A rousing victory chant for Lord Mahavir. It says the Lord\'s treasury of knowledge grows the more it is shared — and that even lions sleep in his lap, showing his state of total fearlessness.'},
+
+{id:'shubhmangal',type:'stavan',title:'Shubh Mangal Ho',sub:'शुभ मंगल हो शुभ मंगल हो',
+hindi:`शुभ मंगल हो, शुभ मंगल हो
+शुभ मंगल मंगल मंगल हो
+शुभ मंगल हो, शुभ मंगल हो
+
+नभ मंगल धरती मंगल हो
+गति मंगल हो, स्थिति मंगल हो
+शुभ मंगल मंगल मंगल हो
+शुभ मंगल हो, शुभ मंगल हो
+
+धरती का कण कण मंगल हो
+जीवन का क्षण क्षण मंगल हो
+शुभ मंगल मंगल मंगल हो
+शुभ मंगल हो, शुभ मंगल हो
+
+मेरा मंगल हो, तेरा मंगल हो
+यहाँ मंगल हो, वहाँ मंगल हो
+शुभ मंगल मंगल मंगल हो
+शुभ मंगल हो, शुभ मंगल हो
+
+मन मंगल हो, तन मंगल हो
+मति मंगल हो, श्रुति मंगल हो
+शुभ मंगल मंगल मंगल हो
+शुभ मंगल हो, शुभ मंगल हो`,
+hinglish:`Shubh mangal ho, shubh mangal ho
+Shubh mangal mangal mangal ho
+Shubh mangal ho, shubh mangal ho
+
+Nabh mangal dharti mangal ho
+Gati mangal ho, sthiti mangal ho
+Shubh mangal mangal mangal ho
+
+Dharti ka kan kan mangal ho
+Jeevan ka kshan kshan mangal ho
+Shubh mangal mangal mangal ho
+
+Mera mangal ho, tera mangal ho
+Yahaan mangal ho, vahaan mangal ho
+Shubh mangal mangal mangal ho
+
+Man mangal ho, tan mangal ho
+Mati mangal ho, shruti mangal ho
+Shubh mangal mangal mangal ho
+Shubh mangal ho, shubh mangal ho`,
+meaning:'An auspicious benediction stavan wishing wellbeing to all — sky, earth, mind, body, knowledge, and every moment of life. Sung at the start of gatherings to create a sacred atmosphere.'},
+
+{id:'jaibolomahavir',type:'stavan',title:'Jai Bolo Mahavir Swami Ki',sub:'जय बोलो महावीर स्वामी की',
+hindi:`जय बोलो महावीर स्वामी की,
+घट घट के अंतर यामी की ।
+
+जिस जगती का उद्धार किया,
+जो आया शरण वो पार किया,
+जिस पीड़ सुनी हर प्राणी की,
+जय बोलो महावीर स्वामी की ।
+
+जो पाप मिटाने आया था,
+जिस भारत आन जगाया था,
+उस त्रिशला नंदन ज्ञानी की,
+जय बोलो महावीर स्वामी की ।
+
+हो लाख बार प्रणाम तुम्हे,
+हे वीर प्रभु भगवान तुम्हे,
+मुनी दर्शन मुक्ति गामी की,
+जय बोलो महावीर स्वामी की ।`,
+hinglish:`Jay bolo Mahaveer Swami ki,
+Ghat ghat ke antar yaami ki.
+
+Jis jagti ka uddhaar kiya,
+Jo aaya sharan vo paar kiya,
+Jin peed suni har praani ki,
+Jay bolo Mahaveer Swami ki.
+
+Jo paap mitaane aaya tha,
+Bharat ko aan jagaaya tha,
+Us Trishala nandan gyaani ki,
+Jay bolo Mahaveer Swami ki.
+
+Ho laakh baar pranaam tumhe,
+He Veer Prabhu Bhagwaan tumhe,
+Muni darshan mukti gaami ki,
+Jay bolo Mahaveer Swami ki.`,
+meaning:'A rousing victory chant for Lord Mahavir. It says he heard the suffering of every creature and delivered liberation to all who came to his shelter. Son of Trishala, light of Bharat.'},
+
+{id:'jaijaiaarthi',type:'stavan',title:'Jai Jai Aarati Aadi Jinanda',sub:'जय जय आरती आदि जिणंदा',
+hindi:`जय जय आरती आदि जिणंदा,
+नाभिराया मरुदेवी को नंदा ।
+
+पहेली आरती पूजा कीजे,
+नरभव पामीने लाहो लीजे ।। जय जय आरती..
+
+दूसरी आरती दीन दयाला,
+धुळेवा मंडपमां जग अजवाळा ।। जय जय आरती..
+
+तीसरी आरती त्रिभुवन देवा,
+सुर नर इंद्र करे तोरी सेवा ।। जय जय आरती..
+
+चौथी आरती चउगति चूरे,
+मनवांछित फल शिवसुख पुरे ।। जय जय आरती..
+
+पंचमी आरती पुन्य उपाया,
+मूळचन्दे ऋषभ गुण गाया ।। जय जय आरती..
+
+जय जय आरती आदि जिणंदा,
+नाभिराया मरुदेवी को नंदा ।`,
+hinglish:`Jay jay arati aadi jinanda,
+Naabhiraaya Marudevee ko nanda.
+
+Pehali arati pooja keeje,
+Narabhaav paamiine laaho leeje. Jay jay arati..
+
+Doosari arati deen dayaala,
+Dhuleva mandapamaan jag ajavaalaa. Jay jay arati..
+
+Teesari arati tribhuvan deva,
+Sur nar Indra kare tori seva. Jay jay arati..
+
+Chauthi arati chaugati choore,
+Manavanchhit phal shivasukh poore. Jay jay arati..
+
+Panchamee arati punya upaayaa,
+Moolachande Rishabh gun gaayaa. Jay jay arati..
+
+Jay jay arati aadi jinanda,
+Naabhiraaya Marudevee ko nanda.`,
+meaning:'A five-verse aarti for Adinath (Rishabhdev), the first Tirthankara. Each verse corresponds to one of the five aarti lamps. "Naabhiraaya Marudevee ko nanda" means "son of King Nabhi and Marudevi."'},
+
+{id:'jainonkatyauhaar',type:'stavan',title:'Jainon Ka Tyauhaar Aaya',sub:'जैनों का त्यौहार आया',
+hindi:`अब तक किए जो पाप वो, धोने का वक़्त आया
+भक्ति तप और साधना, करने का वक़्त आया
+आया पर्युषण आया, जैनों का त्यौहार आया
+
+जैन धर्म के सार को, समझने का वक़्त आया
+क्षमा वीरस्य भूषणम्, कहने का वक़्त आया
+आया पर्युषण आया, जैनों का त्यौहार आया
+
+बैर हटाओ, सबको खमाओ, कर दो क्षमा और कर्म खपाओ
+गुरु वाणी सुनकर दोष मिटाओ, कल्पसूत्र सुनकर आनंद पाओ
+एकाशणा करो, करो बीयाशणा, तेला करो और तप साधना
+सब पर्वों का राजा है आया, जैनों का त्यौहार आया
+
+मिच्छामि दुक्कडं, करलो प्रतिक्रमण, आतमहित हो, पुलकित हो ये मन
+मंदिर में स्थानक में, समय गुज़ारो, ये आठ दिन तो मोह माया तोड़ो
+बस जिनवाणी बन जाए साया, जैनों का त्यौहार आया`,
+hinglish:`Ab tak kiye jo paap vo, dhone ka waqt aaya
+Bhakti tap aur saadhanaa, karne ka waqt aaya
+Aaya paryushan aaya, Jainon ka tyauhaar aaya
+
+Jain dharm ke saar ko, samajhne ka waqt aaya
+Kshama veersya bhushanam, kehne ka waqt aaya
+Aaya paryushan aaya, Jainon ka tyauhaar aaya
+
+Bair hatao, sabko khamao, karo kshama aur karma khapao
+Guru vaani sunakar dosh mitao, Kalpasutra sunakar aanand pao
+Ekaashanaa karo, karo biyaashanaa, tela karo aur tap saadhanaa
+Sab parvo ka raja hai aaya, Jainon ka tyauhaar aaya
+
+Michhami Dukkadam, karlo Pratikraman, aatmahit ho, pulkit ho ye man
+Mandir mein sthaanak mein, samay guzaaro, ye aath din to moh maaya todo
+Bas jinavani ban jaaye saaya, Jainon ka tyauhaar aaya`,
+meaning:'A lively Paryushan stavan listing all the practices of the festival: khama (seeking forgiveness), fasting (ekasana, tela), listening to Kalpasutra, and Pratikraman.'},
+
+{id:'jhulojhulo',type:'stavan',title:'Jhulo Jhulo Ji Maata Trishala',sub:'झूलो झूलो जी माता त्रिशला जी रा जाया',
+hindi:`झूलो झूलो जी माता त्रिशला जी रा जाया
+थाने झूलावे आखो मारवाड़ हो,
+आखो गुजरात हो, माता त्रिशला जी रा जाया
+
+सोना रा पालणिया माहीं, रत्नों री घूँघरिया लगाई,
+फुलडों सुं एने सजवाई, मोतियों री झांझरियाँ लगाई
+रेशम री डोरी लीनी हाथ रे मांय, माता त्रिशला जी रा जाया
+झूलो झूलो जी माता त्रिशला जी रा जाया
+
+त्रिशला माता हरके हरके, धीरे धीरे हलवे हलवे,
+वीर ने पोढावे मलके, हालरियो गावे ने ललके
+जन्मया रे माँ रे कूखे तारणहार जी, माता त्रिशला जी रा जाया
+झूलो झूलो जी माता त्रिशला जी रा जाया
+
+धन्य धन्य हो त्रिशला माता, जण्या जैने त्रिभुवन नाथा
+जुग जुग जीवो जगत रा दाता, संघ रे माथे राखजो हाथा
+संघ झूलावे वीर ने पारणिये हो, माता त्रिशला जी रा जाया
+झूलो झूलो जी माता त्रिशला जी रा जाया`,
+hinglish:`Jhoolo jhoolo ji Maata Trishala ji ra jaaya
+Thaane jhoolaave aakho Maarvaad ho,
+Aakho Gujarat ho, Maata Trishala ji ra jaaya.
+
+Sona ra paalaniyan maahin, ratnon ri ghoonghariya lagaai,
+Phuldon sun ene sajawaai, motiyon ri jhaanjariyaan lagaai
+Resham ri dori leeni haath re maanay, Maata Trishala ji ra jaaya.
+Jhoolo jhoolo ji Maata Trishala ji ra jaaya.
+
+Trishala Maata harake harake, dheere dheere halawe halawe,
+Veer ne podhave malake, haalariyaa gaave ne lalake
+Janmyaa re maan re kookhe taaranahaar ji, Maata Trishala ji ra jaaya.
+Jhoolo jhoolo ji Maata Trishala ji ra jaaya.
+
+Dhanya dhanya ho Trishala Maata, janyaa jaine tribhuvan naatha
+Jug jug jeevo jagat ra daata, sangh re maathe raakhajo haatha
+Sangh jhoolaave Veer ne paaraniye ho, Maata Trishala ji ra jaaya.
+Jhoolo jhoolo ji Maata Trishala ji ra jaaya.`,
+meaning:'A joyous cradle song (halardu) celebrating the birth of Mahavir as seen by his mother Trishala. The whole of Marwar and Gujarat swings his cradle. Sung especially around Mahavir Jayanti.'},
+
+{id:'maanganeki',type:'stavan',title:'Maangane Ki Aadat Jaati Na',sub:'माँगने की आदत जाती न',
+hindi:`माँगने की आदत जाती ना, माँगने की आदत जाती ना ।
+दुनिया से माँगते रहे, और तुझसे माँगते रहे ।
+
+कभी दौलत कभी शोहरत, कभी सुख सुविधा माँगी
+कभी आराम कभी आसाम, कभी दुनिया जहान माँगी
+माँगते ही रहे हम प्रभु, माँगने की आदत जाती ना ।
+
+अब इस बार एक मांग है, मांगने की मांग है
+वो ताकत दो जो मुझको, दुनिया से बेनियाज़ करे
+माँगने की आदत जाती ना, माँगने की आदत जाती ना ।
+
+दे दो संयम की ताकत, दे दो ज्ञान का नूर
+कर दो मुझको इस जीवन में, विकारों से दूर
+माँगने की आदत जाती ना, माँगने की आदत जाती ना ।`,
+hinglish:`Maangane ki aadat jaati na, maangane ki aadat jaati na.
+Duniya se maangate rahe, aur tujhse maangate rahe.
+
+Kabhi daulat kabhi shohrat, kabhi sukh suvidha maangi
+Kabhi aaram kabhi aasam, kabhi duniya jahaan maangi
+Maangate hi rahe hum Prabhu, maangane ki aadat jaati na.
+
+Ab is baar ek maang hai, maangane ki maang hai
+Vo taakat do jo mujhko, duniya se beniyaaz kare
+Maangane ki aadat jaati na, maangane ki aadat jaati na.
+
+De do sanyam ki taakat, de do gyaan ka noor
+Kar do mujhko is jeevan mein, vikaaron se door
+Maangane ki aadat jaati na, maangane ki aadat jaati na.`,
+meaning:'A witty and introspective stavan about the soul\'s habit of asking — from the world and from the Lord. But at the end, the devotee asks for the right thing: the strength of restraint and the light of knowledge.'},
+
+{id:'mangaldivo',type:'stavan',title:'Mangal Divo',sub:'मंगल दीवो',
+hindi:`मंगल मंगल मंगल करो,
+जय जय जय जय बोलो।
+जिनवर की जय बोलो सब,
+मंगल मंगल बोलो।
+
+धर्म की जय हो, संघ की जय,
+साधु-साध्वी की जय।
+श्रावक-श्राविका की जय हो,
+सबकी हो विजय।
+
+अरिहंत सिद्ध आचार्य,
+उपाध्याय और साधू।
+पंच परमेष्ठी की जय हो,
+भव-भव में हो शुभ।`,
+hinglish:`Mangal mangal mangal karo,
+Jay jay jay jay bolo.
+Jinvar ki jay bolo sab,
+Mangal mangal bolo.
+
+Dharm ki jay ho, Sangh ki jay,
+Saadhu-sadhvi ki jay.
+Shravak-shravika ki jay ho,
+Sabki ho vijay.
+
+Arihant Siddh Acharya,
+Upadhyaaya aur Saadhu.
+Panch Parmeshti ki jay ho,
+Bhav-bhav mein ho shubh.`,
+meaning:'Sung at the beginning of Jain religious gatherings to invoke auspiciousness. It praises the entire Jain Sangha — monks, nuns, laymen, and laywomen.'},
+];
+
+// ─── ROUTER ───
+let lang = 'both';
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('pg-' + id).classList.add('active');
+  document.querySelectorAll('.nv').forEach(b => b.classList.remove('on'));
+  const map = {home:'nb-home',stavans:'nb-stavans',sutras:'nb-sutras',item:'nb-home'};
+  if (map[id]) document.getElementById(map[id]).classList.add('on');
+  if (id !== 'item') window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goHome() { showPage('home'); buildHome(); }
+function showList(t) {
+  showPage(t === 'stavan' ? 'stavans' : 'sutras');
+  document.getElementById(t === 'stavan' ? 'nb-stavans' : 'nb-sutras').classList.add('on');
+  buildList(t);
+}
+
+function showItem(id) {
+  renderItem(D.findIndex(d => d.id === id));
+  showPage('item');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderItem(idx) {
+  const item = D[idx];
+  const peers = D.filter(d => d.type === item.type);
+  const pi = peers.findIndex(d => d.id === item.id);
+  const prev = peers[pi - 1], next = peers[pi + 1];
+  const listLabel = item.type === 'stavan' ? 'Stavans' : 'Sutras';
+  const listAct = item.type === 'stavan' ? "showList('stavan')" : "showList('sutra')";
+  document.getElementById('itemContent').innerHTML = `
+<div class="item-page">
+  <div class="breadcrumb">
+    <a onclick="goHome()">Home</a><span>›</span>
+    <a onclick="${listAct}">${listLabel}</a><span>›</span>
+    ${item.title}
+  </div>
+  <div class="item-title-block">
+    <h2>${item.title}</h2>
+    <div class="sub">${item.sub}</div>
+    <div class="item-divider"></div>
+  </div>
+  <div class="lang-toggle">
+    <button class="lb ${lang==='both'?'on':''}" onclick="setLang('both')">Hindi + Hinglish</button>
+    <button class="lb ${lang==='hindi'?'on':''}" onclick="setLang('hindi')">Hindi Only</button>
+    <button class="lb ${lang==='hinglish'?'on':''}" onclick="setLang('hinglish')">Hinglish Only</button>
+  </div>
+  <div class="bilin lm-${lang}" id="bilinBlock">
+    <div class="col-h">
+      <div class="col-lbl">हिंदी / प्राकृत</div>
+      <div class="ht">${item.hindi}</div>
+    </div>
+    <div class="col-e">
+      <div class="col-lbl">Hinglish (Roman)</div>
+      <div class="et">${item.hinglish}</div>
+      ${item.meaning ? `<div class="meaning-box"><div class="meaning-lbl">✦ About this ${item.type}</div>${item.meaning}</div>` : ''}
+    </div>
+  </div>
+  <div class="item-nav">
+    <button class="inav-btn" ${!prev?'disabled':''} onclick="${prev?`showItem('${prev.id}')`:''}" >◀ ${prev ? prev.title : '—'}</button>
+    <button class="inav-btn" ${!next?'disabled':''} onclick="${next?`showItem('${next.id}')`:''}" >${next ? next.title : '—'} ▶</button>
+  </div>
+</div>`;
+}
+
+function setLang(l) {
+  lang = l;
+  const b = document.getElementById('bilinBlock');
+  if (b) b.className = 'bilin lm-' + l;
+  document.querySelectorAll('.lb').forEach((btn,i) => btn.classList.toggle('on', ['both','hindi','hinglish'][i] === l));
+}
+
+function makeCard(item) {
+  return `<div class="idx-card" onclick="showItem('${item.id}')">
+    <div>
+      <div class="idx-title">${item.title}</div>
+      <div class="idx-sub">${item.sub}</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:.4rem">
+      <span class="tag ${item.type==='sutra'?'t-su':'t-st'}">${item.type==='sutra'?'Sutra':'Stavan'}</span>
+      <span class="idx-arrow">›</span>
+    </div>
+  </div>`;
+}
+
+function buildHome() {
+  document.getElementById('homeSutraGrid').innerHTML = D.filter(d=>d.type==='sutra').map(makeCard).join('');
+  document.getElementById('homeStavanGrid').innerHTML = D.filter(d=>d.type==='stavan').map(makeCard).join('');
+}
+function buildList(t) {
+  const g = t==='stavan'?'stavGrid':'sutGrid';
+  document.getElementById(g).innerHTML = D.filter(d=>d.type===t).map(makeCard).join('');
+}
+
+function homeSearchFn() {
+  const q = document.getElementById('homeSearch').value.toLowerCase().trim();
+  const all = document.getElementById('homeAll');
+  const res = document.getElementById('homeResults');
+  if (!q) { all.style.display=''; res.innerHTML=''; return; }
+  all.style.display='none';
+  const m = D.filter(d=>(d.title+d.sub+d.hindi+d.hinglish).toLowerCase().includes(q));
+  res.innerHTML = m.length
+    ? `<div class="section-hdr">Results (${m.length})</div><div class="idx-grid">${m.map(makeCard).join('')}</div>`
+    : `<div class="no-results">No results for "${q}"</div>`;
+}
+function listSearch(t) {
+  const q = document.getElementById(t==='stavan'?'stavSearch':'sutSearch').value.toLowerCase().trim();
+  const m = D.filter(d=>d.type===t&&(d.title+d.sub+d.hindi+d.hinglish).toLowerCase().includes(q));
+  document.getElementById(t==='stavan'?'stavGrid':'sutGrid').innerHTML = m.length
+    ? m.map(makeCard).join('')
+    : `<div class="no-results">No results found.</div>`;
+}
+
+buildHome();
+</script>
+</body>
+</html>
