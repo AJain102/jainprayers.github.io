@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panch Parmesthi Sutra | Jain Sutras</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--saffron:#C8560A;--gold:#C8960C;--deep:#8B3A0A;--cream:#FAF6EE;--parchment:#F0E8D5;--ink:#1C1208;--muted:#7A6845;--border:#D9C9A3;--white:#FFFDF8;--accent:#FDF4E3}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans',Arial,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+header{background:linear-gradient(135deg,#1C1208 0%,#2C1A06 100%);color:var(--cream);text-align:center;padding:1.25rem 1.5rem 1rem;cursor:pointer;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(200,150,12,.04) 30px,rgba(200,150,12,.04) 60px)}
+.hdr-om{font-size:2.1rem;color:var(--gold);animation:float 4s ease-in-out infinite;display:block;margin-bottom:.1rem;position:relative}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+header h1{font-size:clamp(1.45rem,3vw,2.25rem);font-weight:700;position:relative}
+header h1 span{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:clamp(.9rem,1.8vw,1.25rem);color:var(--gold);display:block;margin-top:.12rem;font-weight:500}
+.hdr-line{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.45rem auto;position:relative}
+header p{font-style:italic;color:#C8B898;font-size:.88rem;position:relative}
+.jai{display:inline-block;border:1px solid rgba(200,150,12,.35);padding:.18rem .75rem;border-radius:2px;color:var(--gold);font-size:.72rem;margin-top:.45rem;letter-spacing:.15em;position:relative}
+nav{background:var(--ink);display:flex;justify-content:center;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold);flex-wrap:wrap}
+.nv{background:none;border:none;color:#C8B898;font-family:'Noto Sans',Arial,sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.1em;padding:.8rem 1.5rem;cursor:pointer;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-2px;text-transform:uppercase;text-decoration:none;display:inline-block}
+.nv:hover{color:var(--gold)}
+.nv.on{color:var(--gold);border-bottom-color:var(--gold);background:rgba(200,150,12,.07)}
+main{width:min(100%,1100px);margin:0 auto;padding:1.5rem 1.25rem}
+.breadcrumb{font-size:.85rem;color:var(--muted);margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.breadcrumb a{color:var(--saffron);text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb span{opacity:.5}
+.item-title-block{text-align:center;margin-bottom:2rem}
+.item-title-block h2{font-family:'Noto Sans',Arial,sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:var(--deep)}
+.sub{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;color:var(--muted);font-size:1.05rem;margin-top:.3rem}
+.item-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto}
+.lang-toggle{display:flex;justify-content:center;margin-bottom:1.5rem;background:var(--parchment);border:1.5px solid var(--border);border-radius:6px;overflow:hidden;width:fit-content;margin-left:auto;margin-right:auto}
+.lb{padding:.55rem 1.25rem;border:none;background:none;cursor:pointer;font-family:'Noto Sans',Arial,sans-serif;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .2s}
+.lb.on{background:var(--saffron);color:#fff}
+.bilin-wrap{overflow-x:auto}
+.bilin{border:1.5px solid var(--border);border-radius:4px;background:var(--white);padding:1.5rem;min-width:700px}
+.sync-labels{display:flex;border-bottom:2px solid var(--border);padding-bottom:.65rem;margin-bottom:.75rem}
+.sync-label{flex:1;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700}
+.sync-label:first-child{color:#8B3A0A;padding-right:.75rem}
+.sync-label:last-child{color:#1A3A6B;padding-left:.75rem}
+.sync-lines{display:flex;flex-direction:column;gap:.05rem}
+.sync-row{display:flex}
+.sync-h{flex:1;padding:.22rem .8rem .22rem 0;white-space:pre-wrap;border-right:2px solid var(--border);font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:1.45rem;line-height:1.8;color:#2A1505}
+.sync-e{flex:1;padding:.22rem 0 .22rem .8rem;white-space:pre-wrap;font-family:'Noto Sans',Arial,sans-serif;font-size:1.25rem;line-height:1.8;color:#0D1A2A}
+.sync-row.blank .sync-h,.sync-row.blank .sync-e{min-height:.9rem}
+.lm-hindi .sync-label:last-child,.lm-hindi .sync-e{display:none}
+.lm-hindi .sync-h{border-right:none;font-size:1.6rem}
+.lm-hinglish .sync-label:first-child,.lm-hinglish .sync-h{display:none}
+.lm-hinglish .sync-e{font-size:1.45rem}
+.meaning-box{background:var(--accent);border-left:4px solid var(--gold);padding:1rem 1.2rem;margin-top:1.5rem;font-size:.95rem;color:#4A3510;line-height:1.7;border-radius:0 4px 4px 0}
+.meaning-lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:700;margin-bottom:.45rem}
+.item-nav{display:flex;justify-content:space-between;margin-top:2rem;gap:1rem}
+.inav-btn{background:var(--white);border:1.5px solid var(--border);border-radius:4px;padding:.7rem 1.2rem;text-decoration:none;font-family:'Noto Sans',Arial,sans-serif;font-size:.85rem;color:var(--deep);transition:all .2s;display:inline-flex;align-items:center;gap:.5rem;max-width:48%}
+.inav-btn:hover{border-color:var(--gold);background:var(--accent)}
+.inav-btn.disabled{opacity:.3;pointer-events:none;cursor:default}
+footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font-size:.8rem;line-height:1.7;margin-top:3rem}
+footer strong{color:var(--gold)}
+footer em{color:#9A8060}
+</style>
+</head>
+<body>
+<header onclick="location.href='../index.html'">
+  <span class="hdr-om">☸</span>
+  <h1>Jain Stavans &amp; Sutras <span>जैन स्तवन और सूत्र</span></h1>
+  <div class="hdr-line"></div>
+  <p>Sacred hymns, prayers and sutras of the Jain tradition</p>
+  <div class="jai">✦ Jai Jinendra ✦</div>
+</header>
+<nav>
+  <a class="nv" href="../index.html">Home</a>
+  <a class="nv" href="../index.html#stavans">Stavans</a>
+  <a class="nv on" href="../index.html#sutras">Sutras</a>
+  <a class="nv" href="../index.html#swadyah">Swadyah</a>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span>›</span>
+    <a href="../index.html#sutras">Sutras</a><span>›</span>
+    Panch Parmesthi Sutra
+  </div>
+  <div class="item-title-block">
+    <h2>Panch Parmesthi Sutra</h2>
+    <div class="sub">पंच परमेष्ठी सूत्र</div>
+    <div class="item-divider"></div>
+  </div>
+  <div class="lang-toggle">
+    <button class="lb on" onclick="setLang('both',this)">Hindi + English</button>
+    <button class="lb" onclick="setLang('hindi',this)">Hindi Only</button>
+    <button class="lb" onclick="setLang('hinglish',this)">English Only</button>
+  </div>
+  <div class="bilin-wrap">
+    <div class="bilin lm-both" id="bilin">
+      <div class="sync-labels">
+        <div class="sync-label">Hindi</div>
+        <div class="sync-label">Hinglish / English</div>
+      </div>
+      <div class="sync-lines" id="syncLines"></div>
+    </div>
+  </div>
+  <div class="meaning-box">
+    <div class="meaning-lbl">About this Sutra</div>
+    The five supreme beings central to Jain worship and the Navkar Mantra. Understanding them deepens the meaning of every Jain prayer.
+  </div>
+  <div class="item-nav">
+    <a class="inav-btn" href="tassauttari.html">← Tassa Uttari</a>
+    <span class="inav-btn disabled">Next →</span>
+  </div>
+</main>
+<footer>
+  <strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain<br>
+  <em>Michami Dukkadam — forgive any errors in this humble effort 🙏</em>
+</footer>
+<script>
+const HINDI = `पाँच परमेष्ठी :
+
+१. अरिहंत — जिन्होंने राग, द्वेष, मोह, अहंकार को जीत लिया और केवल ज्ञान पाया
+२. सिद्ध — जो सब कर्मों को जलाकर मोक्ष को प्राप्त हो गए, शाश्वत आनंद में
+३. आचार्य — साधु-समाज के नेता, जो पाँच महाव्रत और संघ की रक्षा करते हैं
+४. उपाध्याय — आगम शास्त्र के शिक्षक, जो ज्ञान का प्रसार करते हैं
+५. साधु — सभी निर्ग्रंथ मुनि और साध्वियाँ जो संयम में रहते हैं
+
+णमो अरिहंताणं
+णमो सिद्धाणं
+णमो आयरियाणं
+णमो उवज्झायाणं
+णमो लोए सव्व साहूणं`;
+const HINGLISH = `Paanch Parmesthi:
+
+1. Arihant — Jinhone raag, dvesh, moh, ahankaar ko jeet liya aur keval gyaan paaya
+2. Siddha — Jo sab karmon ko jalakar moksh ko praapt ho gaye, shaashvat aanand mein
+3. Acharya — Saadhu-samaaj ke neta, jo paanch mahavrat aur sangh ki raksha karte hain
+4. Upadhyaaya — Aagam shaastra ke shikshak, jo gyaan ka prasaar karte hain
+5. Saadhu — Sabhi nirgrantha muni aur sadhviyaan jo sanyam mein rahte hain
+
+Namo Arihantanam
+Namo Siddhanam
+Namo Ayariyanam
+Namo Uvajjhayanam
+Namo Loe Savva-Sahunam`;
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+(function(){
+  const h=HINDI.split('\n'),e=HINGLISH.split('\n');
+  const n=Math.max(h.length,e.length);
+  document.getElementById('syncLines').innerHTML=Array.from({length:n},(_,i)=>{
+    const hl=h[i]??'',el=e[i]??'';
+    const b=!hl.trim()&&!el.trim()?' blank':'';
+    return`<div class="sync-row${b}"><div class="sync-h">${esc(hl)}</div><div class="sync-e">${esc(el)}</div></div>`;
+  }).join('');
+})();
+function setLang(l,btn){
+  document.getElementById('bilin').className='bilin lm-'+l;
+  document.querySelectorAll('.lb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+}
+</script>
+</body>
+</html>
