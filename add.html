@@ -18,39 +18,85 @@ header h1 span{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;f
 .hdr-line{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.45rem auto;position:relative}
 header p{font-style:italic;color:#C8B898;font-size:.88rem;position:relative}
 .jai{display:inline-block;border:1px solid rgba(200,150,12,.35);padding:.18rem .75rem;border-radius:2px;color:var(--gold);font-size:.72rem;margin-top:.45rem;letter-spacing:.15em;position:relative}
-nav{background:var(--ink);display:flex;justify-content:center;border-bottom:2px solid var(--gold);flex-wrap:wrap}
-.nv{color:#C8B898;font-family:'Noto Sans',Arial,sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.1em;padding:.8rem 1.5rem;text-transform:uppercase;text-decoration:none;display:inline-block;transition:color .2s}
-.nv:hover,.nv.on{color:var(--gold)}
-main{width:min(100%,860px);margin:0 auto;padding:2rem 1.25rem}
-.page-title{text-align:center;margin-bottom:2rem}
-.page-title h2{font-size:1.6rem;font-weight:700;color:var(--deep)}
-.page-title p{color:var(--muted);font-size:.92rem;margin-top:.4rem;font-style:italic}
-.form-card{background:var(--white);border:1.5px solid var(--border);border-radius:6px;padding:1.75rem;margin-bottom:1.5rem}
-.form-card h3{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:700;margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
-.field{margin-bottom:1.1rem}
-label{display:block;font-size:.8rem;font-weight:700;color:var(--deep);margin-bottom:.3rem;letter-spacing:.04em}
-label .hint{font-weight:400;color:var(--muted);font-size:.75rem;margin-left:.4rem}
-input[type=text],select,textarea{width:100%;padding:.55rem .8rem;border:1.5px solid var(--border);border-radius:4px;font-family:'Noto Sans',Arial,sans-serif;font-size:.9rem;background:var(--cream);color:var(--ink);outline:none;transition:border-color .2s}
-input[type=text]:focus,select:focus,textarea:focus{border-color:var(--saffron)}
-textarea{resize:vertical;line-height:1.6}
-textarea.devanagari{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:1rem}
-.type-tabs{display:flex;background:var(--parchment);border:1.5px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:1.5rem}
-.type-tab{flex:1;padding:.6rem;border:none;background:none;cursor:pointer;font-family:'Noto Sans',Arial,sans-serif;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .2s;text-align:center}
+nav{background:var(--ink);display:flex;justify-content:center;align-items:center;border-bottom:2px solid var(--gold);flex-wrap:wrap;gap:.25rem;padding:.25rem .5rem}
+.nv{color:#C8B898;font-family:'Noto Sans',Arial,sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.1em;padding:.65rem 1.2rem;text-transform:uppercase;text-decoration:none;display:inline-block;transition:color .2s;border:none;background:none;cursor:pointer}
+.nv:hover{color:var(--gold)}
+.nv.on{color:var(--gold)}
+.pat-bar{background:#2C1A06;border-bottom:1px solid #3a2410;padding:.5rem 1.25rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;font-size:.8rem}
+.pat-status{display:flex;align-items:center;gap:.5rem;color:#C8B898}
+.pat-dot{width:8px;height:8px;border-radius:50%;background:#888;flex-shrink:0}
+.pat-dot.ok{background:#4caf50}
+.pat-dot.bad{background:#e74c3c}
+.pat-link{color:var(--gold);text-decoration:none;font-size:.75rem}
+.pat-link:hover{text-decoration:underline}
+.pat-toggle{background:none;border:1px solid rgba(200,150,12,.35);color:var(--gold);font-size:.72rem;padding:.2rem .6rem;border-radius:2px;cursor:pointer}
+.pat-form{display:none;align-items:center;gap:.5rem;flex-wrap:wrap;width:100%;margin-top:.35rem}
+.pat-form.open{display:flex}
+.pat-input{flex:1;min-width:260px;padding:.35rem .6rem;border:1px solid var(--border);border-radius:3px;font-family:monospace;font-size:.8rem;background:#1C1208;color:#C8B898}
+.pat-save{background:var(--gold);color:var(--ink);border:none;border-radius:3px;padding:.35rem .8rem;font-size:.78rem;font-weight:700;cursor:pointer}
+.pat-clear{background:none;border:1px solid #555;color:#888;border-radius:3px;padding:.35rem .6rem;font-size:.75rem;cursor:pointer}
+
+main{width:min(100%,860px);margin:0 auto;padding:1.75rem 1.25rem}
+.step{background:var(--white);border:1.5px solid var(--border);border-radius:6px;padding:1.5rem;margin-bottom:1.25rem}
+.step-hdr{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:700;margin-bottom:1.1rem;padding-bottom:.55rem;border-bottom:1px solid var(--border)}
+.type-tabs{display:flex;background:var(--parchment);border:1.5px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:1rem}
+.type-tab{flex:1;padding:.6rem;border:none;background:none;cursor:pointer;font-family:'Noto Sans',Arial,sans-serif;font-size:.88rem;font-weight:600;color:var(--muted);transition:all .2s;text-align:center}
 .type-tab.on{background:var(--saffron);color:#fff}
-.cat-field{display:none}
-.cat-field.visible{display:block}
-.generate-btn{width:100%;padding:.85rem;background:var(--saffron);color:#fff;border:none;border-radius:4px;font-family:'Noto Sans',Arial,sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s;letter-spacing:.05em}
-.generate-btn:hover{background:var(--deep)}
-.output-section{display:none}
-.output-section.visible{display:block}
-.output-card{background:#1C1208;border-radius:6px;padding:1.5rem;position:relative}
-.output-card pre{color:#C8B898;font-family:'Courier New',monospace;font-size:.82rem;white-space:pre-wrap;word-break:break-all;line-height:1.6}
-.copy-btn{position:absolute;top:.75rem;right:.75rem;background:var(--gold);color:var(--ink);border:none;border-radius:3px;padding:.35rem .8rem;font-family:'Noto Sans',Arial,sans-serif;font-size:.75rem;font-weight:700;cursor:pointer;transition:opacity .2s}
-.copy-btn:hover{opacity:.85}
-.instructions{background:var(--accent);border-left:4px solid var(--gold);border-radius:0 4px 4px 0;padding:1rem 1.2rem;font-size:.88rem;color:#4A3510;line-height:1.7}
-.instructions strong{color:var(--deep)}
-.instructions code{background:var(--parchment);padding:.1rem .35rem;border-radius:2px;font-family:'Courier New',monospace;font-size:.82rem}
-.success-badge{display:none;background:#d4edda;border:1px solid #c3e6cb;color:#155724;padding:.4rem .8rem;border-radius:3px;font-size:.8rem;font-weight:600;margin-top:.5rem;text-align:center}
+.field{margin-bottom:1rem}
+label{display:block;font-size:.8rem;font-weight:700;color:var(--deep);margin-bottom:.28rem}
+label .hint{font-weight:400;color:var(--muted);font-size:.74rem;margin-left:.35rem}
+input[type=text],select,textarea{width:100%;padding:.52rem .75rem;border:1.5px solid var(--border);border-radius:4px;font-family:'Noto Sans',Arial,sans-serif;font-size:.9rem;background:var(--cream);color:var(--ink);outline:none;transition:border-color .2s}
+input[type=text]:focus,select:focus,textarea:focus{border-color:var(--saffron)}
+textarea{resize:vertical;line-height:1.65}
+.deva{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:1rem}
+.cat-row{display:none}
+.cat-row.show{display:block}
+.btn-row{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{padding:.7rem 1.4rem;border:none;border-radius:4px;font-family:'Noto Sans',Arial,sans-serif;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:.03em}
+.btn-preview{background:var(--parchment);border:1.5px solid var(--border);color:var(--deep)}
+.btn-preview:hover{border-color:var(--gold);background:var(--accent)}
+.btn-publish{background:var(--saffron);color:#fff;flex:1}
+.btn-publish:hover{background:var(--deep)}
+.btn-publish:disabled{opacity:.45;cursor:not-allowed}
+
+/* ── Preview panel ── */
+#previewSection{display:none;margin-bottom:1.5rem}
+.preview-card{background:var(--white);border:1.5px solid var(--gold);border-radius:6px;padding:1.5rem}
+.preview-hdr{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:700;margin-bottom:1.25rem;padding-bottom:.55rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.preview-title-block{text-align:center;margin-bottom:1.5rem}
+.preview-title-block h2{font-size:clamp(1.35rem,3vw,1.9rem);font-weight:700;color:var(--deep)}
+.preview-sub{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;color:var(--muted);font-size:1rem;margin-top:.25rem}
+.preview-divider{width:70px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.75rem auto}
+.lang-toggle{display:flex;justify-content:center;margin-bottom:1.25rem;background:var(--parchment);border:1.5px solid var(--border);border-radius:6px;overflow:hidden;width:fit-content;margin-left:auto;margin-right:auto}
+.lb{padding:.48rem 1.1rem;border:none;background:none;cursor:pointer;font-family:'Noto Sans',Arial,sans-serif;font-size:.82rem;font-weight:600;color:var(--muted);transition:all .2s}
+.lb.on{background:var(--saffron);color:#fff}
+.bilin-wrap{overflow-x:auto}
+.bilin{border:1.5px solid var(--border);border-radius:4px;background:var(--white);padding:1.25rem;min-width:600px}
+.sync-labels{display:flex;border-bottom:2px solid var(--border);padding-bottom:.55rem;margin-bottom:.6rem}
+.sync-label{flex:1;font-size:.67rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
+.sync-label:first-child{color:#8B3A0A;padding-right:.75rem}
+.sync-label:last-child{color:#1A3A6B;padding-left:.75rem}
+.sync-lines{display:flex;flex-direction:column;gap:.04rem}
+.sync-row{display:flex}
+.sync-h{flex:1;padding:.2rem .75rem .2rem 0;white-space:pre-wrap;border-right:2px solid var(--border);font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:1.35rem;line-height:1.8;color:#2A1505}
+.sync-e{flex:1;padding:.2rem 0 .2rem .75rem;white-space:pre-wrap;font-family:'Noto Sans',Arial,sans-serif;font-size:1.15rem;line-height:1.8;color:#0D1A2A}
+.sync-row.blank .sync-h,.sync-row.blank .sync-e{min-height:.85rem}
+.lm-hindi .sync-label:last-child,.lm-hindi .sync-e{display:none}
+.lm-hindi .sync-h{border-right:none;font-size:1.5rem}
+.lm-hinglish .sync-label:first-child,.lm-hinglish .sync-h{display:none}
+.lm-hinglish .sync-e{font-size:1.3rem}
+.meaning-box{background:var(--accent);border-left:4px solid var(--gold);padding:.9rem 1.1rem;margin-top:1.25rem;font-size:.9rem;color:#4A3510;line-height:1.7;border-radius:0 4px 4px 0}
+.meaning-lbl{font-size:.67rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:700;margin-bottom:.4rem}
+.preview-actions{display:flex;gap:.75rem;margin-top:1.5rem;flex-wrap:wrap}
+
+/* ── Status ── */
+#statusSection{display:none;padding:1.25rem 1.5rem;border-radius:6px;margin-bottom:1rem;font-size:.92rem;line-height:1.6}
+#statusSection.loading{background:#FFF8E8;border:1.5px solid var(--gold);color:#5A3A08}
+#statusSection.success{background:#eaf7ed;border:1.5px solid #4caf50;color:#1a4a26}
+#statusSection.error{background:#fdecea;border:1.5px solid #e74c3c;color:#7a1a14}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite;margin-right:.5rem;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+
 footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font-size:.8rem;line-height:1.7;margin-top:3rem}
 footer strong{color:var(--gold)}
 footer em{color:#9A8060}
@@ -66,24 +112,35 @@ footer em{color:#9A8060}
 </header>
 <nav>
   <a class="nv" href="index.html">← Back to Site</a>
-  <a class="nv on">➕ Add Content</a>
+  <span class="nv on">➕ Add Content</span>
 </nav>
 
-<main>
-  <div class="page-title">
-    <h2>Add New Content</h2>
-    <p>Fill in the fields below, click Generate, then paste the code into the right data file.</p>
+<!-- GitHub token bar -->
+<div class="pat-bar">
+  <div class="pat-status">
+    <span class="pat-dot" id="patDot"></span>
+    <span id="patLabel">No GitHub token set</span>
   </div>
+  <button class="pat-toggle" onclick="togglePatForm()">⚙ Configure</button>
+  <div class="pat-form" id="patForm">
+    <input class="pat-input" id="patInput" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+    <button class="pat-save" onclick="savePat()">Save</button>
+    <button class="pat-clear" onclick="clearPat()">Clear</button>
+    <a class="pat-link" href="https://github.com/settings/tokens/new?scopes=public_repo&description=JainPrayers" target="_blank">Get a token ↗</a>
+  </div>
+</div>
 
-  <div class="form-card">
-    <h3>Step 1 — Choose Type</h3>
+<main>
+
+  <!-- STEP 1: Type -->
+  <div class="step">
+    <div class="step-hdr">Step 1 — What are you adding?</div>
     <div class="type-tabs">
-      <button class="type-tab on" onclick="setType('stavan',this)">Stavan</button>
-      <button class="type-tab" onclick="setType('sutra',this)">Sutra</button>
-      <button class="type-tab" onclick="setType('swadyah',this)">Swadyah</button>
+      <button class="type-tab on" onclick="setType('stavan',this)">✦ Stavan</button>
+      <button class="type-tab" onclick="setType('sutra',this)">☸ Sutra</button>
+      <button class="type-tab" onclick="setType('swadyah',this)">📖 Swadyah</button>
     </div>
-
-    <div class="cat-field" id="catField">
+    <div class="cat-row" id="catRow">
       <div class="field">
         <label>Category <span class="hint">which subtopic does this sutra belong to?</span></label>
         <select id="category">
@@ -95,63 +152,81 @@ footer em{color:#9A8060}
           <option value="mahavir-ashtak">Mahavir Ashtak</option>
           <option value="pratyakhyan">Pratyakhyan (Pachikhan)</option>
           <option value="bhaktamar">Bhaktamar Stotra</option>
-          <option value="other">Other / New Category</option>
+          <option value="other">Other (new category — add manually)</option>
         </select>
       </div>
     </div>
   </div>
 
-  <div class="form-card">
-    <h3>Step 2 — Fill in Details</h3>
-
+  <!-- STEP 2: Details -->
+  <div class="step">
+    <div class="step-hdr">Step 2 — Fill in the details</div>
     <div class="field">
       <label>Title <span class="hint">in English</span></label>
       <input type="text" id="title" placeholder="e.g. Navkar Mantra" oninput="autoId()">
     </div>
-
     <div class="field">
-      <label>ID <span class="hint">unique, no spaces, lowercase — auto-filled from title</span></label>
+      <label>ID <span class="hint">unique, lowercase, no spaces — auto-filled from title, you can edit</span></label>
       <input type="text" id="itemId" placeholder="e.g. navkar-mantra">
     </div>
-
     <div class="field">
-      <label>Subtitle <span class="hint">in Hindi / Devanagari</span></label>
-      <input type="text" id="sub" placeholder="e.g. णमो अरिहंताणं" class="devanagari">
+      <label>Subtitle <span class="hint">in Hindi / Devanagari script</span></label>
+      <input type="text" id="sub" class="deva" placeholder="e.g. णमो अरिहंताणं">
     </div>
-
     <div class="field">
-      <label>Hindi / Prakrit Text <span class="hint">paste full text, one line per verse line</span></label>
-      <textarea id="hindi" rows="10" class="devanagari" placeholder="Paste Hindi or Prakrit text here…"></textarea>
+      <label>Hindi / Prakrit Text <span class="hint">one line per verse line; blank lines become spacers</span></label>
+      <textarea id="hindi" rows="12" class="deva" placeholder="Paste the full Hindi or Prakrit text here…"></textarea>
     </div>
-
     <div class="field">
-      <label>Transliteration / English <span class="hint">Roman script version, matching lines</span></label>
-      <textarea id="hinglish" rows="10" placeholder="Paste transliteration or English meaning here…"></textarea>
+      <label>Transliteration / English <span class="hint">Roman script, line-for-line matching the Hindi above</span></label>
+      <textarea id="hinglish" rows="12" placeholder="Paste the transliteration or English meaning here…"></textarea>
     </div>
-
     <div class="field">
-      <label>Meaning / Description <span class="hint">1–3 sentences about this piece</span></label>
-      <textarea id="meaning" rows="3" placeholder="Brief description of what this is and when it is recited…"></textarea>
+      <label>Meaning / Description <span class="hint">1–3 sentences — what this is and when it is recited</span></label>
+      <textarea id="meaning" rows="3" placeholder="Brief description…"></textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-preview" onclick="showPreview()">👁 Preview</button>
     </div>
   </div>
 
-  <div class="form-card">
-    <h3>Step 3 — Generate &amp; Copy</h3>
-    <button class="generate-btn" onclick="generate()">⚙ Generate Code</button>
-  </div>
-
-  <div class="output-section" id="outputSection">
-    <div class="form-card">
-      <h3>Generated Code — Copy &amp; Paste</h3>
-      <div class="output-card">
-        <button class="copy-btn" onclick="copyCode()">Copy</button>
-        <pre id="outputCode"></pre>
+  <!-- PREVIEW -->
+  <div id="previewSection">
+    <div class="preview-card">
+      <div class="preview-hdr">
+        <span>Preview — this is exactly how it will appear on site</span>
+        <button class="btn btn-preview" style="padding:.35rem .9rem;font-size:.8rem" onclick="showPreview()">↻ Refresh</button>
       </div>
-      <div class="success-badge" id="copyBadge">✓ Copied to clipboard!</div>
+      <div class="preview-title-block">
+        <h2 id="pvTitle"></h2>
+        <div class="preview-sub" id="pvSub"></div>
+        <div class="preview-divider"></div>
+      </div>
+      <div class="lang-toggle">
+        <button class="lb on" onclick="setPreviewLang('both',this)">Hindi + English</button>
+        <button class="lb" onclick="setPreviewLang('hindi',this)">Hindi Only</button>
+        <button class="lb" onclick="setPreviewLang('hinglish',this)">English Only</button>
+      </div>
+      <div class="bilin-wrap">
+        <div class="bilin lm-both" id="pvBilin">
+          <div class="sync-labels">
+            <div class="sync-label">Hindi / Prakrit</div>
+            <div class="sync-label">Transliteration / English</div>
+          </div>
+          <div class="sync-lines" id="pvLines"></div>
+        </div>
+      </div>
+      <div id="pvMeaning"></div>
+      <div class="preview-actions">
+        <button class="btn btn-preview" onclick="document.getElementById('title').focus();document.getElementById('title').scrollIntoView({behavior:'smooth'})">← Edit</button>
+        <button class="btn btn-publish" id="publishBtn" onclick="publish()">✓ Publish to Site</button>
+      </div>
     </div>
-
-    <div class="instructions" id="instructions"></div>
   </div>
+
+  <!-- STATUS -->
+  <div id="statusSection"></div>
+
 </main>
 
 <footer>
@@ -160,80 +235,215 @@ footer em{color:#9A8060}
 </footer>
 
 <script>
+const REPO = 'AJain102/jainprayers.github.io';
+const FILE_MAP = {stavan:'js/stavans-data.js', sutra:'js/sutras-data.js', swadyah:'js/swadyah-data.js'};
+const END_MARKER = {stavan:']; // end STAVANS', sutra:']; // end SUTRAS', swadyah:']; // end SWADYAHS'};
+
 let currentType = 'stavan';
 
+// ── PAT management ──────────────────────────────────────────
+function updatePatUi() {
+  const pat = localStorage.getItem('jain-gh-pat') || '';
+  const dot = document.getElementById('patDot');
+  const lbl = document.getElementById('patLabel');
+  if (pat) { dot.className='pat-dot ok'; lbl.textContent='GitHub token set ✓'; }
+  else      { dot.className='pat-dot bad'; lbl.textContent='No GitHub token — publishing disabled'; }
+  document.getElementById('publishBtn').disabled = !pat;
+}
+function togglePatForm() {
+  const f = document.getElementById('patForm');
+  f.classList.toggle('open');
+  if (f.classList.contains('open')) document.getElementById('patInput').focus();
+}
+function savePat() {
+  const v = document.getElementById('patInput').value.trim();
+  if (!v) return;
+  localStorage.setItem('jain-gh-pat', v);
+  document.getElementById('patInput').value = '';
+  document.getElementById('patForm').classList.remove('open');
+  updatePatUi();
+}
+function clearPat() {
+  localStorage.removeItem('jain-gh-pat');
+  document.getElementById('patInput').value = '';
+  document.getElementById('patForm').classList.remove('open');
+  updatePatUi();
+}
+updatePatUi();
+
+// ── Type selector ───────────────────────────────────────────
 function setType(t, btn) {
   currentType = t;
   document.querySelectorAll('.type-tab').forEach(b => b.classList.remove('on'));
   btn.classList.add('on');
-  document.getElementById('catField').classList.toggle('visible', t === 'sutra');
+  document.getElementById('catRow').classList.toggle('show', t === 'sutra');
 }
 
+// ── Auto ID ─────────────────────────────────────────────────
 function autoId() {
   const title = document.getElementById('title').value;
-  const id = title.toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
-    .trim()
-    .replace(/\s+/g, '-');
-  document.getElementById('itemId').value = id;
+  document.getElementById('itemId').value = title.toLowerCase()
+    .replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-');
 }
 
-function escapeBacktick(s) {
-  return s.replace(/`/g, '\\`').replace(/\$/g, '\\$');
+// ── Preview ─────────────────────────────────────────────────
+function esc(t) {
+  return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 
-function generate() {
-  const id = document.getElementById('itemId').value.trim();
-  const title = document.getElementById('title').value.trim();
-  const sub = document.getElementById('sub').value.trim();
-  const hindi = document.getElementById('hindi').value.trim();
-  const hinglish = document.getElementById('hinglish').value.trim();
+function buildLines(hindi, hinglish) {
+  const h = hindi.split('\n'), e = hinglish.split('\n');
+  const n = Math.max(h.length, e.length);
+  return Array.from({length:n},(_,i)=>{
+    const hl=h[i]??'', el=e[i]??'';
+    const b=!hl.trim()&&!el.trim()?' blank':'';
+    return`<div class="sync-row${b}"><div class="sync-h">${esc(hl)}</div><div class="sync-e">${esc(el)}</div></div>`;
+  }).join('');
+}
+
+function showPreview() {
+  const title   = document.getElementById('title').value.trim();
+  const sub     = document.getElementById('sub').value.trim();
+  const hindi   = document.getElementById('hindi').value;
+  const hinglish= document.getElementById('hinglish').value;
   const meaning = document.getElementById('meaning').value.trim();
+
+  if (!title && !hindi) { alert('Fill in at least a title and some text first.'); return; }
+
+  document.getElementById('pvTitle').textContent  = title || '(no title)';
+  document.getElementById('pvSub').textContent    = sub;
+  document.getElementById('pvLines').innerHTML    = buildLines(hindi, hinglish);
+  document.getElementById('pvMeaning').innerHTML  = meaning
+    ? `<div class="meaning-box"><div class="meaning-lbl">About this entry</div>${esc(meaning)}</div>` : '';
+
+  const sec = document.getElementById('previewSection');
+  sec.style.display = 'block';
+  sec.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function setPreviewLang(l, btn) {
+  document.getElementById('pvBilin').className = 'bilin lm-'+l;
+  document.querySelectorAll('#previewSection .lb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+}
+
+// ── GitHub API helpers ───────────────────────────────────────
+function b64Encode(str) {
+  return btoa(String.fromCharCode(...new TextEncoder().encode(str)));
+}
+function b64Decode(b64) {
+  return new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g,'')), c=>c.charCodeAt(0)));
+}
+
+function ghHeaders() {
+  const pat = localStorage.getItem('jain-gh-pat');
+  return {'Authorization':'Bearer '+pat,'Content-Type':'application/json','Accept':'application/vnd.github+json'};
+}
+
+async function getFile(path) {
+  const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {headers:ghHeaders()});
+  if (!r.ok) throw new Error(`GitHub: ${r.status} ${r.statusText} — check your token and repo name.`);
+  const d = await r.json();
+  return {sha: d.sha, content: b64Decode(d.content)};
+}
+
+async function putFile(path, content, sha, message) {
+  const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+    method:'PUT', headers:ghHeaders(),
+    body: JSON.stringify({message, content:b64Encode(content), sha})
+  });
+  if (!r.ok) {
+    const e = await r.json().catch(()=>({}));
+    throw new Error(`GitHub ${r.status}: ${e.message||r.statusText}`);
+  }
+  return r.json();
+}
+
+// ── Build JS entry string ────────────────────────────────────
+function escStr(s) { return s.replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
+function escTpl(s) { return s.replace(/\\/g,'\\\\').replace(/`/g,'\\`').replace(/\$\{/g,'\\${'); }
+
+function buildEntry() {
+  const id      = document.getElementById('itemId').value.trim();
+  const title   = document.getElementById('title').value.trim();
+  const sub     = document.getElementById('sub').value.trim();
+  const hindi   = document.getElementById('hindi').value.trim();
+  const hinglish= document.getElementById('hinglish').value.trim();
+  const meaning = document.getElementById('meaning').value.trim();
+  const typeField = currentType !== 'stavan' ? `type:'${currentType}',` : '';
+  return `{id:'${escStr(id)}',${typeField}title:'${escStr(title)}',sub:'${escStr(sub)}',\nhindi:\`${escTpl(hindi)}\`,\nhinglish:\`${escTpl(hinglish)}\`,\nmeaning:'${escStr(meaning)}'},\n`;
+}
+
+// ── Status helpers ───────────────────────────────────────────
+function setStatus(cls, html) {
+  const s = document.getElementById('statusSection');
+  s.className = cls; s.innerHTML = html; s.style.display = 'block';
+  s.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+// ── Publish ─────────────────────────────────────────────────
+async function publish() {
+  const id      = document.getElementById('itemId').value.trim();
+  const title   = document.getElementById('title').value.trim();
+  const hindi   = document.getElementById('hindi').value.trim();
+
+  if (!id)    { alert('ID is required.'); return; }
+  if (!title) { alert('Title is required.'); return; }
+  if (!hindi) { alert('Hindi text is required.'); return; }
+
+  const entry    = buildEntry();
+  const filePath = FILE_MAP[currentType];
+  const marker   = END_MARKER[currentType];
   const category = document.getElementById('category').value;
 
-  if (!id || !title || !hindi) {
-    alert('Please fill in at least the ID, Title, and Hindi text.');
-    return;
+  document.getElementById('publishBtn').disabled = true;
+  setStatus('loading', '<span class="spinner"></span> Fetching current file from GitHub…');
+
+  try {
+    const {sha, content} = await getFile(filePath);
+
+    // Insert new entry just before the closing marker
+    const insertAt = content.lastIndexOf(marker);
+    if (insertAt === -1) throw new Error(`Could not find "${marker}" in ${filePath}. The file may be out of sync.`);
+    let newContent = content.slice(0, insertAt) + entry + '\n' + content.slice(insertAt);
+
+    // For sutras: also update SUTRA_CATEGORIES
+    if (currentType === 'sutra' && category !== 'other') {
+      const catSearch = `id: '${category}'`;
+      const catPos    = newContent.indexOf(catSearch);
+      if (catPos === -1) throw new Error(`Category "${category}" not found in SUTRA_CATEGORIES.`);
+      // Find sutras: [ in this category block
+      const arrStart = newContent.indexOf('sutras: [', catPos);
+      if (arrStart === -1) throw new Error('Could not locate sutras array in category.');
+      // Find the closing ] of that array
+      const arrClose = newContent.indexOf(']', arrStart + 9);
+      if (arrClose === -1) throw new Error('Could not find closing ] of sutras array.');
+      newContent = newContent.slice(0, arrClose) + `,'${id}'` + newContent.slice(arrClose);
+    }
+
+    setStatus('loading', '<span class="spinner"></span> Committing to GitHub…');
+    await putFile(filePath, newContent, sha, `Add ${currentType}: ${title}`);
+
+    setStatus('success', `
+      <strong>✓ Published!</strong><br>
+      <em>${title}</em> has been committed to <code>${filePath}</code>.<br>
+      GitHub Pages will rebuild in about 60 seconds — then it will appear on the site automatically.<br><br>
+      <a href="index.html" style="color:inherit;font-weight:700">← Back to site</a>
+      &nbsp;|&nbsp;
+      <a href="#" onclick="resetForm();return false" style="color:inherit;font-weight:700">Add another</a>
+    `);
+  } catch(err) {
+    setStatus('error', `<strong>✗ Error:</strong> ${esc(err.message)}<br><small>Check your GitHub token has <code>public_repo</code> scope and that the repo name is correct.</small>`);
+  } finally {
+    document.getElementById('publishBtn').disabled = false;
   }
-
-  const typeField = currentType === 'sutra' ? `type:'sutra',` : currentType === 'swadyah' ? `type:'swadyah',` : '';
-
-  const entry = `{id:'${id}',${typeField}title:'${title.replace(/'/g,"\\'")}',sub:'${sub.replace(/'/g,"\\'")}',\nhindi:\`${escapeBacktick(hindi)}\`,\nhinglish:\`${escapeBacktick(hinglish)}\`,\nmeaning:'${meaning.replace(/'/g,"\\'")}'},`;
-
-  document.getElementById('outputCode').textContent = entry;
-  document.getElementById('outputSection').classList.add('visible');
-
-  let file, extra = '';
-  if (currentType === 'stavan') {
-    file = 'js/stavans-data.js';
-    extra = '<strong>Paste</strong> the entry above into <code>js/stavans-data.js</code> inside the <code>STAVANS = [...]</code> array (before the closing <code>]</code>).';
-  } else if (currentType === 'swadyah') {
-    file = 'js/swadyah-data.js';
-    extra = '<strong>Paste</strong> the entry above into <code>js/swadyah-data.js</code> inside the <code>SWADYAHS = [...]</code> array (before the closing <code>]</code>).';
-  } else {
-    file = 'js/sutras-data.js';
-    extra = `<strong>Paste</strong> the entry into <code>js/sutras-data.js</code> inside <code>SUTRAS = [...]</code>.<br>
-Then add <code>'${id}'</code> to the <code>sutras: [...]</code> list of the <strong>${category}</strong> category inside <code>SUTRA_CATEGORIES</code>.`;
-  }
-
-  document.getElementById('instructions').innerHTML = `
-    <strong>What to do next:</strong><br>
-    1. Click <strong>Copy</strong> above.<br>
-    2. Open <code>${file}</code> in a text editor or VS Code.<br>
-    3. ${extra}<br>
-    4. Save the file — the new entry will appear on the site automatically.
-  `;
-
-  document.getElementById('outputSection').scrollIntoView({behavior:'smooth', block:'start'});
 }
 
-function copyCode() {
-  const text = document.getElementById('outputCode').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    const badge = document.getElementById('copyBadge');
-    badge.style.display = 'block';
-    setTimeout(() => badge.style.display = 'none', 2500);
-  });
+function resetForm() {
+  ['title','itemId','sub','hindi','hinglish','meaning'].forEach(id => document.getElementById(id).value='');
+  document.getElementById('previewSection').style.display='none';
+  document.getElementById('statusSection').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
 </body>
