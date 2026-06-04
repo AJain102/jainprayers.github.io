@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Content | Jain Stavans & Sutras</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--saffron:#C8560A;--gold:#C8960C;--deep:#8B3A0A;--cream:#FAF6EE;--parchment:#F0E8D5;--ink:#1C1208;--muted:#7A6845;--border:#D9C9A3;--white:#FFFDF8;--accent:#FDF4E3}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans',Arial,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+header{background:linear-gradient(135deg,#1C1208 0%,#2C1A06 100%);color:var(--cream);text-align:center;padding:1.25rem 1.5rem 1rem;cursor:pointer;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(200,150,12,.04) 30px,rgba(200,150,12,.04) 60px)}
+.hdr-om{font-size:2.1rem;color:var(--gold);animation:float 4s ease-in-out infinite;display:block;margin-bottom:.1rem;position:relative}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+header h1{font-size:clamp(1.45rem,3vw,2.25rem);font-weight:700;position:relative}
+header h1 span{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:clamp(.9rem,1.8vw,1.25rem);color:var(--gold);display:block;margin-top:.12rem;font-weight:500}
+.hdr-line{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.45rem auto;position:relative}
+header p{font-style:italic;color:#C8B898;font-size:.88rem;position:relative}
+.jai{display:inline-block;border:1px solid rgba(200,150,12,.35);padding:.18rem .75rem;border-radius:2px;color:var(--gold);font-size:.72rem;margin-top:.45rem;letter-spacing:.15em;position:relative}
+nav{background:var(--ink);display:flex;justify-content:center;border-bottom:2px solid var(--gold);flex-wrap:wrap}
+.nv{color:#C8B898;font-family:'Noto Sans',Arial,sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.1em;padding:.8rem 1.5rem;text-transform:uppercase;text-decoration:none;display:inline-block;transition:color .2s}
+.nv:hover,.nv.on{color:var(--gold)}
+main{width:min(100%,860px);margin:0 auto;padding:2rem 1.25rem}
+.page-title{text-align:center;margin-bottom:2rem}
+.page-title h2{font-size:1.6rem;font-weight:700;color:var(--deep)}
+.page-title p{color:var(--muted);font-size:.92rem;margin-top:.4rem;font-style:italic}
+.form-card{background:var(--white);border:1.5px solid var(--border);border-radius:6px;padding:1.75rem;margin-bottom:1.5rem}
+.form-card h3{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:700;margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid var(--border)}
+.field{margin-bottom:1.1rem}
+label{display:block;font-size:.8rem;font-weight:700;color:var(--deep);margin-bottom:.3rem;letter-spacing:.04em}
+label .hint{font-weight:400;color:var(--muted);font-size:.75rem;margin-left:.4rem}
+input[type=text],select,textarea{width:100%;padding:.55rem .8rem;border:1.5px solid var(--border);border-radius:4px;font-family:'Noto Sans',Arial,sans-serif;font-size:.9rem;background:var(--cream);color:var(--ink);outline:none;transition:border-color .2s}
+input[type=text]:focus,select:focus,textarea:focus{border-color:var(--saffron)}
+textarea{resize:vertical;line-height:1.6}
+textarea.devanagari{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:1rem}
+.type-tabs{display:flex;background:var(--parchment);border:1.5px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:1.5rem}
+.type-tab{flex:1;padding:.6rem;border:none;background:none;cursor:pointer;font-family:'Noto Sans',Arial,sans-serif;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .2s;text-align:center}
+.type-tab.on{background:var(--saffron);color:#fff}
+.cat-field{display:none}
+.cat-field.visible{display:block}
+.generate-btn{width:100%;padding:.85rem;background:var(--saffron);color:#fff;border:none;border-radius:4px;font-family:'Noto Sans',Arial,sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s;letter-spacing:.05em}
+.generate-btn:hover{background:var(--deep)}
+.output-section{display:none}
+.output-section.visible{display:block}
+.output-card{background:#1C1208;border-radius:6px;padding:1.5rem;position:relative}
+.output-card pre{color:#C8B898;font-family:'Courier New',monospace;font-size:.82rem;white-space:pre-wrap;word-break:break-all;line-height:1.6}
+.copy-btn{position:absolute;top:.75rem;right:.75rem;background:var(--gold);color:var(--ink);border:none;border-radius:3px;padding:.35rem .8rem;font-family:'Noto Sans',Arial,sans-serif;font-size:.75rem;font-weight:700;cursor:pointer;transition:opacity .2s}
+.copy-btn:hover{opacity:.85}
+.instructions{background:var(--accent);border-left:4px solid var(--gold);border-radius:0 4px 4px 0;padding:1rem 1.2rem;font-size:.88rem;color:#4A3510;line-height:1.7}
+.instructions strong{color:var(--deep)}
+.instructions code{background:var(--parchment);padding:.1rem .35rem;border-radius:2px;font-family:'Courier New',monospace;font-size:.82rem}
+.success-badge{display:none;background:#d4edda;border:1px solid #c3e6cb;color:#155724;padding:.4rem .8rem;border-radius:3px;font-size:.8rem;font-weight:600;margin-top:.5rem;text-align:center}
+footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font-size:.8rem;line-height:1.7;margin-top:3rem}
+footer strong{color:var(--gold)}
+footer em{color:#9A8060}
+</style>
+</head>
+<body>
+<header onclick="location.href='index.html'">
+  <span class="hdr-om">☸</span>
+  <h1>Jain Stavans &amp; Sutras <span>जैन स्तवन और सूत्र</span></h1>
+  <div class="hdr-line"></div>
+  <p>Sacred hymns, prayers and sutras of the Jain tradition</p>
+  <div class="jai">✦ Jai Jinendra ✦</div>
+</header>
+<nav>
+  <a class="nv" href="index.html">← Back to Site</a>
+  <a class="nv on">➕ Add Content</a>
+</nav>
+
+<main>
+  <div class="page-title">
+    <h2>Add New Content</h2>
+    <p>Fill in the fields below, click Generate, then paste the code into the right data file.</p>
+  </div>
+
+  <div class="form-card">
+    <h3>Step 1 — Choose Type</h3>
+    <div class="type-tabs">
+      <button class="type-tab on" onclick="setType('stavan',this)">Stavan</button>
+      <button class="type-tab" onclick="setType('sutra',this)">Sutra</button>
+      <button class="type-tab" onclick="setType('swadyah',this)">Swadyah</button>
+    </div>
+
+    <div class="cat-field" id="catField">
+      <div class="field">
+        <label>Category <span class="hint">which subtopic does this sutra belong to?</span></label>
+        <select id="category">
+          <option value="samayik">Samayik Path</option>
+          <option value="pratikraman">Pratikraman Path</option>
+          <option value="uvasaggaharam">Uvasaggaharam</option>
+          <option value="ghantakarna">Om Ghantakarna Mahavir</option>
+          <option value="chintamani">Chintamani Parshvanath</option>
+          <option value="mahavir-ashtak">Mahavir Ashtak</option>
+          <option value="pratyakhyan">Pratyakhyan (Pachikhan)</option>
+          <option value="bhaktamar">Bhaktamar Stotra</option>
+          <option value="other">Other / New Category</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <h3>Step 2 — Fill in Details</h3>
+
+    <div class="field">
+      <label>Title <span class="hint">in English</span></label>
+      <input type="text" id="title" placeholder="e.g. Navkar Mantra" oninput="autoId()">
+    </div>
+
+    <div class="field">
+      <label>ID <span class="hint">unique, no spaces, lowercase — auto-filled from title</span></label>
+      <input type="text" id="itemId" placeholder="e.g. navkar-mantra">
+    </div>
+
+    <div class="field">
+      <label>Subtitle <span class="hint">in Hindi / Devanagari</span></label>
+      <input type="text" id="sub" placeholder="e.g. णमो अरिहंताणं" class="devanagari">
+    </div>
+
+    <div class="field">
+      <label>Hindi / Prakrit Text <span class="hint">paste full text, one line per verse line</span></label>
+      <textarea id="hindi" rows="10" class="devanagari" placeholder="Paste Hindi or Prakrit text here…"></textarea>
+    </div>
+
+    <div class="field">
+      <label>Transliteration / English <span class="hint">Roman script version, matching lines</span></label>
+      <textarea id="hinglish" rows="10" placeholder="Paste transliteration or English meaning here…"></textarea>
+    </div>
+
+    <div class="field">
+      <label>Meaning / Description <span class="hint">1–3 sentences about this piece</span></label>
+      <textarea id="meaning" rows="3" placeholder="Brief description of what this is and when it is recited…"></textarea>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <h3>Step 3 — Generate &amp; Copy</h3>
+    <button class="generate-btn" onclick="generate()">⚙ Generate Code</button>
+  </div>
+
+  <div class="output-section" id="outputSection">
+    <div class="form-card">
+      <h3>Generated Code — Copy &amp; Paste</h3>
+      <div class="output-card">
+        <button class="copy-btn" onclick="copyCode()">Copy</button>
+        <pre id="outputCode"></pre>
+      </div>
+      <div class="success-badge" id="copyBadge">✓ Copied to clipboard!</div>
+    </div>
+
+    <div class="instructions" id="instructions"></div>
+  </div>
+</main>
+
+<footer>
+  <strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain<br>
+  <em>Michami Dukkadam — forgive any errors in this humble effort 🙏</em>
+</footer>
+
+<script>
+let currentType = 'stavan';
+
+function setType(t, btn) {
+  currentType = t;
+  document.querySelectorAll('.type-tab').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('catField').classList.toggle('visible', t === 'sutra');
+}
+
+function autoId() {
+  const title = document.getElementById('title').value;
+  const id = title.toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+  document.getElementById('itemId').value = id;
+}
+
+function escapeBacktick(s) {
+  return s.replace(/`/g, '\\`').replace(/\$/g, '\\$');
+}
+
+function generate() {
+  const id = document.getElementById('itemId').value.trim();
+  const title = document.getElementById('title').value.trim();
+  const sub = document.getElementById('sub').value.trim();
+  const hindi = document.getElementById('hindi').value.trim();
+  const hinglish = document.getElementById('hinglish').value.trim();
+  const meaning = document.getElementById('meaning').value.trim();
+  const category = document.getElementById('category').value;
+
+  if (!id || !title || !hindi) {
+    alert('Please fill in at least the ID, Title, and Hindi text.');
+    return;
+  }
+
+  const typeField = currentType === 'sutra' ? `type:'sutra',` : currentType === 'swadyah' ? `type:'swadyah',` : '';
+
+  const entry = `{id:'${id}',${typeField}title:'${title.replace(/'/g,"\\'")}',sub:'${sub.replace(/'/g,"\\'")}',\nhindi:\`${escapeBacktick(hindi)}\`,\nhinglish:\`${escapeBacktick(hinglish)}\`,\nmeaning:'${meaning.replace(/'/g,"\\'")}'},`;
+
+  document.getElementById('outputCode').textContent = entry;
+  document.getElementById('outputSection').classList.add('visible');
+
+  let file, extra = '';
+  if (currentType === 'stavan') {
+    file = 'js/stavans-data.js';
+    extra = '<strong>Paste</strong> the entry above into <code>js/stavans-data.js</code> inside the <code>STAVANS = [...]</code> array (before the closing <code>]</code>).';
+  } else if (currentType === 'swadyah') {
+    file = 'js/swadyah-data.js';
+    extra = '<strong>Paste</strong> the entry above into <code>js/swadyah-data.js</code> inside the <code>SWADYAHS = [...]</code> array (before the closing <code>]</code>).';
+  } else {
+    file = 'js/sutras-data.js';
+    extra = `<strong>Paste</strong> the entry into <code>js/sutras-data.js</code> inside <code>SUTRAS = [...]</code>.<br>
+Then add <code>'${id}'</code> to the <code>sutras: [...]</code> list of the <strong>${category}</strong> category inside <code>SUTRA_CATEGORIES</code>.`;
+  }
+
+  document.getElementById('instructions').innerHTML = `
+    <strong>What to do next:</strong><br>
+    1. Click <strong>Copy</strong> above.<br>
+    2. Open <code>${file}</code> in a text editor or VS Code.<br>
+    3. ${extra}<br>
+    4. Save the file — the new entry will appear on the site automatically.
+  `;
+
+  document.getElementById('outputSection').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function copyCode() {
+  const text = document.getElementById('outputCode').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const badge = document.getElementById('copyBadge');
+    badge.style.display = 'block';
+    setTimeout(() => badge.style.display = 'none', 2500);
+  });
+}
+</script>
+</body>
+</html>

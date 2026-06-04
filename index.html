@@ -87,6 +87,18 @@ nav{background:var(--ink);display:flex;justify-content:center;position:sticky;to
 footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font-size:.8rem;line-height:1.7;margin-top:2rem}
 footer strong{color:var(--gold)}
 footer em{color:#9A8060}
+.cat-group{background:var(--white);border:1.5px solid var(--border);border-radius:4px;margin-bottom:.55rem;overflow:hidden}
+.cat-header{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.1rem;cursor:pointer;transition:background .18s;gap:.75rem}
+.cat-header:hover{background:var(--accent)}
+.cat-title{font-family:'Noto Sans',Arial,sans-serif;font-size:1rem;font-weight:700;color:var(--deep)}
+.cat-sub{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:.8rem;color:var(--muted);margin-top:.1rem}
+.cat-meta{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+.cat-count{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.cat-arrow{color:var(--gold);font-size:1.15rem;font-weight:700;transition:transform .2s;display:inline-block}
+.cat-body{padding:0 .8rem .8rem;display:none}
+.cat-body .idx-card{background:var(--parchment)}
+.add-btn{background:none;border:1.5px solid rgba(200,150,12,.4);color:var(--gold);font-family:'Noto Sans',Arial,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.08em;padding:.55rem 1rem;border-radius:3px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.add-btn:hover{background:var(--gold);color:var(--ink)}
 @media(max-width:600px){
   .idx-grid{grid-template-columns:1fr}
   .nv{padding:.7rem 1rem;font-size:.82rem}
@@ -107,6 +119,7 @@ footer em{color:#9A8060}
   <button class="nv" id="nb-stavans" onclick="showList('stavan')">Stavans</button>
   <button class="nv" id="nb-sutras" onclick="showList('sutra')">Sutras</button>
   <button class="nv" id="nb-swadyah" onclick="showList('swadyah')">Swadyah</button>
+  <a class="nv add-btn" href="add.html" style="margin:.45rem .5rem;padding:.45rem 1rem">➕ Add</a>
 </nav>
 
 <div class="page active" id="pg-home">
@@ -138,10 +151,6 @@ footer em{color:#9A8060}
   <div class="idx-grid" id="sutGrid"></div>
 </div>
 
-<div class="page" id="pg-item">
-  <div id="itemContent"></div>
-</div>
-
 <div class="page" id="pg-swadyah">
   <div class="section-hdr">Swadyah</div>
   <div class="search-bar"><div class="srch-wrap"><input class="srch" id="swadSearch" placeholder="Search swadyah…" oninput="listSearch('swadyah')"></div></div>
@@ -153,477 +162,153 @@ footer em{color:#9A8060}
   <em>Michami Dukkadam — forgive any errors in this humble effort 🙏</em>
 </footer>
 
+<script src="js/sutras-data.js"></script>
 <script src="js/stavans-data.js"></script>
 <script src="js/swadyah-data.js"></script>
 <script>
-const D = [
-// ══════ SUTRAS ══════
-{id:'navkar',type:'sutra',title:'Navkar Mantra',sub:'णमो अरिहंताणं',
-hindi:`णमो अरिहंताणं,
-णमो सिद्धाणं,
-णमो आयरियाणं,
-णमो उवज्झायाणं,
-णमो लोए सव्व साहूणं ।
-एसो पंच-णमोक्कारो,
-सव्व-पाव-प्पणासणो ।
-मंगलाणं च सव्वेसिं,
-पढमं हवई मंगलं ।`,
-hinglish:`Namo Arihantanam,
-Namo Siddhanam,
-Namo Ayariyanam,
-Namo Uvajjhayanam,
-Namo Loe Savva-Sahunam.
-Eso Panch Namokaro,
-Savva-Pavappanasano.
-Mangalanam Cha Savvesim,
-Padhamam Havei Mangalam.`,
-meaning:'The most sacred Jain prayer. Salutes five supreme beings. Reciting it destroys all sins and is considered the foremost auspicious mantra.'},
-
-{id:'logassa',type:'sutra',title:'Logassa',sub:'लोगस्स उज्जोअ-गरे',
-hindi:`लोगस्स उज्जोअ-गरे, धम्म-तित्थ-यरे जिणे
-अरिहंते कित्तइस्सं, चउवीसं पि केवली ॥१॥
-उसभ-मजिअं च वंदे, संभव-मभिणंदणं च सुमइं च
-पउम-प्पहं सुपासं, जिणं च चंद-प्पहं वंदे ॥२॥
-सुविहिं च पुप्फ-दंतं, सीअल-सिज्जंस-वासु-पुज्जं च
-विमल-मणंतं च जिणं, धम्मं संतिं च वंदामि ॥३॥
-कुंथुं अरं च मल्लिं, वंदे मुणि-सुव्वयं नमि-जिणं च
-वंदामि रिट्ठ-नेमिं, पासं तह वद्धमाणं च ॥४॥
-एवं मए अभिथुआ, विहुय-रय-मला पहीण-जर-मरणा
-चउ-वीसं पि जिणवरा, तित्थ-यरा मे पसीयंतु ॥५॥
-कित्तिय-वंदिय-महिया, जे ए लोगस्स उत्तमा सिद्धा
-आरुग्ग-बोहि-लाभं, समाहि-वर-मुत्तमं दिंतु ॥६॥
-चंदेसु निम्मल-यरा, आइच्चेसु अहियं पयास-यरा
-सागर-वर-गंभीरा, सिद्धा सिद्धिं मम दिसंतु ॥७॥`,
-hinglish:`Logassa ujjoyagare, dhamma-titthayare jine
-Arihante kittaissam, cauviisam pi kevali..1..
-Usabha-majiam cha vande, sambhava-mabhinandanam cha sumaim cha
-Pauma-ppabham supassam, jinam cha chanda-ppabham vande..2..
-Suvihim cha puppha-damtam, siala-sijjamsa-vasu-pujjam cha
-Vimala-manantam cha jinam, dhammam santim cha vandami..3..
-Kunthum aram cha mallim, vande muni-suvvayam nami-jinam cha
-Vandami ritthanemi, pasam taha vaddhamanam cha..4..
-Evam mae abhithua, vihuya-raya-mala pahina-jara-marana
-Cau-visam pi jinavara, tittha-yara me pasiyantu..5..
-Kittiya-vandiya-mahiya, je e logassa uttama siddha
-Arugga-bohi-labham, samahi-vara-muttamam dintu..6..
-Chandesu nimmala-yara, aiccesu ahiyam payasa-yara
-Sagara-vara-gambhira, siddha siddhim mama disantu..7..`,
-meaning:'Praises all 24 Tirthankaras by name and the Siddhas. Recited during Samayik and Pratikraman.'},
-
-{id:'chattari',type:'sutra',title:'Chattari Mangalam',sub:'चत्तारि मंगलं',
-hindi:`चत्तारि मंगलं, अरिहंता मंगलं,
-सिद्धा मंगलं, साहू मंगलं,
-केवलि-पण्णत्तो धम्मो मंगलं ।
-चत्तारि लोगुत्तमा, अरिहंता लोगुत्तमा,
-सिद्धा लोगुत्तमा, साहू लोगुत्तमा,
-केवलि-पण्णत्तो धम्मो लोगुत्तमो ।
-चत्तारि सरणं पवज्जामि, अरिहंते सरणं पवज्जामि,
-सिद्धे सरणं पवज्जामि, साहू सरणं पवज्जामि,
-केवलि-पण्णत्तं धम्मं सरणं पवज्जामि ।`,
-hinglish:`Chattari Mangalam, Arihanta Mangalam,
-Siddha Mangalam, Sahu Mangalam,
-Kevali-Pannatto Dhammo Mangalam.
-Chattari Loguttama, Arihanta Loguttama,
-Siddha Loguttama, Sahu Loguttama,
-Kevali-Pannatto Dhammo Loguttamo.
-Chattari Saranam Pavajjami, Arihante Saranam Pavajjami,
-Siddhe Saranam Pavajjami, Sahu Saranam Pavajjami,
-Kevali-Pannattam Dhammam Saranam Pavajjami.`,
-meaning:'Declares the four auspicious shelters of Jainism. Chanted as a prayer of refuge and protection.'},
-
-{id:'uvasaggaharam',type:'sutra',title:'Uvasaggaharam Stotra',sub:'उवसग्गहरं स्तोत्र',
-hindi:`उवसग्गहरं पासं, पासं वंदामि कम्म-घण-मुक्कं ।
-विसहर-विस-निन्नासं, मंगल कल्लाण आवासं ।। १।।
-विसहर-फुल्लिंग मंतं, कंठे धारेइ जो सया मणुओ ।
-तस्स गह रोग मारी, दुट्ठ जरा जंति उवसामं ।।२।।
-चिट्ठउ दूरे मंतो, तुज्झ पणामो वि बहु फलो होइ ।
-नर तिरिएसु वि जीवा, पावंति न दुक्ख-दोगच्चं ।।३।।
-तुह सम्मत्ते लद्धे, चिंतामणि कप्प-पाय वब्भहिए ।
-पावंति अविग्घेणं, जीवा अयरामरं ठाणं ।।४।।
-इह संथुओ महायस, भत्तिब्भर निब्भरेण हिअएण ।
-ता देव! दिज्झ बोहिं, भवे-भवे पास जिणचंद ।।५।।`,
-hinglish:`Uvasaggaharam Pasam, Pasam vandami kamma-ghana-mukkam.
-Visahara-visa-ninnasam, Mangala-kallana-avasam..1..
-Visahara-phullinga-mantam, kanthe dharei jo saya manuo.
-Tassa gaha roga mari, duttha-jara janti uvasamam..2..
-Chitthau dure manto, tujjha panamo vi bahu-phalo hoi.
-Nara tiriesu vi jiva, pavanti na dukkha-dogaccam..3..
-Tuha sammatte laddhe, cintamani kappa-paya-vabbhahie.
-Pavanti avigghenam, jiva ayaramaram thanam..4..
-Iha santhuo mahayasa, bhatti-bbhara-nibbharena hiaenam.
-Ta deva! dijjha bohim, bhave-bhave pasa jinacanda..5..`,
-meaning:'Composed by Bhadrabahu Swami in praise of Parshvanatha (23rd Tirthankara). Believed to protect from disease, evil and suffering.'},
-
-{id:'bhaktamar',type:'sutra',title:'Bhaktamar Stotra (Selected)',sub:'भक्तामर स्तोत्र',
-hindi:`भक्तामर-प्रणत-मौलि-मणि-प्रभाणाम्
-उद्द्योतकं दलित-पाप-तमो-वितानम् ।
-सम्यक् प्रणम्य जिन-पाद-युगं युगादा-
-वालम्बनं भवजले पततां जनानाम् ॥१॥
-
-यः संस्तुतः सकल-वाङ्मय-तत्त्वबोधाद्
-उद्भूत-बुद्धि-पटुभिः सुर-लोक-नाथैः ।
-स्तोत्रैर्जगत्-त्रितय-चित्त-हरैरुदारैः
-स्तोष्ये किलाहमपि तं प्रथमं जिनेन्द्रम् ॥२॥
-
-बुद्ध्या विनापि विबुधार्चित-पाद-पीठ!
-स्तोतुं समुद्यत-मतिर्विगत-त्रपोऽहम् ।
-बालं विहाय जलसंस्थितमिन्दु-बिम्बम्
-अन्यः क इच्छति जनः सहसा ग्रहीतुम् ॥३॥`,
-hinglish:`Bhaktamar-pranata-mauli-mani-prabhanam
-Uddyotakam dalita-papa-tamo-vitanam.
-Samyak pranamya jina-pada-yugam yugada-
-Valambanam bhavajale patatam jananam..1..
-
-Yah samstutah sakala-vangmaya-tattvabodha-
-Dudbhuta-buddhi-patubhih sura-loka-nataih.
-Stotrair-jagat-tritaya-citta-harair-udaraih
-Stoshhye kilahama-pi tam prathamam jinendram..2..
-
-Buddhya vinapi vibudha-archita-pada-pitha!
-Stotum samudyata-matir-vigata-trapo'ham.
-Balam vihaya jalasamsthitam indu-bimbam
-Anyah ka icchati janah sahasa grahitum..3..`,
-meaning:'One of the most celebrated Sanskrit Jain hymns by Acharya Manatungasuri. 48 verses praising Adinath (Rishabhadev). Believed to have miraculous protective power.'},
-
-{id:'pratyakhyan',type:'sutra',title:'Pratyakhyan Sutras',sub:'प्रत्याख्यान सूत्र',
-hindi:`नवकारसी — नमोकार मंत्र से भोजन तक का त्याग
-पोरसी — प्रातःकाल की एक प्रहर की साधना
-साड्ढपोरसी — डेढ़ प्रहर की साधना
-पुरिमड्ड — चार प्रहर तक अन्न-जल का त्याग
-अवड्ढ — आधे दिन का उपवास
-एकासना — दिन में एक बार भोजन
-बियासना — दिन में दो बार भोजन
-तिविहार उपवास — रात्रि में जल के अलावा सब का त्याग
-चउविहार उपवास — जल सहित सब का त्याग`,
-hinglish:`Navkarsi — Navakar mantra se bhojan tak ka tyaag
-Porasi — Pratahkaal ki ek prahar ki sadhana
-Saddhporasi — Dedh prahar ki sadhana
-Purimadda — Chaar prahar tak anna-jal ka tyaag
-Avaddha — Aadhe din ka upavas
-Ekasana — Din mein ek baar bhojan
-Biyasana — Din mein do baar bhojan
-Tivihara Upavas — Raatri mein jal ke alaava sab ka tyaag
-Chauvihara Upavas — Jal sahit sab ka tyaag`,
-meaning:'Vows of renunciation (Pachchakhan) taken by Jain householders, ranging from skipping one meal to full fasting.'},
-
-{id:'saagari',type:'sutra',title:'Saagari Santhara (Samayik)',sub:'सागारी संथारा',
-hindi:`करेमि भंते सामाइयं।
-सव्वं सावज्जं जोगं पच्चक्खामि।
-जाव नियमं पज्जुवासामि।
-दुविहं तिविहेणं।
-मणेणं वायाए कायेणं।
-न करेमि न कारवेमि।
-तस्स भंते पडिक्कमामि।
-निंदामि गरिहामि।
-अप्पाणं वोसिरामि।`,
-hinglish:`Karemi Bhante Samaiyam.
-Savvam Savajjam Jogam Paccakkhami.
-Jav Niyamam Pajjuvasami.
-Duviham Tivihena.
-Manena Vayae Kayena.
-Na Karemi Na Karavemi.
-Tassa Bhante Padikkamami.
-Nindami Garihami.
-Appanam Vosiramami.`,
-meaning:'The Samayik vow — a 48-minute period of equanimity and meditation. The foundational spiritual practice for Jain householders.'},
-
-{id:'iriyavahiyam',type:'sutra',title:'Iriyavahiyam Sutra',sub:'इरियावहियं सूत्र',
-hindi:`इरियावहियं पडिक्कमामि।
-भंते! इरियावहियाए विराहणाए।
-गमणागमणे।
-पाणक्कमणे, बीयक्कमणे, हरियक्कमणे।
-ओसा-उत्तिंग-पणग-दग-मट्टी-मक्कडा-संताणा संकमणे।
-जे मे जीवा विराहिया।
-एगिंदिया, दुविंदिया, तेइंदिया, चउरिंदिया, पंचिंदिया।
-अभिहया, वत्तिया, लेसिया, संघाइया, संघट्टिया।
-परियाविया, किलामिया, उद्दविया।
-ठाणाओ ठाणं संकामिया, जीवियाओ ववरोविया।
-तस्स मिच्छामि दुक्कडं।`,
-hinglish:`Iriyavahiyam padikkamami.
-Bhante! Iriyavahiyae virahane.
-Gamanagamane.
-Panakkamane, Biyakkamane, Hariyakkamane.
-Osa-uttinga-panaga-daga-matti-makkada-santana sankamane.
-Je me jiva virahiya.
-Egindia, duvindiya, teindiya, chaurindiya, panchindiya.
-Abhihaya, vattiya, lesiya, sanghaiya, sanghatiya.
-Pariyaviya, kilamiya, uddaviya.
-Thanao thanam sankamiya, jiviyao vavaroviya.
-Tassa michhami dukkadam.`,
-meaning:'Recited at the start of Pratikraman, repenting for harm unknowingly done to living beings while walking. Reflects Jainism\'s deep commitment to ahimsa.'},
-
-{id:'namutthunam',type:'sutra',title:'Namutthunam Sutra',sub:'णमुत्थुणं सूत्र',
-hindi:`णमुत्थुणं अरिहंताणं भगवंताणं।
-आइगराणं, तित्थगराणं, सयंसंबुद्धाणं।
-पुरिसुत्तमाणं, पुरिससीहाणं, पुरिसवरपुंडरीयाणं, पुरिसवर-गंध-हत्थीणं।
-लोगुत्तमाणं, लोगनाहाणं, लोगहियाणं, लोगपईवाणं, लोगपज्जोयगराणं।
-अभयदयाणं, चक्खुदयाणं, मग्गदयाणं, सरणदयाणं, बोहिदयाणं।
-धम्मदयाणं, धम्मदेसयाणं, धम्मनायगाणं, धम्मसारहीणं, धम्मवर-चाउरंत-चक्कवट्टीणं।
-जिणाणं जावयाणं, तिण्णाणं तारयाणं, बुद्धाणं बोहयाणं, मुत्ताणं मोयगाणं।
-सव्वन्नूणं, सव्वदरिसीणं।
-नमो जिणाणं जिअभयाणं।`,
-hinglish:`Namutthunnam Arihantanam Bhagavantanam.
-Aigaranam, Titthagaranam, Sayamsabuddhanam.
-Purisuttamanam, Purisasihanam, Purisavarapundariyanam, Purisavara-gandha-hatthinam.
-Loguttamanam, Loganahanam, Logahiyanam, Logapaivam, Logapajjoyagaranam.
-Abhayadayanam, Cakkhuadayanam, Maggadayanam, Saranadayanam, Bohidayanam.
-Dhammadayanam, Dhammadesa yanam, Dhammanayaganam, Dhammasarahinam, Dhammavaraa-chaurant-cakkavattinam.
-Jinanam javayanam, tinnanam tarayanam, buddhanam bohayanam, muttanam moyaganam.
-Savvannunam, savvadarisinam.
-Namo jinanam jiya-bhayanam.`,
-meaning:'A beautiful elaboration of the attributes of the Arihantas. Recited during Pratikraman. Praises the Tirthankaras with their full list of 32 divine qualities.'},
-
-{id:'annath',type:'sutra',title:'Annath Sutra',sub:'अन्नत्थ सूत्र',
-hindi:`अन्नत्थ ऊसासनिसासेहिं।
-सुहुम-एहिं-अंग-संचालेहिं।
-सुहुम-एहिं खेल-संचालेहिं।
-सुहुम-एहिं दिट्ठि-संचालेहिं।
-एवमादिएहिं आगारेहिं।
-अभग्गो अविराहिओ।
-हुज्ज मे काउस्सग्गो।`,
-hinglish:`Annath ussasanisasehi.
-Suhumaehi-Anga-Sancalehi.
-Suhumaehi-Khela-Sancalehi.
-Suhumaehi-Ditthi-Sancalehi.
-Evamadiehi Agarehi.
-Abhaggo Avirahio.
-Hujja Me Causaggo.`,
-meaning:'Recited before Kayotsarga meditation. Specifies which natural bodily functions are permitted during the standing meditation without breaking the vow.'},
-
-{id:'tassauttari',type:'sutra',title:'Tassa Uttari Sutra',sub:'तस्स उत्तरी सूत्र',
-hindi:`तस्स उत्तरी-करणेणं।
-पायच्छित्त-करणेणं।
-विसोहि-करणेणं।
-विसल्ली-करणेणं।
-पावाणं कम्माणं निग्घायणट्ठाएं।
-ठामि काउस्सग्गं।`,
-hinglish:`Tassa Uttari-Karanennam.
-Payacchitta-Karanennam.
-Visohi-Karanennam.
-Visalli-Karanennam.
-Pavanam Kammanam Nigghayanaṭṭhaem.
-Ṭhami Causaggam.`,
-meaning:'Recited before Kayotsarga — the standing meditation. Declares the purpose: completion, atonement, purification, and removal of karmic thorns.'},
-
-{id:'panch',type:'sutra',title:'Panch Parmesthi Sutra',sub:'पंच परमेष्ठी सूत्र',
-hindi:`पाँच परमेष्ठी :
-
-१. अरिहंत — जिन्होंने राग, द्वेष, मोह, अहंकार को जीत लिया और केवल ज्ञान पाया
-२. सिद्ध — जो सब कर्मों को जलाकर मोक्ष को प्राप्त हो गए, शाश्वत आनंद में
-३. आचार्य — साधु-समाज के नेता, जो पाँच महाव्रत और संघ की रक्षा करते हैं
-४. उपाध्याय — आगम शास्त्र के शिक्षक, जो ज्ञान का प्रसार करते हैं
-५. साधु — सभी निर्ग्रंथ मुनि और साध्वियाँ जो संयम में रहते हैं
-
-णमो अरिहंताणं
-णमो सिद्धाणं
-णमो आयरियाणं
-णमो उवज्झायाणं
-णमो लोए सव्व साहूणं`,
-hinglish:`Paanch Parmesthi:
-
-1. Arihant — Jinhone raag, dvesh, moh, ahankaar ko jeet liya aur keval gyaan paaya
-2. Siddha — Jo sab karmon ko jalakar moksh ko praapt ho gaye, shaashvat aanand mein
-3. Acharya — Saadhu-samaaj ke neta, jo paanch mahavrat aur sangh ki raksha karte hain
-4. Upadhyaaya — Aagam shaastra ke shikshak, jo gyaan ka prasaar karte hain
-5. Saadhu — Sabhi nirgrantha muni aur sadhviyaan jo sanyam mein rahte hain
-
-Namo Arihantanam
-Namo Siddhanam
-Namo Ayariyanam
-Namo Uvajjhayanam
-Namo Loe Savva-Sahunam`,
-meaning:'The five supreme beings central to Jain worship and the Navkar Mantra. Understanding them deepens the meaning of every Jain prayer.'},
-
-
-];
-
-// ─── ROUTER ───
-let lang = 'both';
-
+// ─── all sutra/stavan/swadyah data is in external JS files ───
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('pg-' + id).classList.add('active');
   document.querySelectorAll('.nv').forEach(b => b.classList.remove('on'));
-  const map = {home:'nb-home',stavans:'nb-stavans',sutras:'nb-sutras',swadyah:'nb-swadyah',item:'nb-home'};
+  const map = {home:'nb-home',stavans:'nb-stavans',sutras:'nb-sutras',swadyah:'nb-swadyah'};
   if (map[id]) document.getElementById(map[id]).classList.add('on');
-  if (id !== 'item') window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function goHome() { showPage('home'); buildHome(); }
 function showList(t) {
   const pageMap = {stavan:'stavans', sutra:'sutras', swadyah:'swadyah'};
-  const nbMap = {stavan:'nb-stavans', sutra:'nb-sutras', swadyah:'nb-swadyah'};
-  const searchMap = {stavan:'stavSearch', sutra:'sutSearch', swadyah:'swadSearch'};
+  const nbMap   = {stavan:'nb-stavans', sutra:'nb-sutras', swadyah:'nb-swadyah'};
+  const srchMap = {stavan:'stavSearch', sutra:'sutSearch', swadyah:'swadSearch'};
   showPage(pageMap[t]);
   document.getElementById(nbMap[t]).classList.add('on');
-  const input = document.getElementById(searchMap[t]);
-  if (input) input.value = '';
+  const inp = document.getElementById(srchMap[t]);
+  if (inp) inp.value = '';
   buildList(t);
 }
 
-function showItem(id) {
-  renderItem(D.findIndex(d => d.id === id));
-  showPage('item');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
 function sortItems(items) {
-  return [...items].sort((a, b) => a.title.localeCompare(b.title, undefined, {sensitivity:'base'}));
+  return [...items].sort((a,b) => a.title.localeCompare(b.title, undefined, {sensitivity:'base'}));
 }
-
 function getInitial(title) {
-  const first = (title || '#').trim().charAt(0).toUpperCase();
-  return /[A-Z]/.test(first) ? first : '#';
+  const f = (title||'#').trim().charAt(0).toUpperCase();
+  return /[A-Z]/.test(f) ? f : '#';
 }
 
-function escapeHtml(text) {
-  return String(text ?? '').replace(/[&<>"']/g, ch => ({
-    '&':'&amp;',
-    '<':'&lt;',
-    '>':'&gt;',
-    '"':'&quot;',
-    "'":'&#39;'
-  }[ch]));
-}
-
-function makeSyncedLines(hindi, hinglish) {
-  const h = String(hindi || '').split('\n');
-  const e = String(hinglish || '').split('\n');
-  const total = Math.max(h.length, e.length);
-  return Array.from({length: total}, (_, i) => {
-    const hLine = h[i] ?? '';
-    const eLine = e[i] ?? '';
-    const blank = !hLine.trim() && !eLine.trim() ? ' blank' : '';
-    return `<div class="sync-row${blank}">
-      <div class="sync-h">${escapeHtml(hLine)}</div>
-      <div class="sync-e">${escapeHtml(eLine)}</div>
-    </div>`;
-  }).join('');
-}
-
-function renderItem(idx) {
-  const item = D[idx];
-  const peers = sortItems(D.filter(d => d.type === item.type));
-  const pi = peers.findIndex(d => d.id === item.id);
-  const prev = peers[pi - 1], next = peers[pi + 1];
-  const listLabel = item.type === 'stavan' ? 'Stavans' : 'Sutras';
-  const listAct = item.type === 'stavan' ? "showList('stavan')" : "showList('sutra')";
-  document.getElementById('itemContent').innerHTML = `
-<div class="item-page">
-  <div class="breadcrumb">
-    <a onclick="goHome()">Home</a><span>›</span>
-    <a onclick="${listAct}">${listLabel}</a><span>›</span>
-    ${item.title}
-  </div>
-  <div class="item-title-block">
-    <h2>${item.title}</h2>
-    <div class="sub">${item.sub}</div>
-    <div class="item-divider"></div>
-  </div>
-  <div class="lang-toggle">
-    <button class="lb ${lang==='both'?'on':''}" onclick="setLang('both')">Hindi + English</button>
-    <button class="lb ${lang==='hindi'?'on':''}" onclick="setLang('hindi')">Hindi Only</button>
-    <button class="lb ${lang==='hinglish'?'on':''}" onclick="setLang('hinglish')">English Only</button>
-  </div>
-  <div class="bilin-wrap">
-  <div class="bilin lm-${lang}" id="bilinBlock">
-    <div class="sync-labels">
-      <div class="sync-label">हिंदी / प्राकृत</div>
-      <div class="sync-label">English</div>
-    </div>
-    <div class="sync-lines">${makeSyncedLines(item.hindi, item.hinglish)}</div>
-  </div>
-  </div>
-  ${item.meaning ? `<div class="meaning-box"><div class="meaning-lbl">✦ About this ${item.type}</div>${escapeHtml(item.meaning)}</div>` : ''}
-  <div class="item-nav">
-    <button class="inav-btn" ${!prev?'disabled':''} onclick="${prev?`showItem('${prev.id}')`:''}" >◀ ${prev ? prev.title : '—'}</button>
-    <button class="inav-btn" ${!next?'disabled':''} onclick="${next?`showItem('${next.id}')`:''}" >${next ? next.title : '—'} ▶</button>
-  </div>
-</div>`;
-}
-
-function setLang(l) {
-  lang = l;
-  const b = document.getElementById('bilinBlock');
-  if (b) b.className = 'bilin lm-' + l;
-  document.querySelectorAll('.lb').forEach((btn,i) => btn.classList.toggle('on', ['both','hindi','hinglish'][i] === l));
-}
-
+// ── Cards & grouped list ──────────────────────────────────────
 function makeCard(item) {
   const dest = item.type === 'sutra'
-    ? `sutras/${item.id}.html`
+    ? `sutras/view.html?id=${item.id}`
     : item.type === 'swadyah'
     ? `swadyah/view.html?id=${item.id}`
     : `stavans/view.html?id=${item.id}`;
-  const label = item.type === 'sutra' ? 'Sutra' : item.type === 'swadyah' ? 'Swadyah' : 'Stavan';
+  const label  = item.type === 'sutra' ? 'Sutra' : item.type === 'swadyah' ? 'Swadyah' : 'Stavan';
   const tagCls = item.type === 'sutra' ? 't-su' : 't-st';
   return `<div class="idx-card" onclick="location.href='${dest}'">
-    <div>
-      <div class="idx-title">${item.title}</div>
-      <div class="idx-sub">${item.sub}</div>
-    </div>
+    <div><div class="idx-title">${item.title}</div><div class="idx-sub">${item.sub}</div></div>
     <div style="display:flex;align-items:center;gap:.4rem">
-      <span class="tag ${tagCls}">${label}</span>
-      <span class="idx-arrow">›</span>
+      <span class="tag ${tagCls}">${label}</span><span class="idx-arrow">›</span>
     </div>
   </div>`;
 }
 
 function makeGroupedList(items) {
-  const groups = sortItems(items).reduce((acc, item) => {
-    const key = getInitial(item.title);
-    if (!acc[key]) acc[key] = [];
-    acc[key].push(item);
+  const groups = sortItems(items).reduce((acc,item) => {
+    const k = getInitial(item.title);
+    (acc[k] = acc[k]||[]).push(item);
     return acc;
   }, {});
-  return `<div class="alpha-wrap">${Object.keys(groups).sort().map(letter => `
+  return `<div class="alpha-wrap">${Object.keys(groups).sort().map(l=>`
     <section class="alpha-group">
-      <div class="alpha-head"><span>${letter}</span><span class="alpha-count">${groups[letter].length}</span></div>
-      <div class="alpha-grid">${groups[letter].map(makeCard).join('')}</div>
-    </section>
-  `).join('')}</div>`;
+      <div class="alpha-head"><span>${l}</span><span class="alpha-count">${groups[l].length}</span></div>
+      <div class="alpha-grid">${groups[l].map(makeCard).join('')}</div>
+    </section>`).join('')}</div>`;
 }
 
+// ── Sutra category accordion ──────────────────────────────────
+function buildSutraCategories(q) {
+  const grid = document.getElementById('sutGrid');
+  if (q) {
+    const m = sortItems(SUTRAS.filter(d=>(d.title+d.sub+d.hindi+d.hinglish).toLowerCase().includes(q)));
+    grid.innerHTML = m.length ? m.map(makeCard).join('') : `<div class="no-results">No results found.</div>`;
+    return;
+  }
+  grid.innerHTML = SUTRA_CATEGORIES.map(cat => {
+    const catSutras = cat.sutras.map(id => SUTRAS.find(s=>s.id===id)).filter(Boolean);
+    return `<div class="cat-group">
+      <div class="cat-header" onclick="toggleCat('${cat.id}')">
+        <div>
+          <div class="cat-title">${cat.title}</div>
+          <div class="cat-sub">${cat.sub}</div>
+        </div>
+        <div class="cat-meta">
+          <span class="cat-count">${catSutras.length} sutra${catSutras.length!==1?'s':''}</span>
+          <span class="cat-arrow" id="arr-${cat.id}">›</span>
+        </div>
+      </div>
+      <div class="cat-body" id="cat-${cat.id}">
+        ${catSutras.map(makeCard).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleCat(id) {
+  const body  = document.getElementById('cat-'+id);
+  const arrow = document.getElementById('arr-'+id);
+  const open  = body.style.display === 'block';
+  body.style.display  = open ? 'none' : 'block';
+  arrow.style.transform = open ? '' : 'rotate(90deg)';
+}
+
+// ── Build pages ───────────────────────────────────────────────
 function buildHome() {
-  document.getElementById('homeSutraGrid').innerHTML = sortItems(D.filter(d=>d.type==='sutra')).map(makeCard).join('');
+  document.getElementById('homeSutraGrid').innerHTML = sortItems(SUTRAS).map(makeCard).join('');
   document.getElementById('homeStavanGrid').innerHTML = makeGroupedList(STAVANS);
   if (SWADYAHS.length) {
     document.getElementById('homeSwadyahHdr').style.display = '';
     document.getElementById('homeSwadyahGrid').innerHTML = makeGroupedList(SWADYAHS);
   }
 }
+
 function buildList(t) {
-  const gridMap = {stavan:'stavGrid', sutra:'sutGrid', swadyah:'swadGrid'};
-  const g = gridMap[t];
   if (t === 'stavan') {
-    document.getElementById(g).innerHTML = STAVANS.length ? makeGroupedList(STAVANS) : `<div class="no-results">No stavans yet — add entries to js/stavans-data.js to get started.</div>`;
+    document.getElementById('stavGrid').innerHTML = STAVANS.length
+      ? makeGroupedList(STAVANS)
+      : `<div class="no-results">No stavans yet — add entries to js/stavans-data.js.</div>`;
   } else if (t === 'swadyah') {
-    document.getElementById(g).innerHTML = SWADYAHS.length ? makeGroupedList(SWADYAHS) : `<div class="no-results">No swadyahs yet — add entries to js/swadyah-data.js to get started.</div>`;
+    document.getElementById('swadGrid').innerHTML = SWADYAHS.length
+      ? makeGroupedList(SWADYAHS)
+      : `<div class="no-results">No swadyahs yet — add entries to js/swadyah-data.js.</div>`;
   } else {
-    document.getElementById(g).innerHTML = sortItems(D.filter(d=>d.type==='sutra')).map(makeCard).join('');
+    buildSutraCategories('');
   }
 }
 
+// ── Search ────────────────────────────────────────────────────
 function homeSearchFn() {
   const q = document.getElementById('homeSearch').value.toLowerCase().trim();
   const all = document.getElementById('homeAll');
   const res = document.getElementById('homeResults');
   if (!q) { all.style.display=''; res.innerHTML=''; return; }
-  all.style.display='none';
-  const pool = [...D.filter(d=>d.type==='sutra'), ...STAVANS, ...SWADYAHS];
+  all.style.display = 'none';
+  const pool = [...SUTRAS, ...STAVANS, ...SWADYAHS];
   const m = sortItems(pool.filter(d=>(d.title+d.sub+d.hindi+d.hinglish).toLowerCase().includes(q)));
   res.innerHTML = m.length
     ? `<div class="section-hdr">Results (${m.length})</div><div class="idx-grid">${m.map(makeCard).join('')}</div>`
     : `<div class="no-results">No results for "${q}"</div>`;
 }
+
 function listSearch(t) {
-  const searchMap = {stavan:'stavSearch', sutra:'sutSearch', swadyah:'swadSearch'};
-  const gridMap = {stavan:'stavGrid', sutra:'sutGrid', swadyah:'swadGrid'};
-  const poolMap = {stavan:STAVANS, sutra:D.filter(d=>d.type==='sutra'), swadyah:SWADYAHS};
-  const q = document.getElementById(searchMap[t]).value.toLowerCase().trim();
-  const m = sortItems(poolMap[t].filter(d=>(d.title+d.sub+d.hindi+d.hinglish).toLowerCase().includes(q)));
+  const srchMap = {stavan:'stavSearch', sutra:'sutSearch', swadyah:'swadSearch'};
+  const gridMap = {stavan:'stavGrid', swadyah:'swadGrid'};
+  const q = document.getElementById(srchMap[t]).value.toLowerCase().trim();
+  if (t === 'sutra') { buildSutraCategories(q); return; }
+  const pool = t === 'stavan' ? STAVANS : SWADYAHS;
+  const m = sortItems(pool.filter(d=>(d.title+d.sub+d.hindi+d.hinglish).toLowerCase().includes(q)));
   document.getElementById(gridMap[t]).innerHTML = m.length
-    ? (t === 'sutra' ? m.map(makeCard).join('') : makeGroupedList(m))
+    ? makeGroupedList(m)
     : `<div class="no-results">No results found.</div>`;
 }
 
