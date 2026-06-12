@@ -99,6 +99,15 @@ footer em{color:#9A8060}
 .cat-body .idx-card{background:var(--parchment)}
 .add-btn{background:none;border:1.5px solid rgba(200,150,12,.4);color:var(--gold);font-family:'Noto Sans',Arial,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.08em;padding:.55rem 1rem;border-radius:3px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
 .add-btn:hover{background:var(--gold);color:var(--ink)}
+.daily-card{background:linear-gradient(135deg,var(--accent),var(--white));border:1.5px solid var(--gold);border-radius:8px;padding:1.25rem 1.5rem;margin:.75rem 0 1rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:all .2s}
+.daily-card:hover{box-shadow:0 3px 14px rgba(200,150,12,.2);transform:translateY(-1px)}
+.daily-lbl{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.3rem}
+.daily-title{font-size:1.2rem;font-weight:700;color:var(--deep)}
+.daily-sub{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;color:var(--muted);font-size:.9rem;margin-top:.15rem}
+.daily-arrow{font-size:1.6rem;color:var(--gold);flex-shrink:0}
+.fav-star{font-size:1.05rem;cursor:pointer;flex-shrink:0;color:#C9BB95;transition:all .15s;user-select:none;line-height:1}
+.fav-star:hover{transform:scale(1.25)}
+.fav-star.faved{color:var(--gold)}
 @media(max-width:600px){
   .idx-grid{grid-template-columns:1fr}
   .nv{padding:.7rem 1rem;font-size:.82rem}
@@ -119,6 +128,8 @@ footer em{color:#9A8060}
   <button class="nv" id="nb-stavans" onclick="showList('stavan')">Stavans</button>
   <button class="nv" id="nb-sutras" onclick="showList('sutra')">Sutras</button>
   <button class="nv" id="nb-swadyah" onclick="showList('swadyah')">Swadyah</button>
+  <a class="nv" href="games.html" style="text-decoration:none">Games</a>
+  <a class="nv" href="tools.html" style="text-decoration:none">Tools</a>
   <a class="nv" href="aagamgpt.html" style="text-decoration:none">Aagam GPT</a>
   <a class="nv add-btn" href="add.html" style="margin:.45rem .5rem;padding:.45rem 1rem">➕ Add</a>
 </nav>
@@ -128,9 +139,12 @@ footer em{color:#9A8060}
     <h2>Jai Jinendra!</h2>
     <p>A collection of Jain Stavans and Sutras — each with Hindi script and English side by side.</p>
   </div>
+  <div id="dailyCard"></div>
   <div class="search-bar"><div class="srch-wrap"><input class="srch" id="homeSearch" placeholder="Search all stavans and sutras…" oninput="homeSearchFn()"></div></div>
   <div id="homeResults"></div>
   <div id="homeAll">
+    <div class="section-hdr" id="homeFavHdr" style="display:none">★ My Favorites</div>
+    <div class="idx-grid" id="homeFavGrid"></div>
     <div class="section-hdr">Sutras</div>
     <div class="idx-grid" id="homeSutraGrid"></div>
     <div class="section-hdr">Stavans</div>
@@ -197,21 +211,68 @@ function getInitial(title) {
   return /[A-Z]/.test(f) ? f : '#';
 }
 
+// ── Favorites (localStorage) ──────────────────────────────────
+function getFavs() {
+  try { return JSON.parse(localStorage.getItem('jain-favs')||'[]'); } catch(e){ return []; }
+}
+function isFaved(item) { return getFavs().includes((item.type||'stavan')+':'+item.id); }
+function toggleFav(ev, type, id) {
+  ev.stopPropagation();
+  const key = type+':'+id;
+  let favs = getFavs();
+  favs = favs.includes(key) ? favs.filter(f=>f!==key) : [...favs, key];
+  localStorage.setItem('jain-favs', JSON.stringify(favs));
+  buildHome();
+  // refresh whichever list page is active
+  ['stavan','sutra','swadyah'].forEach(t=>{
+    const pg = {stavan:'pg-stavans',sutra:'pg-sutras',swadyah:'pg-swadyah'}[t];
+    if (document.getElementById(pg).classList.contains('active')) buildList(t);
+  });
+}
+function favItems() {
+  const favs = getFavs();
+  const pool = [...SUTRAS, ...STAVANS.map(s=>({...s,type:'stavan'})), ...SWADYAHS];
+  return pool.filter(p => favs.includes((p.type||'stavan')+':'+p.id));
+}
+
 // ── Cards & grouped list ──────────────────────────────────────
 function makeCard(item) {
-  const dest = item.type === 'sutra'
+  const type = item.type || 'stavan';
+  const dest = type === 'sutra'
     ? `sutras/view.html?id=${item.id}`
-    : item.type === 'swadyah'
+    : type === 'swadyah'
     ? `swadyah/view.html?id=${item.id}`
     : `stavans/view.html?id=${item.id}`;
-  const label  = item.type === 'sutra' ? 'Sutra' : item.type === 'swadyah' ? 'Swadyah' : 'Stavan';
-  const tagCls = item.type === 'sutra' ? 't-su' : 't-st';
+  const label  = type === 'sutra' ? 'Sutra' : type === 'swadyah' ? 'Swadyah' : 'Stavan';
+  const tagCls = type === 'sutra' ? 't-su' : 't-st';
+  const faved  = isFaved(item);
   return `<div class="idx-card" onclick="location.href='${dest}'">
     <div><div class="idx-title">${item.title}</div><div class="idx-sub">${item.sub}</div></div>
     <div style="display:flex;align-items:center;gap:.4rem">
+      <span class="fav-star${faved?' faved':''}" title="${faved?'Remove from':'Add to'} favorites" onclick="toggleFav(event,'${type}','${item.id}')">${faved?'★':'☆'}</span>
       <span class="tag ${tagCls}">${label}</span><span class="idx-arrow">›</span>
     </div>
   </div>`;
+}
+
+// ── Daily prayer ──────────────────────────────────────────────
+function buildDaily() {
+  const pool = [...SUTRAS, ...STAVANS.map(s=>({...s,type:'stavan'}))];
+  if (!pool.length) return;
+  const now = new Date();
+  const dayOfYear = Math.floor((now - new Date(now.getFullYear(),0,0)) / 86400000);
+  const item = pool[(dayOfYear + now.getFullYear()) % pool.length];
+  const type = item.type || 'stavan';
+  const dest = type === 'sutra' ? `sutras/view.html?id=${item.id}` : `stavans/view.html?id=${item.id}`;
+  document.getElementById('dailyCard').innerHTML = `
+    <div class="daily-card" onclick="location.href='${dest}'">
+      <div>
+        <div class="daily-lbl">🪔 Today's Prayer — ${now.toLocaleDateString([],{weekday:'long',month:'long',day:'numeric'})}</div>
+        <div class="daily-title">${item.title}</div>
+        <div class="daily-sub">${item.sub}</div>
+      </div>
+      <div class="daily-arrow">›</div>
+    </div>`;
 }
 
 function makeGroupedList(items) {
@@ -265,6 +326,10 @@ function toggleCat(id) {
 
 // ── Build pages ───────────────────────────────────────────────
 function buildHome() {
+  buildDaily();
+  const favs = favItems();
+  document.getElementById('homeFavHdr').style.display = favs.length ? '' : 'none';
+  document.getElementById('homeFavGrid').innerHTML = favs.length ? sortItems(favs).map(makeCard).join('') : '';
   document.getElementById('homeSutraGrid').innerHTML = sortItems(SUTRAS).map(makeCard).join('');
   document.getElementById('homeStavanGrid').innerHTML = makeGroupedList(STAVANS);
   if (SWADYAHS.length) {

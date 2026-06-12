@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Tools | Jain Stavans & Sutras</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--saffron:#C8560A;--gold:#C8960C;--deep:#8B3A0A;--cream:#FAF6EE;--parchment:#F0E8D5;--ink:#1C1208;--muted:#7A6845;--border:#D9C9A3;--white:#FFFDF8;--accent:#FDF4E3}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans',Arial,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+header{background:linear-gradient(135deg,#1C1208 0%,#2C1A06 100%);color:var(--cream);text-align:center;padding:1.25rem 1.5rem 1rem;cursor:pointer;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(200,150,12,.04) 30px,rgba(200,150,12,.04) 60px)}
+.hdr-om{font-size:2.1rem;color:var(--gold);animation:float 4s ease-in-out infinite;display:block;margin-bottom:.1rem;position:relative}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+header h1{font-size:clamp(1.45rem,3vw,2.25rem);font-weight:700;position:relative}
+header h1 span{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:clamp(.9rem,1.8vw,1.25rem);color:var(--gold);display:block;margin-top:.12rem;font-weight:500}
+.hdr-line{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.45rem auto;position:relative}
+header p{font-style:italic;color:#C8B898;font-size:.88rem;position:relative}
+nav{background:var(--ink);display:flex;justify-content:center;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold);flex-wrap:wrap}
+.nv{color:#C8B898;font-family:'Noto Sans',Arial,sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.1em;padding:.8rem 1.5rem;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-2px}
+.nv:hover{color:var(--gold)}
+.nv.on{color:var(--gold);border-bottom-color:var(--gold);background:rgba(200,150,12,.07)}
+main{width:min(100%,900px);margin:0 auto;padding:1.5rem 1.25rem}
+.card{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:1.75rem;margin-bottom:1.5rem}
+.card h2{color:var(--deep);font-size:1.3rem;margin-bottom:.4rem}
+.card .sub-note{color:var(--muted);font-size:.88rem;font-style:italic;margin-bottom:1.2rem}
+.loc-row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-bottom:1.25rem}
+.loc-btn{background:var(--saffron);color:#fff;border:none;border-radius:4px;padding:.6rem 1.2rem;font-family:'Noto Sans',Arial,sans-serif;font-size:.88rem;font-weight:700;cursor:pointer}
+.loc-btn:hover{background:var(--deep)}
+.loc-status{font-size:.85rem;color:var(--muted)}
+.sun-row{display:flex;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.sun-box{flex:1;min-width:140px;background:var(--accent);border:1.5px solid var(--border);border-radius:6px;padding:.9rem 1.1rem;text-align:center}
+.sun-box .lbl{font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.sun-box .val{font-size:1.5rem;font-weight:700;color:var(--deep);margin-top:.2rem}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:.5rem .75rem;border-bottom:2px solid var(--border)}
+td{padding:.65rem .75rem;border-bottom:1px solid var(--parchment);font-size:.92rem}
+td.t-name{font-weight:700;color:var(--deep)}
+td.t-time{font-weight:700;font-size:1.05rem;color:var(--saffron);white-space:nowrap}
+td.t-desc{color:var(--muted);font-size:.83rem}
+tr.past td{opacity:.45}
+tr.now td{background:var(--accent)}
+tr.now td.t-name::after{content:' ← now';color:var(--saffron);font-size:.75rem}
+.fest{display:flex;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--parchment);align-items:flex-start}
+.fest:last-child{border-bottom:none}
+.fest-when{flex-shrink:0;width:130px;font-weight:700;color:var(--saffron);font-size:.88rem;padding-top:.1rem}
+.fest-name{font-weight:700;color:var(--deep);font-size:1rem}
+.fest-sub{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;color:var(--muted);font-size:.85rem}
+.fest-desc{color:var(--muted);font-size:.86rem;line-height:1.6;margin-top:.25rem}
+.note{background:var(--accent);border-left:4px solid var(--gold);padding:.8rem 1rem;font-size:.84rem;color:#4A3510;line-height:1.6;border-radius:0 4px 4px 0;margin-top:1rem}
+footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font-size:.8rem;line-height:1.7;margin-top:3rem}
+footer strong{color:var(--gold)}
+@media(max-width:560px){td.t-desc{display:none}th:last-child{display:none}.fest{flex-direction:column;gap:.2rem}.fest-when{width:auto}}
+</style>
+</head>
+<body>
+<header onclick="location.href='index.html'">
+  <span class="hdr-om">☸</span>
+  <h1>Daily Tools <span>दैनिक साधना</span></h1>
+  <div class="hdr-line"></div>
+  <p>Pachkhan times and the festival calendar</p>
+</header>
+<nav>
+  <a class="nv" href="index.html">Home</a>
+  <a class="nv" href="index.html#stavans">Stavans</a>
+  <a class="nv" href="index.html#sutras">Sutras</a>
+  <a class="nv" href="games.html">Games</a>
+  <a class="nv on" href="tools.html">Tools</a>
+  <a class="nv" href="aagamgpt.html">Aagam GPT</a>
+</nav>
+
+<main>
+  <!-- ── PACHKHAN TIMER ── -->
+  <div class="card">
+    <h2>⏰ Pachkhan Times for Today</h2>
+    <div class="sub-note">Times are calculated from your local sunrise and sunset.</div>
+    <div class="loc-row">
+      <button class="loc-btn" onclick="getLocation()">📍 Use my location</button>
+      <span class="loc-status" id="locStatus">Using default location (Dallas, TX) — tap the button for your exact times.</span>
+    </div>
+    <div class="sun-row">
+      <div class="sun-box"><div class="lbl">🌅 Sunrise</div><div class="val" id="sunrise">—</div></div>
+      <div class="sun-box"><div class="lbl">🌇 Sunset</div><div class="val" id="sunset">—</div></div>
+    </div>
+    <table id="pachkhanTable">
+      <thead><tr><th>Pachkhan</th><th>Time</th><th>What it means</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="note">Navkarsi = sunrise + 48 minutes. Porsi = sunrise + ¼ of the day's length;
+    Sadh-Porsi = +⅜; Purimaddh = +½; Avaddh = +¾. Chauvihar begins at sunset.
+    Times are astronomical estimates — confirm with your local sangh's panchang for vrat purposes.</div>
+  </div>
+
+  <!-- ── FESTIVAL CALENDAR ── -->
+  <div class="card">
+    <h2>🪔 Jain Festival Calendar</h2>
+    <div class="sub-note">Major festivals through the year. Jain festivals follow the lunar calendar, so exact dates shift each year.</div>
+    <div id="festList"></div>
+    <div class="note">Exact dates vary by year and by tradition (Shvetambar / Digambar) —
+    always confirm with your local sangh or panchang.</div>
+  </div>
+</main>
+
+<footer><strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain</footer>
+
+<script>
+// ════════ SUNRISE / SUNSET (NOAA simplified) ════════
+let LAT=32.78, LON=-96.80; // default: Dallas, TX
+
+function sunTimes(date,lat,lon){
+  const rad=Math.PI/180;
+  const dayMs=86400000;
+  const J1970=2440588,J2000=2451545;
+  const toJulian=d=>d.valueOf()/dayMs-0.5+J1970;
+  const fromJulian=j=>new Date((j+0.5-J1970)*dayMs);
+  const d=toJulian(date)-J2000;
+  const lw=rad*-lon, phi=rad*lat;
+  const n=Math.round(d-0.0009-lw/(2*Math.PI));
+  const ds=0.0009+lw/(2*Math.PI)+n;
+  const M=rad*(357.5291+0.98560028*ds);
+  const C=rad*(1.9148*Math.sin(M)+0.02*Math.sin(2*M)+0.0003*Math.sin(3*M));
+  const P=rad*102.9372;
+  const L=M+C+P+Math.PI;
+  const dec=Math.asin(Math.sin(L)*Math.sin(rad*23.4397));
+  const Jnoon=J2000+ds+0.0053*Math.sin(M)-0.0069*Math.sin(2*L);
+  const h0=rad*-0.833;
+  const cosH=(Math.sin(h0)-Math.sin(phi)*Math.sin(dec))/(Math.cos(phi)*Math.cos(dec));
+  if(cosH<-1||cosH>1)return null; // polar day/night
+  const w=Math.acos(cosH);
+  const Jset=J2000+(0.0009+(w+lw)/(2*Math.PI)+n)+0.0053*Math.sin(M)-0.0069*Math.sin(2*L);
+  const Jrise=Jnoon-(Jset-Jnoon);
+  return{sunrise:fromJulian(Jrise),sunset:fromJulian(Jset)};
+}
+
+function fmt(d){return d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})}
+
+function renderPachkhan(){
+  const st=sunTimes(new Date(),LAT,LON);
+  if(!st){document.getElementById('sunrise').textContent='N/A';return}
+  const{sunrise,sunset}=st;
+  const dayLen=sunset-sunrise;
+  document.getElementById('sunrise').textContent=fmt(sunrise);
+  document.getElementById('sunset').textContent=fmt(sunset);
+  const rows=[
+    {name:'Navkarsi',time:new Date(sunrise.getTime()+48*60000),desc:'48 min after sunrise — first food/water after Navkar smaran'},
+    {name:'Porsi',time:new Date(sunrise.getTime()+dayLen/4),desc:'One prahar — ¼ of the day after sunrise'},
+    {name:'Sadh-Porsi',time:new Date(sunrise.getTime()+dayLen*3/8),desc:'1½ prahars after sunrise'},
+    {name:'Purimaddh',time:new Date(sunrise.getTime()+dayLen/2),desc:'Half the day — solar noon'},
+    {name:'Avaddh',time:new Date(sunrise.getTime()+dayLen*3/4),desc:'¾ of the day after sunrise'},
+    {name:'Chauvihar / Sunset',time:sunset,desc:'No food or water after sunset'},
+  ];
+  const now=new Date();
+  let nowIdx=rows.findIndex(r=>now<r.time);
+  document.querySelector('#pachkhanTable tbody').innerHTML=rows.map((r,i)=>{
+    const cls=now>r.time?'past':(i===nowIdx?'now':'');
+    return`<tr class="${cls}"><td class="t-name">${r.name}</td><td class="t-time">${fmt(r.time)}</td><td class="t-desc">${r.desc}</td></tr>`;
+  }).join('');
+}
+
+function getLocation(){
+  const s=document.getElementById('locStatus');
+  if(!navigator.geolocation){s.textContent='Geolocation not supported by this browser.';return}
+  s.textContent='Locating…';
+  navigator.geolocation.getCurrentPosition(p=>{
+    LAT=p.coords.latitude;LON=p.coords.longitude;
+    s.textContent=`Using your location (${LAT.toFixed(2)}°, ${LON.toFixed(2)}°)`;
+    renderPachkhan();
+  },()=>{s.textContent='Location denied — using default (Dallas, TX).'});
+}
+
+renderPachkhan();
+setInterval(renderPachkhan,60000);
+
+// ════════ FESTIVALS ════════
+const FESTIVALS=[
+ {when:'March – April',name:'Mahavir Janma Kalyanak (Mahavir Jayanti)',sub:'महावीर जन्म कल्याणक',desc:'Birth of Bhagwan Mahavir, the 24th Tirthankara — Chaitra Shukla 13. Celebrated with processions, temple worship, and readings of his life.'},
+ {when:'March – April',name:'Chaitri Ayambil Oli',sub:'चैत्री आयंबिल ओली',desc:'Nine days of Ayambil tapasya (one bland meal a day) devoted to the Navpad — the nine supreme posts of the Siddhachakra.'},
+ {when:'April – May',name:'Akshaya Tritiya',sub:'अक्षय तृतीया',desc:'Vaishakh Shukla 3 — the day Rishabhdev broke his year-long fast with sugarcane juice. Varshitap practitioners complete their fast today.'},
+ {when:'August – September',name:'Paryushan Mahaparva (Shvetambar)',sub:'पर्युषण महापर्व',desc:'The 8 most sacred days of the year: fasting, Pratikraman, and the reading of the Kalpa Sutra. A festival of the soul.'},
+ {when:'August – September',name:'Samvatsari',sub:'संवत्सरी',desc:'The final day of Paryushan — the great day of universal forgiveness. "Michami Dukkadam" is exchanged with all.'},
+ {when:'September',name:'Das Lakshan Parva (Digambar)',sub:'दस लक्षण पर्व',desc:'Ten days following Paryushan celebrating the ten supreme dharmas: forgiveness, humility, honesty, purity, truth, restraint, penance, renunciation, detachment, celibacy.'},
+ {when:'September',name:'Kshamavani (Digambar)',sub:'क्षमावाणी',desc:'The Digambar day of forgiveness, after Das Lakshan — "Uttam Kshama!" is exchanged.'},
+ {when:'September – October',name:'Ashwin Ayambil Oli',sub:'आश्विन आयंबिल ओली',desc:'The second nine-day Navpad Oli of the year, ending on Sharad Purnima.'},
+ {when:'October – November',name:'Diwali — Mahavir Nirvan Kalyanak',sub:'महावीर निर्वाण कल्याणक',desc:'Kartik Amavasya — Bhagwan Mahavir attained moksha at Pavapuri. Jains light lamps for the light of knowledge that left the world.'},
+ {when:'October – November',name:'Gyan Panchami',sub:'ज्ञान पंचमी',desc:'Kartik Shukla 5 — the day of knowledge. Scriptures are cleaned, venerated, and studied.'},
+ {when:'November',name:'Kartik Purnima',sub:'कार्तिक पूर्णिमा',desc:'End of Chaturmas — monks resume travel. Major pilgrimage day to Shatrunjay (Palitana).'},
+ {when:'November – December',name:'Maun Agyaras',sub:'मौन अग्यारस',desc:'Margashirsha Shukla 11 — a day of complete silence, fasting and meditation, honouring 150 kalyanaks of the Tirthankaras.'},
+];
+document.getElementById('festList').innerHTML=FESTIVALS.map(f=>`
+  <div class="fest">
+    <div class="fest-when">${f.when}</div>
+    <div>
+      <div class="fest-name">${f.name}</div>
+      <div class="fest-sub">${f.sub}</div>
+      <div class="fest-desc">${f.desc}</div>
+    </div>
+  </div>`).join('');
+</script>
+</body>
+</html>

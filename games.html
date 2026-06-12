@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Games | Jain Stavans & Sutras</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--saffron:#C8560A;--gold:#C8960C;--deep:#8B3A0A;--cream:#FAF6EE;--parchment:#F0E8D5;--ink:#1C1208;--muted:#7A6845;--border:#D9C9A3;--white:#FFFDF8;--accent:#FDF4E3}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans',Arial,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+header{background:linear-gradient(135deg,#1C1208 0%,#2C1A06 100%);color:var(--cream);text-align:center;padding:1.25rem 1.5rem 1rem;cursor:pointer;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(200,150,12,.04) 30px,rgba(200,150,12,.04) 60px)}
+.hdr-om{font-size:2.1rem;color:var(--gold);animation:float 4s ease-in-out infinite;display:block;margin-bottom:.1rem;position:relative}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+header h1{font-size:clamp(1.45rem,3vw,2.25rem);font-weight:700;position:relative}
+header h1 span{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:clamp(.9rem,1.8vw,1.25rem);color:var(--gold);display:block;margin-top:.12rem;font-weight:500}
+.hdr-line{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.45rem auto;position:relative}
+header p{font-style:italic;color:#C8B898;font-size:.88rem;position:relative}
+nav{background:var(--ink);display:flex;justify-content:center;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold);flex-wrap:wrap}
+.nv{color:#C8B898;font-family:'Noto Sans',Arial,sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.1em;padding:.8rem 1.5rem;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-2px}
+.nv:hover{color:var(--gold)}
+.nv.on{color:var(--gold);border-bottom-color:var(--gold);background:rgba(200,150,12,.07)}
+main{width:min(100%,900px);margin:0 auto;padding:1.5rem 1.25rem}
+.mode-tabs{display:flex;background:var(--parchment);border:1.5px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:1.5rem}
+.mode-tab{flex:1;padding:.8rem;border:none;background:none;cursor:pointer;font-family:'Noto Sans',Arial,sans-serif;font-size:.95rem;font-weight:700;color:var(--muted);transition:all .2s}
+.mode-tab.on{background:var(--saffron);color:#fff}
+.panel{display:none}
+.panel.on{display:block}
+.card{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:1.75rem;margin-bottom:1rem}
+.card h2{color:var(--deep);font-size:1.3rem;margin-bottom:.75rem}
+.card p{color:var(--muted);font-size:.92rem;line-height:1.7}
+.big-btn{display:block;width:100%;padding:.95rem;background:var(--saffron);color:#fff;border:none;border-radius:5px;font-family:'Noto Sans',Arial,sans-serif;font-size:1.05rem;font-weight:700;cursor:pointer;transition:background .2s;margin-top:1.25rem}
+.big-btn:hover{background:var(--deep)}
+.big-btn:disabled{opacity:.4;cursor:default}
+/* trivia */
+.t-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;font-size:.85rem;color:var(--muted);font-weight:600}
+.t-timer{font-size:1.4rem;font-weight:700;color:var(--saffron);min-width:3rem;text-align:right}
+.t-timer.low{color:#C0392B;animation:pulse .5s infinite alternate}
+@keyframes pulse{to{opacity:.4}}
+.t-q{font-size:1.15rem;font-weight:700;color:var(--ink);line-height:1.6;margin-bottom:.5rem}
+.t-quote{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;background:var(--accent);border-left:4px solid var(--gold);padding:.9rem 1.1rem;font-size:1.2rem;line-height:1.8;margin:.75rem 0 1.25rem;border-radius:0 4px 4px 0}
+.t-opts{display:grid;gap:.6rem}
+.t-opt{padding:.85rem 1.1rem;background:var(--parchment);border:2px solid var(--border);border-radius:5px;font-family:'Noto Sans',Arial,sans-serif;font-size:.98rem;font-weight:600;color:var(--ink);cursor:pointer;text-align:left;transition:all .15s}
+.t-opt:hover{border-color:var(--gold);background:var(--accent)}
+.t-opt.correct{background:#d8f3dc;border-color:#2d6a4f;color:#1b4332}
+.t-opt.wrong{background:#fde2e0;border-color:#c0392b;color:#7a1a14}
+.t-opt:disabled{cursor:default}
+.t-feedback{margin-top:1rem;font-weight:700;font-size:1rem;min-height:1.5rem}
+.t-feedback.good{color:#2d6a4f}
+.t-feedback.bad{color:#c0392b}
+.t-result{text-align:center;padding:1.5rem 0}
+.t-result .score{font-size:3.2rem;font-weight:700;color:var(--saffron)}
+.t-result .grade{font-size:1.2rem;color:var(--deep);font-weight:700;margin:.5rem 0}
+.t-bar{height:8px;background:var(--parchment);border-radius:4px;overflow:hidden;margin-bottom:1.25rem}
+.t-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--saffron));transition:width .3s}
+/* flashcards */
+select{width:100%;padding:.6rem .8rem;border:1.5px solid var(--border);border-radius:4px;font-family:'Noto Sans',Arial,sans-serif;font-size:.95rem;background:var(--cream);color:var(--ink);outline:none;margin-bottom:.5rem}
+select:focus{border-color:var(--saffron)}
+.fc-stage{min-height:200px;display:flex;flex-direction:column;justify-content:center}
+.fc-line{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:1.45rem;line-height:1.9;color:#2A1505;padding:.15rem 0}
+.fc-line.latest{background:var(--accent);border-radius:3px;padding:.15rem .5rem;margin:0 -.5rem}
+.fc-trans{font-size:1rem;color:#1A3A6B;line-height:1.7;font-style:italic}
+.fc-hint{color:var(--muted);font-style:italic;text-align:center;padding:2rem 0}
+.fc-controls{display:flex;gap:.75rem;margin-top:1.25rem}
+.fc-controls .big-btn{margin-top:0}
+.fc-btn-alt{background:var(--parchment);color:var(--deep);border:1.5px solid var(--border)}
+.fc-btn-alt:hover{background:var(--accent)}
+.fc-progress{font-size:.82rem;color:var(--muted);text-align:center;margin-top:.75rem}
+footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font-size:.8rem;line-height:1.7;margin-top:3rem}
+footer strong{color:var(--gold)}
+</style>
+</head>
+<body>
+<header onclick="location.href='index.html'">
+  <span class="hdr-om">☸</span>
+  <h1>Jain Games <span>खेल-खेल में ज्ञान</span></h1>
+  <div class="hdr-line"></div>
+  <p>Learn the prayers and the tradition — by playing</p>
+</header>
+<nav>
+  <a class="nv" href="index.html">Home</a>
+  <a class="nv" href="index.html#stavans">Stavans</a>
+  <a class="nv" href="index.html#sutras">Sutras</a>
+  <a class="nv on" href="games.html">Games</a>
+  <a class="nv" href="tools.html">Tools</a>
+  <a class="nv" href="aagamgpt.html">Aagam GPT</a>
+</nav>
+
+<main>
+  <div class="mode-tabs">
+    <button class="mode-tab on" onclick="setMode('trivia',this)">🎯 Trivia Quiz</button>
+    <button class="mode-tab" onclick="setMode('flash',this)">🃏 Memorize</button>
+  </div>
+
+  <!-- ── TRIVIA ── -->
+  <div class="panel on" id="panel-trivia">
+    <div class="card" id="triviaCard">
+      <h2>Jain Trivia Challenge</h2>
+      <p>10 questions — identify sutras and stavans from their lines, match meanings,
+      and name the Tirthankaras by their symbols. Answer fast for more points (Kahoot style!).</p>
+      <button class="big-btn" onclick="startTrivia()">▶ Start Quiz</button>
+    </div>
+  </div>
+
+  <!-- ── FLASHCARDS ── -->
+  <div class="panel" id="panel-flash">
+    <div class="card">
+      <h2>Memorize a Path</h2>
+      <p style="margin-bottom:1rem">Pick a sutra or stavan. Lines appear one at a time —
+      try to recall the next line <em>before</em> revealing it.</p>
+      <select id="fcType" onchange="fillFcItems()">
+        <option value="sutra">Sutras</option>
+        <option value="stavan">Stavans</option>
+      </select>
+      <select id="fcItem"></select>
+      <button class="big-btn" onclick="startFlash()">▶ Start Memorizing</button>
+    </div>
+    <div class="card" id="fcStage" style="display:none">
+      <div class="t-meta"><span id="fcTitle"></span><span id="fcCount"></span></div>
+      <div class="fc-stage" id="fcLines"><div class="fc-hint">Press "Reveal next line" to begin</div></div>
+      <div class="fc-controls">
+        <button class="big-btn" id="fcNext" onclick="revealNext()">Reveal next line ⏎</button>
+        <button class="big-btn fc-btn-alt" onclick="toggleTrans()" id="fcTransBtn">Show transliteration</button>
+        <button class="big-btn fc-btn-alt" onclick="resetFlash()">↻ Restart</button>
+      </div>
+      <div class="fc-progress" id="fcProg"></div>
+    </div>
+  </div>
+</main>
+
+<footer><strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain</footer>
+
+<script src="js/sutras-data.js"></script>
+<script src="js/stavans-data.js"></script>
+<script src="js/swadyah-data.js"></script>
+<script>
+function esc(t){return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function shuffle(a){const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
+
+function setMode(m,btn){
+  document.querySelectorAll('.mode-tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.getElementById('panel-'+m).classList.add('on');
+}
+
+// ════════ TIRTHANKARA DATA (for trivia) ════════
+const TIRTHANKARAS=[
+ {n:1,name:'Rishabhanath (Adinath)',symbol:'Bull'},
+ {n:2,name:'Ajitanath',symbol:'Elephant'},
+ {n:3,name:'Sambhavanath',symbol:'Horse'},
+ {n:4,name:'Abhinandananath',symbol:'Monkey'},
+ {n:5,name:'Sumatinath',symbol:'Curlew (Krauncha bird)'},
+ {n:6,name:'Padmaprabha',symbol:'Lotus'},
+ {n:7,name:'Suparshvanath',symbol:'Swastika'},
+ {n:8,name:'Chandraprabha',symbol:'Moon'},
+ {n:9,name:'Pushpadanta (Suvidhinath)',symbol:'Crocodile (Makara)'},
+ {n:10,name:'Shitalanath',symbol:'Shrivatsa (Kalpavriksha)'},
+ {n:11,name:'Shreyansanath',symbol:'Rhinoceros'},
+ {n:12,name:'Vasupujya',symbol:'Buffalo'},
+ {n:13,name:'Vimalanath',symbol:'Boar'},
+ {n:14,name:'Anantanath',symbol:'Falcon (Porcupine in Digambar tradition)'},
+ {n:15,name:'Dharmanath',symbol:'Vajra (Thunderbolt)'},
+ {n:16,name:'Shantinath',symbol:'Deer'},
+ {n:17,name:'Kunthunath',symbol:'Goat'},
+ {n:18,name:'Aranath',symbol:'Nandyavarta (Fish in Digambar tradition)'},
+ {n:19,name:'Mallinath',symbol:'Kalasha (Water pot)'},
+ {n:20,name:'Munisuvrata',symbol:'Tortoise'},
+ {n:21,name:'Naminath',symbol:'Blue Lotus'},
+ {n:22,name:'Neminath',symbol:'Conch (Shankha)'},
+ {n:23,name:'Parshvanath',symbol:'Serpent'},
+ {n:24,name:'Mahavir',symbol:'Lion'},
+];
+
+// ════════ TRIVIA ════════
+const QUESTION_TIME=20;
+let tQs=[],tIdx=0,tScore=0,tTimer=null,tLeft=0;
+
+function buildQuestions(){
+  const qs=[];
+  const pool=[...SUTRAS.map(s=>({...s,kind:'Sutra'})),...STAVANS.map(s=>({...s,kind:'Stavan'}))];
+  const titled=pool.filter(p=>p.hindi&&p.hindi.split('\n').filter(l=>l.trim()).length>=2);
+
+  // Type 1: which sutra/stavan is this line from?
+  shuffle(titled).slice(0,12).forEach(item=>{
+    const lines=item.hindi.split('\n').filter(l=>l.trim().length>8);
+    if(!lines.length)return;
+    const line=lines[Math.floor(Math.random()*lines.length)];
+    const others=shuffle(pool.filter(p=>p.id!==item.id)).slice(0,3).map(p=>p.title);
+    qs.push({q:`This line is from which ${item.kind.toLowerCase()}?`,quote:line,opts:shuffle([item.title,...others]),ans:item.title});
+  });
+
+  // Type 2: meaning → title
+  shuffle(pool.filter(p=>p.meaning&&p.meaning.length>40)).slice(0,8).forEach(item=>{
+    const others=shuffle(pool.filter(p=>p.id!==item.id)).slice(0,3).map(p=>p.title);
+    qs.push({q:'Which one matches this description?',quote:item.meaning,opts:shuffle([item.title,...others]),ans:item.title});
+  });
+
+  // Type 3: Tirthankara symbols
+  shuffle(TIRTHANKARAS).slice(0,8).forEach(t=>{
+    const others=shuffle(TIRTHANKARAS.filter(x=>x.n!==t.n)).slice(0,3).map(x=>x.name);
+    qs.push({q:`Which Tirthankara has the ${t.symbol} as their symbol (lanchan)?`,quote:null,opts:shuffle([t.name,...others]),ans:t.name});
+  });
+
+  // Type 4: Tirthankara numbers
+  shuffle(TIRTHANKARAS.filter(t=>[1,16,22,23,24].includes(t.n))).slice(0,3).forEach(t=>{
+    const others=shuffle(TIRTHANKARAS.filter(x=>x.n!==t.n)).slice(0,3).map(x=>x.name);
+    const ord=t.n===1?'1st':t.n===2?'2nd':t.n===3?'3rd':t.n+'th';
+    qs.push({q:`Who is the ${ord} Tirthankara?`,quote:null,opts:shuffle([t.name,...others]),ans:t.name});
+  });
+
+  return shuffle(qs).slice(0,10);
+}
+
+function startTrivia(){
+  tQs=buildQuestions();tIdx=0;tScore=0;
+  showQuestion();
+}
+
+function showQuestion(){
+  clearInterval(tTimer);
+  const q=tQs[tIdx];
+  tLeft=QUESTION_TIME;
+  document.getElementById('triviaCard').innerHTML=`
+    <div class="t-bar"><i style="width:${(tIdx)/tQs.length*100}%"></i></div>
+    <div class="t-meta">
+      <span>Question ${tIdx+1} / ${tQs.length} &nbsp;·&nbsp; Score: ${tScore}</span>
+      <span class="t-timer" id="tTimer">${tLeft}</span>
+    </div>
+    <div class="t-q">${esc(q.q)}</div>
+    ${q.quote?`<div class="t-quote">${esc(q.quote)}</div>`:''}
+    <div class="t-opts">${q.opts.map(o=>`<button class="t-opt" onclick="answer(this,'${o.replace(/'/g,"\\'")}')">${esc(o)}</button>`).join('')}</div>
+    <div class="t-feedback" id="tFb"></div>`;
+  tTimer=setInterval(()=>{
+    tLeft--;
+    const el=document.getElementById('tTimer');
+    if(el){el.textContent=tLeft;if(tLeft<=5)el.classList.add('low')}
+    if(tLeft<=0){clearInterval(tTimer);timeUp()}
+  },1000);
+}
+
+function answer(btn,choice){
+  clearInterval(tTimer);
+  const q=tQs[tIdx];
+  document.querySelectorAll('.t-opt').forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===q.ans)b.classList.add('correct');
+  });
+  const fb=document.getElementById('tFb');
+  if(choice===q.ans){
+    const pts=100+tLeft*10;
+    tScore+=pts;
+    fb.textContent=`✓ Correct! +${pts} points`;fb.className='t-feedback good';
+  }else{
+    btn.classList.add('wrong');
+    fb.textContent=`✗ The answer was: ${q.ans}`;fb.className='t-feedback bad';
+  }
+  setTimeout(nextQuestion,1800);
+}
+
+function timeUp(){
+  const q=tQs[tIdx];
+  document.querySelectorAll('.t-opt').forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===q.ans)b.classList.add('correct');
+  });
+  const fb=document.getElementById('tFb');
+  fb.textContent=`⏰ Time's up! The answer was: ${q.ans}`;fb.className='t-feedback bad';
+  setTimeout(nextQuestion,1800);
+}
+
+function nextQuestion(){
+  tIdx++;
+  if(tIdx<tQs.length)showQuestion();
+  else showResult();
+}
+
+function showResult(){
+  const max=tQs.length*(100+QUESTION_TIME*10);
+  const pct=tScore/max;
+  const grade=pct>.8?'🏆 Maha-Gyani! Outstanding!':pct>.6?'🌟 Gyani — very impressive!':pct>.4?'📿 Sadhak — keep practicing!':pct>.2?'🌱 Shishya — a good start!':'🙏 Michami Dukkadam — try again!';
+  document.getElementById('triviaCard').innerHTML=`
+    <div class="t-result">
+      <div style="font-size:.85rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase">Final Score</div>
+      <div class="score">${tScore}</div>
+      <div class="grade">${grade}</div>
+      <button class="big-btn" onclick="startTrivia()">↻ Play Again</button>
+    </div>`;
+}
+
+// ════════ FLASHCARDS ════════
+let fcLines=[],fcTrans=[],fcPos=0,fcShowTrans=false;
+
+function fillFcItems(){
+  const t=document.getElementById('fcType').value;
+  const pool=t==='sutra'?SUTRAS:STAVANS;
+  document.getElementById('fcItem').innerHTML=[...pool]
+    .sort((a,b)=>a.title.localeCompare(b.title))
+    .map(p=>`<option value="${p.id}">${esc(p.title)}</option>`).join('');
+}
+fillFcItems();
+
+function startFlash(){
+  const t=document.getElementById('fcType').value;
+  const pool=t==='sutra'?SUTRAS:STAVANS;
+  const item=pool.find(p=>p.id===document.getElementById('fcItem').value);
+  if(!item)return;
+  fcLines=item.hindi.split('\n');
+  fcTrans=item.hinglish.split('\n');
+  fcPos=0;fcShowTrans=false;
+  document.getElementById('fcStage').style.display='block';
+  document.getElementById('fcTitle').textContent=item.title;
+  document.getElementById('fcTransBtn').textContent='Show transliteration';
+  renderFlash();
+  document.getElementById('fcStage').scrollIntoView({behavior:'smooth'});
+}
+
+function renderFlash(){
+  const box=document.getElementById('fcLines');
+  if(fcPos===0){
+    box.innerHTML='<div class="fc-hint">Try to recall the first line… then reveal it.</div>';
+  }else{
+    box.innerHTML=fcLines.slice(0,fcPos).map((l,i)=>{
+      const latest=i===fcPos-1?' latest':'';
+      const tr=fcShowTrans&&fcTrans[i]?`<div class="fc-trans">${esc(fcTrans[i])}</div>`:'';
+      return`<div class="fc-line${latest}">${esc(l)||'&nbsp;'}</div>${tr}`;
+    }).join('');
+  }
+  document.getElementById('fcCount').textContent=`${fcPos} / ${fcLines.length} lines`;
+  document.getElementById('fcProg').textContent=fcPos>=fcLines.length?'✓ Complete! Recite it once more from memory.':'Recall the next line before revealing it…';
+  document.getElementById('fcNext').disabled=fcPos>=fcLines.length;
+  box.parentElement.scrollIntoView({behavior:'smooth',block:'end'});
+}
+
+function revealNext(){if(fcPos<fcLines.length){fcPos++;renderFlash()}}
+function toggleTrans(){
+  fcShowTrans=!fcShowTrans;
+  document.getElementById('fcTransBtn').textContent=fcShowTrans?'Hide transliteration':'Show transliteration';
+  renderFlash();
+}
+function resetFlash(){fcPos=0;fcShowTrans=false;renderFlash()}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&document.getElementById('panel-flash').classList.contains('on')
+     &&document.getElementById('fcStage').style.display!=='none')revealNext();
+});
+</script>
+</body>
+</html>
