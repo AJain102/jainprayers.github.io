@@ -430,6 +430,200 @@ Ghantakarna ki kripa se, sab kaarya ban jaaye.
 Om jai jai…`,
 meaning:'Ghantakarna Mahavir is a revered yaksha (divine protector) of the Jain tradition, primarily worshipped at the famous Mahudi temple in Gujarat. Devotees pray to him for protection, removal of obstacles, and fulfilment of wishes.'},
 
+{id:'panchindiya',type:'sutra',title:'Panchindiya Sutra',sub:'पंचिंदिय सूत्र',
+hindi:`पंचिंदिय-संवरणो,
+तह नवविह-बंभचेर-गुत्तिधरो ।
+चउविह-कसाय-मुक्को,
+इअ अट्ठारस-गुणेहिं संजुत्तो ॥१॥
+पंच-महव्वय-जुत्तो,
+पंचविहायार-पालण-समत्थो ।
+पंच-समिओ ति-गुत्तो,
+छत्तीस-गुणो गुरू मज्झ ॥२॥`,
+hinglish:`Panchindiya-samvarano,
+Taha navaviha-bambhachera-guttidharo.
+Chauviha-kasaya-mukko,
+Ia attharasa-gunehim sanjutto..1..
+Pancha-mahavvaya-jutto,
+Panchavihayara-palana-samattho.
+Pancha-samio ti-gutto,
+Chhattisa-guno guru majjha..2..`,
+meaning:'Describes the 36 qualities of a true Guru. Recited at the start of Samayik and Pratikraman to establish the Guru\'s presence (sthapana) when a living guru is not physically present.'},
+
+{id:'icchami-khamasamano',type:'sutra',title:'Khamasamana Sutra',sub:'इच्छामि खमासमणो',
+hindi:`इच्छामि खमासमणो!
+वंदिउं जावणिज्जाए निसीहियाए ।
+मत्थएण वंदामि ॥`,
+hinglish:`Icchami Khamasamano!
+Vandium javanijjae nisihiae.
+Matthaena vandami.`,
+meaning:'The Panchanga Pranipata — the five-limbed bow (two hands, two knees, forehead touching the ground). Recited each time one bows to the Guru or to the Jina during Samayik, Pratikraman, and temple rituals.'},
+
+{id:'tikhutto',type:'sutra',title:'Tikhutto Sutra',sub:'तिक्खुत्तो सूत्र',
+hindi:`तिक्खुत्तो आयाहिणं पयाहिणं करेमि,
+वंदामि नमंसामि,
+सक्कारेमि सम्माणेमि,
+कल्लाणं मंगलं देवयं चेइयं,
+पज्जुवासामि मत्थएण वंदामि ॥`,
+hinglish:`Tikkhutto ayahinam payahinam karemi,
+Vandami namamsami,
+Sakkaremi sammanemi,
+Kallanam mangalam devayam cheiyam,
+Pajjuvasami matthaena vandami.`,
+meaning:'Recited while circumambulating (going around) the Guru or Jina three times. "Three times I circle you keeping you on my right; I bow, I venerate, I honour, I respect you — auspicious, benevolent, divine, the embodiment of knowledge — I serve you and bow my head."'},
+
+{id:'jankinchi',type:'sutra',title:'Jankinchi Sutra',sub:'जं किंचि सूत्र',
+hindi:`जं किंचि नाम तित्थं,
+सग्गे पायालि माणुसे लोए ।
+जाइं जिणबिंबाइं,
+ताइं सव्वाइं वंदामि ॥`,
+hinglish:`Jam kinchi nama tittham,
+Sagge payali manuse loe.
+Jaim jinabimbaim,
+Taim savvaim vandami.`,
+meaning:'A short tirtha-vandana: "Whatever holy places there are in heaven, the netherworld, or the human world, and whatever images of the Jinas they hold — I bow to them all." Part of Chaityavandan.'},
+
+{id:'javanti-cheiaim',type:'sutra',title:'Javanti Cheiaim Sutra',sub:'जावंति चेइआइं',
+hindi:`जावंति चेइआइं,
+उड्ढे अ अहे अ तिरिअलोए अ ।
+सव्वाइं ताइं वंदे,
+इह संतो तत्थ संताइं ॥`,
+hinglish:`Javanti cheiaim,
+Uddhe a ahe a tiria-loe a.
+Savvaim taim vande,
+Iha santo tattha santaim.`,
+meaning:'"To all the temples of the Jinas in the upper world, the lower world and the middle world — standing here, I bow to all of them there." Recited during Chaityavandan.'},
+
+{id:'javant-kevi-sahu',type:'sutra',title:'Javant Kevi Sahu Sutra',sub:'जावंत केवि साहू',
+hindi:`जावंत केवि साहू,
+भरहेरवय-महाविदेहे अ ।
+सव्वेसिं तेसिं पणओ,
+तिविहेण तिदंड-विरयाणं ॥`,
+hinglish:`Javant kevi sahu,
+Bharaheravaya-Mahavidehe a.
+Savvesim tesim panao,
+Tivihena tidanda-virayanam.`,
+meaning:'"To all the sadhus in Bharat, Airavat and Mahavideh kshetras, who have renounced the three-fold wrong activities of mind, speech and body — I bow to them all." Recited during Chaityavandan.'},
+
+{id:'siddhanam-buddhanam',type:'sutra',title:'Siddhanam Buddhanam (Siddha Stava)',sub:'सिद्धाणं बुद्धाणं',
+hindi:`सिद्धाणं बुद्धाणं, पार-गयाणं परंपर-गयाणं ।
+लोअग्ग-मुवगयाणं, नमो सया सव्व-सिद्धाणं ॥१॥
+जो देवाण वि देवो, जं देवा पंजली नमंसंति ।
+तं देव-देव-महिअं, सिरसा वंदे महावीरं ॥२॥
+इक्को वि नमुक्कारो, जिणवर-वसहस्स वद्धमाणस्स ।
+संसार-सागराओ, तारेइ नरं व नारिं वा ॥३॥`,
+hinglish:`Siddhanam buddhanam, para-gayanam parampara-gayanam.
+Loagga-muvagayanam, namo saya savva-siddhanam..1..
+Jo devana vi devo, jam deva panjali namamsanti.
+Tam deva-deva-mahiam, sirasa vande Mahaviram..2..
+Ikko vi namukkaro, jinavara-vasahassa Vaddhamanassa.
+Sansara-sagarao, tarei naram va narim va..3..`,
+meaning:'The Siddha Stava — praise of the liberated souls. Declares that even a single namaskar to Bhagwan Mahavir can carry a man or woman across the ocean of sansara. Recited near the end of Pratikraman and Chaityavandan.'},
+
+{id:'sansara-davanala',type:'sutra',title:'Sansara Davanala Stuti (Selected)',sub:'संसार-दावानल स्तुति',
+hindi:`संसार-दावानल-दाह-नीरं,
+संमोह-धूली-हरणे समीरं ।
+माया-रसा-दारण-सार-सीरं,
+नमामि वीरं गिरि-सार-धीरं ॥१॥`,
+hinglish:`Sansara-davanala-daha-niram,
+Sammoha-dhuli-harane samiram.
+Maya-rasa-darana-sara-siram,
+Namami Viram giri-sara-dhiram..1..`,
+meaning:'Composed by Acharya Haribhadrasuri. "I bow to Vir — water to the forest-fire of sansara, wind that blows away the dust of delusion, the plough that tears apart the soil of maya, steadfast as the great mountain." Recited during Pratikraman. (First verse of four shown.)'},
+
+{id:'pukkharavardivaddhe',type:'sutra',title:'Pukkharavardivaddhe (Shruta Stava — Selected)',sub:'पुक्खरवर-दीवड्ढे',
+hindi:`पुक्खरवर-दीवड्ढे,
+धायइसंडे अ जंबुदीवे अ ।
+भरहेरवय-विदेहे,
+धम्माइगरे नमंसामि ॥१॥`,
+hinglish:`Pukkharavara-divaddhe,
+Dhayaisande a Jambudive a.
+Bharaheravaya-videhe,
+Dhammaigare namamsami..1..`,
+meaning:'The Shruta Stava — veneration of the scriptures and of the founders of dharma in all the continents (Pushkaravara, Dhatakikhanda, Jambudvipa). Recited during Pratikraman. (First verse shown.)'},
+
+{id:'vandittu',type:'sutra',title:'Vandittu Sutra (Selected)',sub:'वंदित्तु सूत्र',
+hindi:`वंदित्तु सव्व-सिद्धे,
+धम्मायरिए अ सव्व-साहू अ ।
+इच्छामि पडिक्कमिउं,
+सावग-धम्माइयारस्स ॥१॥
+
+जो मे वयाइयारो,
+नाणे तह दंसणे चरित्ते अ ।
+सुहुमो व बायरो वा,
+तं निंदे तं च गरिहामि ॥२॥
+
+खामेमि सव्व जीवे,
+सव्वे जीवा खमंतु मे ।
+मित्ती मे सव्व-भूएसु,
+वेरं मज्झ न केणइ ॥`,
+hinglish:`Vandittu savva-siddhe,
+Dhammayarie a savva-sahu a.
+Icchami padikkamium,
+Savaga-dhammaiyarassa..1..
+
+Jo me vayaiyaro,
+Nane taha damsane charitte a.
+Suhumo va bayaro va,
+Tam ninde tam cha garihami..2..
+
+Khamemi savva jive,
+Savve jiva khamantu me.
+Mitti me savva-bhuesu,
+Veram majjha na kenai..`,
+meaning:'The heart of Pratikraman — the shravak\'s confession of transgressions against the twelve vows, knowledge, faith and conduct. The full sutra has 50 verses; the opening verses and the famous universal-forgiveness verse are shown here.'},
+
+{id:'jagchintamani',type:'sutra',title:'Jagchintamani Chaityavandan (Selected)',sub:'जग-चिंतामणि चैत्यवंदन',
+hindi:`जग-चिंतामणि! जग-नाह!
+जग-गुरु! जग-रक्खण!
+जग-बंधव! जग-सत्थवाह!
+जग-भाव-विअक्खण!
+अट्ठावय-संठविअ-रूव!
+कम्मट्ठ-विणासण!
+चउवीसं पि जिणवरा!
+जयंतु अप्पडिहय-सासण! ॥१॥`,
+hinglish:`Jag-chintamani! Jag-naha!
+Jag-guru! Jag-rakkhana!
+Jag-bandhava! Jag-satthavaha!
+Jag-bhava-viakkhana!
+Atthavaya-santhavia-ruva!
+Kammattha-vinasana!
+Chauvisam pi jinavara!
+Jayantu appadihaya-sasana!..1..`,
+meaning:'The morning Chaityavandan composed, by tradition, by Ganadhar Gautam Swami. Hails the Jinas as the wish-fulfilling jewel of the universe, its lord, guru, protector, kinsman and guide. (Opening verse shown.)'},
+
+{id:'kalpasutra',type:'sutra',title:'Kalpa Sutra (Overview)',sub:'कल्पसूत्र — परिचय',
+hindi:`कल्पसूत्र जैन धर्म का अत्यंत पवित्र आगम ग्रंथ है,
+जिसकी रचना आचार्य भद्रबाहु स्वामी ने की थी।
+
+इसमें तीन मुख्य भाग हैं:
+
+१. जिन-चरित्र — भगवान महावीर का जीवन,
+उनके च्यवन, जन्म, दीक्षा, केवलज्ञान और निर्वाण का वर्णन।
+साथ में पार्श्वनाथ, नेमिनाथ और ऋषभदेव का चरित्र।
+
+२. स्थविरावली — गणधरों और आचार्यों की परंपरा।
+
+३. साधु-समाचारी — पर्युषण में साधुओं के नियम।
+
+पर्युषण महापर्व के आठ दिनों में इसका वाचन होता है।
+महावीर जन्म वाचन के दिन विशेष उत्सव मनाया जाता है।`,
+hinglish:`The Kalpa Sutra is one of the most sacred Jain scriptures,
+composed by Acharya Bhadrabahu Swami.
+
+It has three main sections:
+
+1. Jin-Charitra — the life of Bhagwan Mahavir:
+his conception, birth, diksha, kevalgyan and nirvana,
+along with the lives of Parshvanath, Neminath and Rishabhdev.
+
+2. Sthaviravali — the lineage of Ganadhars and Acharyas.
+
+3. Sadhu-Samachari — the rules of conduct for monks during Paryushan.
+
+It is recited over the eight days of Paryushan Mahaparva.
+The day of the Mahavir Janma Vachan is celebrated with special festivity.`,
+meaning:'An overview of the Kalpa Sutra — the full text is a complete scripture read aloud during Paryushan. This entry summarizes its structure and significance.'},
+
 ]; // end SUTRAS
 
 
@@ -444,15 +638,22 @@ const SUTRA_CATEGORIES = [
     id: 'samayik',
     title: 'Samayik Path',
     sub: 'सामायिक पाठ',
-    desc: 'Sutras recited during the 48-minute Samayik equanimity meditation.',
-    sutras: ['navkar','chattari','saagari','iriyavahiyam','tassauttari','annath','logassa','namutthunam','khamasamano']
+    desc: 'Sutras in the order recited when taking and completing the 48-minute Samayik vow.',
+    sutras: ['navkar','panchindiya','icchami-khamasamano','iriyavahiyam','tassauttari','annath','logassa','saagari','khamasamano']
   },
   {
     id: 'pratikraman',
     title: 'Pratikraman Path',
     sub: 'प्रतिक्रमण पाठ',
-    desc: 'Sutras recited during the morning (Devasi) and evening (Raisi) Pratikraman ritual.',
-    sutras: ['navkar','saagari','iriyavahiyam','logassa','chattari','namutthunam','tassauttari','annath','khamasamano','pratyakhyan']
+    desc: 'Sutras of the Pratikraman ritual of repentance, in the traditional order of recitation.',
+    sutras: ['navkar','panchindiya','icchami-khamasamano','iriyavahiyam','tassauttari','annath','logassa','saagari','chattari','namutthunam','vandittu','jagchintamani','jankinchi','javanti-cheiaim','javant-kevi-sahu','uvasaggaharam','pukkharavardivaddhe','siddhanam-buddhanam','sansara-davanala','khamasamano','pratyakhyan']
+  },
+  {
+    id: 'chaityavandan',
+    title: 'Chaityavandan',
+    sub: 'चैत्यवंदन',
+    desc: 'Sutras of the temple-veneration ritual performed before the Jina image.',
+    sutras: ['navkar','icchami-khamasamano','tikhutto','jagchintamani','jankinchi','namutthunam','javanti-cheiaim','javant-kevi-sahu','uvasaggaharam','siddhanam-buddhanam']
   },
   {
     id: 'uvasaggaharam',
@@ -488,6 +689,13 @@ const SUTRA_CATEGORIES = [
     sub: 'प्रत्याख्यान सूत्र',
     desc: 'Vows of renunciation taken by Jain householders for fasting and self-restraint.',
     sutras: ['pratyakhyan','panch']
+  },
+  {
+    id: 'kalpasutra',
+    title: 'Kalpa Sutra',
+    sub: 'कल्पसूत्र',
+    desc: 'The sacred scripture by Acharya Bhadrabahu, read during the eight days of Paryushan.',
+    sutras: ['kalpasutra']
   },
   {
     id: 'bhaktamar',
