@@ -119,7 +119,6 @@ footer strong{color:var(--gold)}
     <button class="mode-tab" onclick="setMode('match',this)">🧩 Match</button>
     <button class="mode-tab" onclick="setMode('blank',this)">✏️ Fill Blank</button>
     <button class="mode-tab" onclick="setMode('scramble',this)">🔀 Scramble</button>
-    <button class="mode-tab" onclick="setMode('external',this)">🚀 Kahoot+</button>
   </div>
 
   <!-- ── TRIVIA ── -->
@@ -192,66 +191,6 @@ footer strong{color:var(--gold)}
     </div>
   </div>
 
-  <!-- ── EXTERNAL ── -->
-  <div class="panel" id="panel-external">
-    <div class="card">
-      <h2>Kahoot, Blooket, Gimkit &amp; More</h2>
-      <p style="margin-bottom:1rem">Live multiplayer quiz games on the big platforms. Search these for ready-made
-      Jainism games, or host your own — when you create one, its link can be added below.</p>
-      <div class="ext-grid">
-        <a class="ext-card" href="https://create.kahoot.it/search?query=jainism" target="_blank" rel="noopener">
-          <div class="ext-logo" style="background:#46178F">K!</div>
-          <div><div class="ext-name">Kahoot!</div><div class="ext-desc">Search public "Jainism" kahoots or host your own live quiz</div></div>
-        </a>
-        <a class="ext-card" href="https://www.blooket.com/marketplace" target="_blank" rel="noopener">
-          <div class="ext-logo" style="background:#1E88E5">B</div>
-          <div><div class="ext-name">Blooket</div><div class="ext-desc">Browse question sets — search "Jainism" in Discover</div></div>
-        </a>
-        <a class="ext-card" href="https://www.gimkit.com/" target="_blank" rel="noopener">
-          <div class="ext-logo" style="background:#FF9800">G</div>
-          <div><div class="ext-name">Gimkit</div><div class="ext-desc">Create a kit from the trivia questions on this site</div></div>
-        </a>
-        <a class="ext-card" href="https://quizizz.com/admin/search/jainism" target="_blank" rel="noopener">
-          <div class="ext-logo" style="background:#8854C0">Q</div>
-          <div><div class="ext-name">Quizizz</div><div class="ext-desc">Ready-made Jainism quizzes you can play solo or host</div></div>
-        </a>
-      </div>
-      <div class="ext-mine">
-        <div class="ext-mine-hdr">📥 Ready-Made Kahoot Quizzes — download &amp; import</div>
-        <p style="font-size:.85rem;color:var(--muted);margin-bottom:.75rem">
-          Five complete quizzes in Kahoot's spreadsheet format. To use one:
-          go to <a href="https://create.kahoot.it" target="_blank" rel="noopener" style="color:var(--saffron)">create.kahoot.it</a> →
-          Create → Add question → <strong>Import spreadsheet</strong> → upload the file. Done!
-        </p>
-        <div class="ext-grid">
-          <a class="ext-card" href="kahoots/kahoot-1-navkar-core-sutras.xlsx" download>
-            <div class="ext-logo" style="background:var(--saffron)">1</div>
-            <div><div class="ext-name">Navkar &amp; Core Sutras</div><div class="ext-desc">12 questions on the Navkar Mantra, Logassa, Chattari &amp; more</div></div>
-          </a>
-          <a class="ext-card" href="kahoots/kahoot-2-tirthankaras.xlsx" download>
-            <div class="ext-logo" style="background:var(--saffron)">2</div>
-            <div><div class="ext-name">The 24 Tirthankaras</div><div class="ext-desc">12 questions on names, symbols and life events</div></div>
-          </a>
-          <a class="ext-card" href="kahoots/kahoot-3-samayik-pratikraman.xlsx" download>
-            <div class="ext-logo" style="background:var(--saffron)">3</div>
-            <div><div class="ext-name">Samayik &amp; Pratikraman</div><div class="ext-desc">12 questions on the rituals and their sutras</div></div>
-          </a>
-          <a class="ext-card" href="kahoots/kahoot-4-festivals-practices.xlsx" download>
-            <div class="ext-logo" style="background:var(--saffron)">4</div>
-            <div><div class="ext-name">Festivals &amp; Practices</div><div class="ext-desc">12 questions on Paryushan, Diwali, vows &amp; ahimsa</div></div>
-          </a>
-          <a class="ext-card" href="kahoots/kahoot-5-stavans-famous-lines.xlsx" download>
-            <div class="ext-logo" style="background:var(--saffron)">5</div>
-            <div><div class="ext-name">Stavans &amp; Famous Lines</div><div class="ext-desc">12 questions on beloved stavans and their themes</div></div>
-          </a>
-        </div>
-      </div>
-      <div class="ext-mine">
-        <div class="ext-mine-hdr">⭐ Our Hosted Games</div>
-        <div id="myGamesList"></div>
-      </div>
-    </div>
-  </div>
 </main>
 
 <footer><strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain</footer>
@@ -664,22 +603,6 @@ function nextScramble(){
       <button class="big-btn" onclick="startScramble()">↻ Play Again</button>
     </div>`;
 }
-
-// ════════ OUR EXTERNAL GAMES ════════
-// To add your own Kahoot/Blooket/Gimkit games: create the game on the
-// platform, copy its share link, and add an entry here:
-const MY_GAMES=[
-  // {name:'Jain Sutras Kahoot', platform:'Kahoot', url:'https://kahoot.it/challenge/XXXXXXX', desc:'Test your sutra knowledge!'},
-];
-
-document.getElementById('myGamesList').innerHTML=MY_GAMES.length
-  ? `<div class="ext-grid">${MY_GAMES.map(g=>`
-      <a class="ext-card" href="${g.url}" target="_blank" rel="noopener">
-        <div class="ext-logo" style="background:var(--saffron)">☸</div>
-        <div><div class="ext-name">${esc(g.name)}</div><div class="ext-desc">${esc(g.platform)} — ${esc(g.desc)}</div></div>
-      </a>`).join('')}</div>`
-  : `<div class="ext-empty">No custom games yet — when you create a Kahoot, Blooket or Gimkit,
-     its link gets added to the MY_GAMES list in this page (or ask Claude to add it).</div>`;
 
 document.addEventListener('keydown',e=>{
   if(e.key==='Enter'&&document.getElementById('panel-flash').classList.contains('on')
