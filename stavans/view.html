@@ -55,6 +55,12 @@ main{width:min(100%,1100px);margin:0 auto;padding:1.5rem 1.25rem}
 .inav-btn{background:var(--white);border:1.5px solid var(--border);border-radius:4px;padding:.7rem 1.2rem;text-decoration:none;font-family:'Noto Sans',Arial,sans-serif;font-size:.85rem;color:var(--deep);transition:all .2s;display:inline-flex;align-items:center;gap:.5rem;max-width:48%}
 .inav-btn:hover{border-color:var(--gold);background:var(--accent)}
 .inav-btn.disabled{opacity:.3;pointer-events:none;cursor:default}
+.share-row{display:flex;gap:.6rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;gap:.45rem;padding:.6rem 1.2rem;border-radius:5px;font-family:'Noto Sans',Arial,sans-serif;font-size:.85rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:all .2s}
+.share-wa{background:#25D366;color:#fff}
+.share-wa:hover{background:#1DA851}
+.share-copy{background:var(--parchment);color:var(--deep);border:1.5px solid var(--border)}
+.share-copy:hover{border-color:var(--gold);background:var(--accent)}
 .err{text-align:center;padding:4rem 1rem;color:var(--muted)}
 footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font-size:.8rem;line-height:1.7;margin-top:3rem}
 footer strong{color:var(--gold)}
@@ -74,6 +80,8 @@ footer em{color:#9A8060}
   <a class="nv on" href="../index.html#stavans">Stavans</a>
   <a class="nv" href="../index.html#sutras">Sutras</a>
   <a class="nv" href="../index.html#swadyah">Swadyah</a>
+  <a class="nv" href="../tirthankaras.html">Tirthankaras</a>
+  <a class="nv" href="../learn.html">Learn</a>
   <a class="nv" href="../games.html">Games</a>
   <a class="nv" href="../tools.html">Tools</a>
   <a class="nv" href="../aagamgpt.html">Aagam GPT</a>
@@ -135,6 +143,11 @@ if(idx===-1){
     </div>
   </div>
   ${item.meaning?`<div class="meaning-box"><div class="meaning-lbl">About this Stavan</div>${esc(item.meaning)}</div>`:''}
+  <div class="share-row">
+    <a class="share-btn share-wa" target="_blank" rel="noopener"
+       href="https://wa.me/?text=${encodeURIComponent('🙏 '+item.title+' — '+location.href)}">📲 Share on WhatsApp</a>
+    <button class="share-btn share-copy" onclick="navigator.clipboard.writeText(location.href).then(()=>{this.textContent='✓ Copied!';setTimeout(()=>this.textContent='🔗 Copy link',2000)})">🔗 Copy link</button>
+  </div>
   <div class="item-nav">
     <a class="inav-btn${prev?'':' disabled'}" ${prev?`href="view.html?id=${prev.id}"`:''}>${prev?`← ${esc(prev.title)}`:'← First'}</a>
     <a class="inav-btn${next?'':' disabled'}" ${next?`href="view.html?id=${next.id}"`:''}>${next?`${esc(next.title)} →`:'Last →'}</a>

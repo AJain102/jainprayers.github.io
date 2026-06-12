@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 24 Tirthankaras | Jain Stavans & Sutras</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--saffron:#C8560A;--gold:#C8960C;--deep:#8B3A0A;--cream:#FAF6EE;--parchment:#F0E8D5;--ink:#1C1208;--muted:#7A6845;--border:#D9C9A3;--white:#FFFDF8;--accent:#FDF4E3}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans',Arial,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+header{background:linear-gradient(135deg,#1C1208 0%,#2C1A06 100%);color:var(--cream);text-align:center;padding:1.25rem 1.5rem 1rem;cursor:pointer;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(200,150,12,.04) 30px,rgba(200,150,12,.04) 60px)}
+.hdr-om{font-size:2.1rem;color:var(--gold);animation:float 4s ease-in-out infinite;display:block;margin-bottom:.1rem;position:relative}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+header h1{font-size:clamp(1.45rem,3vw,2.25rem);font-weight:700;position:relative}
+header h1 span{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;font-size:clamp(.9rem,1.8vw,1.25rem);color:var(--gold);display:block;margin-top:.12rem;font-weight:500}
+.hdr-line{width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.45rem auto;position:relative}
+header p{font-style:italic;color:#C8B898;font-size:.88rem;position:relative}
+nav{background:var(--ink);display:flex;justify-content:center;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold);flex-wrap:wrap}
+.nv{color:#C8B898;font-family:'Noto Sans',Arial,sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.1em;padding:.8rem 1.3rem;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-2px}
+.nv:hover{color:var(--gold)}
+.nv.on{color:var(--gold);border-bottom-color:var(--gold);background:rgba(200,150,12,.07)}
+main{width:min(100%,1100px);margin:0 auto;padding:1.5rem 1.25rem}
+.t-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.7rem}
+.t-card{background:var(--white);border:1.5px solid var(--border);border-radius:6px;padding:1rem 1.1rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.85rem}
+.t-card:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(200,150,12,.15);transform:translateY(-1px)}
+.t-num{width:40px;height:40px;border-radius:50%;background:var(--accent);border:1.5px solid var(--gold);color:var(--deep);font-weight:700;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.t-name{font-weight:700;color:var(--deep);font-size:.92rem;line-height:1.2}
+.t-lanchan{font-size:.74rem;color:var(--muted);margin-top:.15rem}
+/* detail */
+.detail{display:none;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.breadcrumb{font-size:.85rem;color:var(--muted);margin-bottom:1.25rem}
+.breadcrumb a{color:var(--saffron);text-decoration:none;cursor:pointer}
+.breadcrumb a:hover{text-decoration:underline}
+.d-head{text-align:center;margin-bottom:1.75rem}
+.d-num{display:inline-flex;width:58px;height:58px;border-radius:50%;background:var(--accent);border:2px solid var(--gold);color:var(--deep);font-weight:700;font-size:1.4rem;align-items:center;justify-content:center;margin-bottom:.6rem}
+.d-head h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;color:var(--deep)}
+.d-sans{font-family:'Noto Sans Devanagari','Noto Sans',Arial,sans-serif;color:var(--muted);font-size:1.1rem;margin-top:.25rem}
+.d-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1rem auto}
+.d-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.7rem;margin-bottom:1.5rem}
+.d-fact{background:var(--white);border:1.5px solid var(--border);border-radius:6px;padding:.85rem 1rem;text-align:center}
+.d-fact .lbl{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.d-fact .val{font-size:.98rem;font-weight:700;color:var(--ink);margin-top:.3rem}
+.d-story{background:var(--accent);border-left:4px solid var(--gold);padding:1.1rem 1.3rem;font-size:.97rem;color:#4A3510;line-height:1.8;border-radius:0 4px 4px 0}
+.d-story .lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.13em;color:var(--gold);font-weight:700;margin-bottom:.5rem}
+.d-nav{display:flex;justify-content:space-between;margin-top:1.75rem;gap:1rem}
+.d-btn{background:var(--white);border:1.5px solid var(--border);border-radius:4px;padding:.7rem 1.2rem;cursor:pointer;font-family:'Noto Sans',Arial,sans-serif;font-size:.85rem;color:var(--deep);transition:all .2s;max-width:48%}
+.d-btn:hover{border-color:var(--gold);background:var(--accent)}
+.d-btn:disabled{opacity:.3;pointer-events:none}
+footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font-size:.8rem;line-height:1.7;margin-top:3rem}
+footer strong{color:var(--gold)}
+</style>
+</head>
+<body>
+<header onclick="location.href='index.html'">
+  <span class="hdr-om">☸</span>
+  <h1>The 24 Tirthankaras <span>चौबीस तीर्थंकर</span></h1>
+  <div class="hdr-line"></div>
+  <p>The ford-makers who showed the path across the ocean of sansara</p>
+</header>
+<nav>
+  <a class="nv" href="index.html">Home</a>
+  <a class="nv" href="index.html#stavans">Stavans</a>
+  <a class="nv" href="index.html#sutras">Sutras</a>
+  <a class="nv on" href="tirthankaras.html">Tirthankaras</a>
+  <a class="nv" href="learn.html">Learn</a>
+  <a class="nv" href="games.html">Games</a>
+  <a class="nv" href="tools.html">Tools</a>
+  <a class="nv" href="aagamgpt.html">Aagam GPT</a>
+</nav>
+
+<main>
+  <div id="gridView" class="t-grid"></div>
+  <div id="detailView" class="detail"></div>
+</main>
+
+<footer><strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain</footer>
+
+<script src="js/tirthankaras-data.js"></script>
+<script>
+function esc(t){return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+document.getElementById('gridView').innerHTML=TIRTHANKARAS.map(t=>`
+  <div class="t-card" onclick="showDetail(${t.n})">
+    <div class="t-num">${t.n}</div>
+    <div><div class="t-name">${esc(t.name)}</div><div class="t-lanchan">☸ ${esc(t.lanchan)}</div></div>
+  </div>`).join('');
+
+function showDetail(n){
+  const t=TIRTHANKARAS.find(x=>x.n===n);
+  if(!t)return;
+  const prev=TIRTHANKARAS.find(x=>x.n===n-1);
+  const next=TIRTHANKARAS.find(x=>x.n===n+1);
+  document.getElementById('detailView').innerHTML=`
+    <div class="breadcrumb"><a onclick="showGrid()">← All 24 Tirthankaras</a></div>
+    <div class="d-head">
+      <div class="d-num">${t.n}</div>
+      <h2>${esc(t.name)}</h2>
+      <div class="d-sans">${esc(t.sanskrit)}</div>
+      <div class="d-divider"></div>
+    </div>
+    <div class="d-facts">
+      <div class="d-fact"><div class="lbl">Lanchan (Symbol)</div><div class="val">${esc(t.lanchan)}</div></div>
+      <div class="d-fact"><div class="lbl">Complexion</div><div class="val">${esc(t.color)}</div></div>
+      <div class="d-fact"><div class="lbl">Father</div><div class="val">${esc(t.father)}</div></div>
+      <div class="d-fact"><div class="lbl">Mother</div><div class="val">${esc(t.mother)}</div></div>
+      <div class="d-fact"><div class="lbl">Birthplace</div><div class="val">${esc(t.birthplace)}</div></div>
+      <div class="d-fact"><div class="lbl">Moksha Kalyanak</div><div class="val">${esc(t.moksha)}</div></div>
+    </div>
+    <div class="d-story"><div class="lbl">✦ About</div>${esc(t.fact)}</div>
+    <div class="d-nav">
+      <button class="d-btn" ${prev?'':'disabled'} onclick="showDetail(${n-1})">◀ ${prev?esc(prev.name):'—'}</button>
+      <button class="d-btn" ${next?'':'disabled'} onclick="showDetail(${n+1})">${next?esc(next.name):'—'} ▶</button>
+    </div>`;
+  document.getElementById('gridView').style.display='none';
+  document.getElementById('detailView').style.display='block';
+  history.replaceState(null,'','?n='+n);
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.title=t.name+' | The 24 Tirthankaras';
+}
+
+function showGrid(){
+  document.getElementById('detailView').style.display='none';
+  document.getElementById('gridView').style.display='grid';
+  history.replaceState(null,'',location.pathname);
+  document.title='The 24 Tirthankaras | Jain Stavans & Sutras';
+}
+
+const qn=new URLSearchParams(location.search).get('n');
+if(qn)showDetail(parseInt(qn,10));
+</script>
+</body>
+</html>
