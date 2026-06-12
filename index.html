@@ -114,6 +114,7 @@ footer em{color:#9A8060}
   .inav-btn{font-size:.75rem;padding:.5rem .7rem}
 }
 </style>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 <header onclick="goHome()">
@@ -128,12 +129,18 @@ footer em{color:#9A8060}
   <button class="nv" id="nb-stavans" onclick="showList('stavan')">Stavans</button>
   <button class="nv" id="nb-sutras" onclick="showList('sutra')">Sutras</button>
   <button class="nv" id="nb-swadyah" onclick="showList('swadyah')">Swadyah</button>
-  <a class="nv" href="tirthankaras.html" style="text-decoration:none">Tirthankaras</a>
-  <a class="nv" href="learn.html" style="text-decoration:none">Learn</a>
-  <a class="nv" href="games.html" style="text-decoration:none">Games</a>
-  <a class="nv" href="tools.html" style="text-decoration:none">Tools</a>
-  <a class="nv" href="aagamgpt.html" style="text-decoration:none">Aagam GPT</a>
-  <a class="nv add-btn" href="add.html" style="margin:.45rem .5rem;padding:.45rem 1rem">➕ Add</a>
+  <div class="dropdown">
+    <button class="nv" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
+    <div class="drop-menu">
+      <a class="nv" href="tirthankaras.html">Tirthankaras</a>
+      <a class="nv" href="learn.html">Learn</a>
+      <a class="nv" href="tirths.html">Tirth Yatra</a>
+      <a class="nv" href="games.html">Games</a>
+      <a class="nv" href="tools.html">Tools</a>
+      <a class="nv" href="aagamgpt.html">Aagam GPT</a>
+      <a class="nv" href="add.html">➕ Add Content</a>
+    </div>
+  </div>
 </nav>
 
 <div class="page active" id="pg-home">
@@ -382,5 +389,6 @@ function listSearch(t) {
 
 buildHome();
 </script>
+<script src="js/nav.js"></script>
 </body>
 </html>

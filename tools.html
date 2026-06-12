@@ -53,6 +53,7 @@ footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font
 footer strong{color:var(--gold)}
 @media(max-width:560px){td.t-desc{display:none}th:last-child{display:none}.fest{flex-direction:column;gap:.2rem}.fest-when{width:auto}}
 </style>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 <header onclick="location.href='index.html'">
@@ -65,11 +66,19 @@ footer strong{color:var(--gold)}
   <a class="nv" href="index.html">Home</a>
   <a class="nv" href="index.html#stavans">Stavans</a>
   <a class="nv" href="index.html#sutras">Sutras</a>
-  <a class="nv" href="tirthankaras.html">Tirthankaras</a>
-  <a class="nv" href="learn.html">Learn</a>
-  <a class="nv" href="games.html">Games</a>
-  <a class="nv on" href="tools.html">Tools</a>
-  <a class="nv" href="aagamgpt.html">Aagam GPT</a>
+  <a class="nv" href="index.html#swadyah">Swadyah</a>
+  <div class="dropdown">
+    <button class="nv on" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
+    <div class="drop-menu">
+      <a class="nv" href="tirthankaras.html">Tirthankaras</a>
+      <a class="nv" href="learn.html">Learn</a>
+      <a class="nv" href="tirths.html">Tirth Yatra</a>
+      <a class="nv" href="games.html">Games</a>
+      <a class="nv on" href="tools.html">Tools</a>
+      <a class="nv" href="aagamgpt.html">Aagam GPT</a>
+      <a class="nv" href="add.html">➕ Add Content</a>
+    </div>
+  </div>
 </nav>
 
 <main>
@@ -230,5 +239,6 @@ document.getElementById('festList').innerHTML=sorted.map(f=>{
     </div>
   </div>`}).join('');
 </script>
+<script src="js/nav.js"></script>
 </body>
 </html>

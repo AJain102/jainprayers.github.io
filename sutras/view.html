@@ -66,6 +66,7 @@ footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font
 footer strong{color:var(--gold)}
 footer em{color:#9A8060}
 </style>
+<link rel="stylesheet" href="../css/site.css">
 </head>
 <body>
 <header onclick="location.href='../index.html'">
@@ -80,11 +81,18 @@ footer em{color:#9A8060}
   <a class="nv" href="../index.html#stavans">Stavans</a>
   <a class="nv on" href="../index.html#sutras">Sutras</a>
   <a class="nv" href="../index.html#swadyah">Swadyah</a>
-  <a class="nv" href="../tirthankaras.html">Tirthankaras</a>
-  <a class="nv" href="../learn.html">Learn</a>
-  <a class="nv" href="../games.html">Games</a>
-  <a class="nv" href="../tools.html">Tools</a>
-  <a class="nv" href="../aagamgpt.html">Aagam GPT</a>
+  <div class="dropdown">
+    <button class="nv" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
+    <div class="drop-menu">
+      <a class="nv" href="../tirthankaras.html">Tirthankaras</a>
+      <a class="nv" href="../learn.html">Learn</a>
+      <a class="nv" href="../tirths.html">Tirth Yatra</a>
+      <a class="nv" href="../games.html">Games</a>
+      <a class="nv" href="../tools.html">Tools</a>
+      <a class="nv" href="../aagamgpt.html">Aagam GPT</a>
+      <a class="nv" href="../add.html">➕ Add Content</a>
+    </div>
+  </div>
 </nav>
 <main id="main"></main>
 <footer>
@@ -160,5 +168,6 @@ function setLang(l,btn){
   btn.classList.add('on');
 }
 </script>
+<script src="../js/nav.js"></script>
 </body>
 </html>

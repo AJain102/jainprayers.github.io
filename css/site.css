@@ -1,0 +1,25 @@
+/* ── Shared overrides: compact header + dropdown nav ────────── */
+
+/* compact header */
+header{padding:.65rem 1rem .55rem !important}
+.hdr-om{font-size:1.3rem !important;margin-bottom:0 !important}
+header h1{font-size:clamp(1.05rem,2.2vw,1.5rem) !important}
+header h1 span{font-size:clamp(.68rem,1.4vw,.88rem) !important;margin-top:.05rem !important}
+.hdr-line{margin:.25rem auto !important;width:80px !important}
+header p{font-size:.72rem !important}
+.jai{font-size:.58rem !important;padding:.1rem .5rem !important;margin-top:.25rem !important}
+
+/* tighter nav buttons */
+nav .nv{padding:.7rem 1.1rem !important;font-size:.8rem !important}
+
+/* dropdown */
+.dropdown{position:relative;display:inline-block}
+.dropdown .drop-menu{display:none;position:absolute;top:100%;right:0;background:var(--ink,#1C1208);border:1px solid var(--gold,#C8960C);border-top:none;min-width:195px;z-index:300;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+.dropdown.open .drop-menu{display:block}
+.drop-menu .nv{display:block !important;width:100%;text-align:left;border-bottom:1px solid rgba(200,150,12,.15) !important;margin-bottom:0 !important;padding:.7rem 1.1rem !important}
+.drop-menu .nv:last-child{border-bottom:none !important}
+.drop-menu .nv:hover{background:rgba(200,150,12,.12)}
+.drop-caret{font-size:.65rem;margin-left:.25rem}
+@media(max-width:560px){
+  .dropdown .drop-menu{right:auto;left:50%;transform:translateX(-50%)}
+}

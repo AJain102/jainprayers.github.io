@@ -95,6 +95,7 @@ footer strong{color:var(--gold)}
 .ext-empty{color:var(--muted);font-style:italic;font-size:.88rem}
 @media(max-width:560px){.m-cols{gap:.5rem}.m-tile{font-size:.74rem;padding:.55rem .4rem}.mode-tab{font-size:.78rem;padding:.65rem .3rem}}
 </style>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 <header onclick="location.href='index.html'">
@@ -107,11 +108,19 @@ footer strong{color:var(--gold)}
   <a class="nv" href="index.html">Home</a>
   <a class="nv" href="index.html#stavans">Stavans</a>
   <a class="nv" href="index.html#sutras">Sutras</a>
-  <a class="nv" href="tirthankaras.html">Tirthankaras</a>
-  <a class="nv" href="learn.html">Learn</a>
-  <a class="nv on" href="games.html">Games</a>
-  <a class="nv" href="tools.html">Tools</a>
-  <a class="nv" href="aagamgpt.html">Aagam GPT</a>
+  <a class="nv" href="index.html#swadyah">Swadyah</a>
+  <div class="dropdown">
+    <button class="nv on" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
+    <div class="drop-menu">
+      <a class="nv" href="tirthankaras.html">Tirthankaras</a>
+      <a class="nv" href="learn.html">Learn</a>
+      <a class="nv" href="tirths.html">Tirth Yatra</a>
+      <a class="nv on" href="games.html">Games</a>
+      <a class="nv" href="tools.html">Tools</a>
+      <a class="nv" href="aagamgpt.html">Aagam GPT</a>
+      <a class="nv" href="add.html">➕ Add Content</a>
+    </div>
+  </div>
 </nav>
 
 <main>
@@ -611,5 +620,6 @@ document.addEventListener('keydown',e=>{
      &&document.getElementById('fcStage').style.display!=='none')revealNext();
 });
 </script>
+<script src="js/nav.js"></script>
 </body>
 </html>

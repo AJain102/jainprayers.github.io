@@ -52,6 +52,7 @@ main{width:min(100%,1100px);margin:0 auto;padding:1.5rem 1.25rem}
 footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font-size:.8rem;line-height:1.7;margin-top:3rem}
 footer strong{color:var(--gold)}
 </style>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 <header onclick="location.href='index.html'">
@@ -64,11 +65,19 @@ footer strong{color:var(--gold)}
   <a class="nv" href="index.html">Home</a>
   <a class="nv" href="index.html#stavans">Stavans</a>
   <a class="nv" href="index.html#sutras">Sutras</a>
-  <a class="nv on" href="tirthankaras.html">Tirthankaras</a>
-  <a class="nv" href="learn.html">Learn</a>
-  <a class="nv" href="games.html">Games</a>
-  <a class="nv" href="tools.html">Tools</a>
-  <a class="nv" href="aagamgpt.html">Aagam GPT</a>
+  <a class="nv" href="index.html#swadyah">Swadyah</a>
+  <div class="dropdown">
+    <button class="nv on" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
+    <div class="drop-menu">
+      <a class="nv on" href="tirthankaras.html">Tirthankaras</a>
+      <a class="nv" href="learn.html">Learn</a>
+      <a class="nv" href="tirths.html">Tirth Yatra</a>
+      <a class="nv" href="games.html">Games</a>
+      <a class="nv" href="tools.html">Tools</a>
+      <a class="nv" href="aagamgpt.html">Aagam GPT</a>
+      <a class="nv" href="add.html">➕ Add Content</a>
+    </div>
+  </div>
 </nav>
 
 <main>
@@ -131,5 +140,6 @@ function showGrid(){
 const qn=new URLSearchParams(location.search).get('n');
 if(qn)showDetail(parseInt(qn,10));
 </script>
+<script src="js/nav.js"></script>
 </body>
 </html>

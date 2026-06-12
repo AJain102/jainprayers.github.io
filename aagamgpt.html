@@ -29,6 +29,7 @@ iframe{flex:1;width:100%;border:none;min-height:0}
 .fb-btn{display:inline-block;background:var(--saffron);color:#fff;text-decoration:none;font-weight:700;font-size:1rem;padding:.85rem 2rem;border-radius:4px;transition:background .2s}
 .fb-btn:hover{background:var(--deep)}
 </style>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 <header onclick="location.href='index.html'">
@@ -39,11 +40,18 @@ iframe{flex:1;width:100%;border:none;min-height:0}
   <a class="nv" href="index.html#stavans">Stavans</a>
   <a class="nv" href="index.html#sutras">Sutras</a>
   <a class="nv" href="index.html#swadyah">Swadyah</a>
-  <a class="nv" href="tirthankaras.html">Tirthankaras</a>
-  <a class="nv" href="learn.html">Learn</a>
-  <a class="nv" href="games.html">Games</a>
-  <a class="nv" href="tools.html">Tools</a>
-  <a class="nv on" href="aagamgpt.html">Aagam GPT</a>
+  <div class="dropdown">
+    <button class="nv on" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
+    <div class="drop-menu">
+      <a class="nv" href="tirthankaras.html">Tirthankaras</a>
+      <a class="nv" href="learn.html">Learn</a>
+      <a class="nv" href="tirths.html">Tirth Yatra</a>
+      <a class="nv" href="games.html">Games</a>
+      <a class="nv" href="tools.html">Tools</a>
+      <a class="nv on" href="aagamgpt.html">Aagam GPT</a>
+      <a class="nv" href="add.html">➕ Add Content</a>
+    </div>
+  </div>
 </nav>
 
 <div class="frame-wrap">
@@ -81,5 +89,6 @@ frame.addEventListener('error', () => {
   fallback.classList.add('show');
 });
 </script>
+<script src="js/nav.js"></script>
 </body>
 </html>
