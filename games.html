@@ -69,6 +69,31 @@ select:focus{border-color:var(--saffron)}
 .fc-progress{font-size:.82rem;color:var(--muted);text-align:center;margin-top:.75rem}
 footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font-size:.8rem;line-height:1.7;margin-top:3rem}
 footer strong{color:var(--gold)}
+/* match game */
+.m-cols{display:flex;gap:1rem}
+.m-col{flex:1;display:flex;flex-direction:column;gap:.5rem}
+.m-tile{padding:.7rem .9rem;background:var(--parchment);border:2px solid var(--border);border-radius:5px;font-size:.88rem;font-weight:600;color:var(--ink);cursor:pointer;text-align:center;transition:all .15s;user-select:none}
+.m-tile:hover{border-color:var(--gold)}
+.m-tile.sel{border-color:var(--saffron);background:var(--accent);transform:scale(1.03)}
+.m-tile.done{background:#d8f3dc;border-color:#2d6a4f;color:#1b4332;cursor:default;opacity:.75}
+.m-tile.shake{animation:shake .3s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+/* scramble */
+.sc-word{font-size:2rem;font-weight:700;letter-spacing:.35em;text-align:center;color:var(--deep);padding:1.25rem 0;font-family:'Courier New',monospace}
+.sc-input{width:100%;padding:.75rem 1rem;border:2px solid var(--border);border-radius:5px;font-family:'Noto Sans',Arial,sans-serif;font-size:1.1rem;text-align:center;background:var(--cream);outline:none}
+.sc-input:focus{border-color:var(--saffron)}
+.sc-hint{text-align:center;color:var(--muted);font-style:italic;font-size:.88rem;margin-top:.6rem;min-height:1.3rem}
+/* external */
+.ext-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.75rem}
+.ext-card{display:flex;gap:.85rem;align-items:center;background:var(--parchment);border:1.5px solid var(--border);border-radius:6px;padding:.9rem 1rem;text-decoration:none;transition:all .2s}
+.ext-card:hover{border-color:var(--gold);box-shadow:0 2px 10px rgba(200,150,12,.15);transform:translateY(-1px)}
+.ext-logo{width:42px;height:42px;border-radius:8px;color:#fff;font-weight:700;font-size:1.2rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ext-name{font-weight:700;color:var(--deep);font-size:.95rem}
+.ext-desc{font-size:.78rem;color:var(--muted);line-height:1.4;margin-top:.1rem}
+.ext-mine{margin-top:1.5rem;border-top:1.5px solid var(--border);padding-top:1.25rem}
+.ext-mine-hdr{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);font-weight:700;margin-bottom:.75rem}
+.ext-empty{color:var(--muted);font-style:italic;font-size:.88rem}
+@media(max-width:560px){.m-cols{gap:.5rem}.m-tile{font-size:.74rem;padding:.55rem .4rem}.mode-tab{font-size:.78rem;padding:.65rem .3rem}}
 </style>
 </head>
 <body>
@@ -89,8 +114,12 @@ footer strong{color:var(--gold)}
 
 <main>
   <div class="mode-tabs">
-    <button class="mode-tab on" onclick="setMode('trivia',this)">🎯 Trivia Quiz</button>
+    <button class="mode-tab on" onclick="setMode('trivia',this)">🎯 Trivia</button>
     <button class="mode-tab" onclick="setMode('flash',this)">🃏 Memorize</button>
+    <button class="mode-tab" onclick="setMode('match',this)">🧩 Match</button>
+    <button class="mode-tab" onclick="setMode('blank',this)">✏️ Fill Blank</button>
+    <button class="mode-tab" onclick="setMode('scramble',this)">🔀 Scramble</button>
+    <button class="mode-tab" onclick="setMode('external',this)">🚀 Kahoot+</button>
   </div>
 
   <!-- ── TRIVIA ── -->
@@ -125,6 +154,72 @@ footer strong{color:var(--gold)}
         <button class="big-btn fc-btn-alt" onclick="resetFlash()">↻ Restart</button>
       </div>
       <div class="fc-progress" id="fcProg"></div>
+    </div>
+  </div>
+
+  <!-- ── MATCH ── -->
+  <div class="panel" id="panel-match">
+    <div class="card">
+      <h2>Tirthankara Match</h2>
+      <p>Match each Tirthankara to their symbol (lanchan). Click a name, then its symbol. Fewest tries wins!</p>
+      <button class="big-btn" onclick="startMatch()">▶ New Game</button>
+    </div>
+    <div class="card" id="matchStage" style="display:none">
+      <div class="t-meta"><span id="matchScore"></span><span id="matchTries"></span></div>
+      <div class="m-cols">
+        <div class="m-col" id="mNames"></div>
+        <div class="m-col" id="mSymbols"></div>
+      </div>
+      <div class="t-feedback" id="mFb"></div>
+    </div>
+  </div>
+
+  <!-- ── FILL BLANK ── -->
+  <div class="panel" id="panel-blank">
+    <div class="card" id="blankCard">
+      <h2>Fill in the Blank</h2>
+      <p>A line from a sutra or stavan appears with one word missing — pick the right word. 10 rounds.</p>
+      <button class="big-btn" onclick="startBlank()">▶ Start</button>
+    </div>
+  </div>
+
+  <!-- ── SCRAMBLE ── -->
+  <div class="panel" id="panel-scramble">
+    <div class="card" id="scrambleCard">
+      <h2>Word Scramble</h2>
+      <p>Unscramble the name of a sutra, stavan, or Tirthankara. 8 rounds — use the hint if you're stuck!</p>
+      <button class="big-btn" onclick="startScramble()">▶ Start</button>
+    </div>
+  </div>
+
+  <!-- ── EXTERNAL ── -->
+  <div class="panel" id="panel-external">
+    <div class="card">
+      <h2>Kahoot, Blooket, Gimkit &amp; More</h2>
+      <p style="margin-bottom:1rem">Live multiplayer quiz games on the big platforms. Search these for ready-made
+      Jainism games, or host your own — when you create one, its link can be added below.</p>
+      <div class="ext-grid">
+        <a class="ext-card" href="https://create.kahoot.it/search?query=jainism" target="_blank" rel="noopener">
+          <div class="ext-logo" style="background:#46178F">K!</div>
+          <div><div class="ext-name">Kahoot!</div><div class="ext-desc">Search public "Jainism" kahoots or host your own live quiz</div></div>
+        </a>
+        <a class="ext-card" href="https://www.blooket.com/marketplace" target="_blank" rel="noopener">
+          <div class="ext-logo" style="background:#1E88E5">B</div>
+          <div><div class="ext-name">Blooket</div><div class="ext-desc">Browse question sets — search "Jainism" in Discover</div></div>
+        </a>
+        <a class="ext-card" href="https://www.gimkit.com/" target="_blank" rel="noopener">
+          <div class="ext-logo" style="background:#FF9800">G</div>
+          <div><div class="ext-name">Gimkit</div><div class="ext-desc">Create a kit from the trivia questions on this site</div></div>
+        </a>
+        <a class="ext-card" href="https://quizizz.com/admin/search/jainism" target="_blank" rel="noopener">
+          <div class="ext-logo" style="background:#8854C0">Q</div>
+          <div><div class="ext-name">Quizizz</div><div class="ext-desc">Ready-made Jainism quizzes you can play solo or host</div></div>
+        </a>
+      </div>
+      <div class="ext-mine">
+        <div class="ext-mine-hdr">⭐ Our Games</div>
+        <div id="myGamesList"></div>
+      </div>
     </div>
   </div>
 </main>
@@ -340,6 +435,221 @@ function toggleTrans(){
   renderFlash();
 }
 function resetFlash(){fcPos=0;fcShowTrans=false;renderFlash()}
+
+// ════════ MATCH GAME ════════
+let mSel=null,mTries=0,mDone=0,mRound=[];
+
+function startMatch(){
+  mSel=null;mTries=0;mDone=0;
+  mRound=shuffle(TIRTHANKARAS).slice(0,6);
+  document.getElementById('matchStage').style.display='block';
+  document.getElementById('mNames').innerHTML=shuffle(mRound).map(t=>
+    `<div class="m-tile" data-n="${t.n}" data-side="name" onclick="pickTile(this)">${esc(t.name)}</div>`).join('');
+  document.getElementById('mSymbols').innerHTML=shuffle(mRound).map(t=>
+    `<div class="m-tile" data-n="${t.n}" data-side="sym" onclick="pickTile(this)">${esc(t.symbol)}</div>`).join('');
+  document.getElementById('mFb').textContent='';
+  updateMatchMeta();
+  document.getElementById('matchStage').scrollIntoView({behavior:'smooth'});
+}
+
+function updateMatchMeta(){
+  document.getElementById('matchScore').textContent=`Matched: ${mDone} / ${mRound.length}`;
+  document.getElementById('matchTries').textContent=`Tries: ${mTries}`;
+}
+
+function pickTile(el){
+  if(el.classList.contains('done'))return;
+  if(mSel===el){el.classList.remove('sel');mSel=null;return}
+  if(!mSel){mSel=el;el.classList.add('sel');return}
+  if(mSel.dataset.side===el.dataset.side){
+    mSel.classList.remove('sel');mSel=el;el.classList.add('sel');return;
+  }
+  mTries++;
+  if(mSel.dataset.n===el.dataset.n){
+    mSel.classList.remove('sel');
+    mSel.classList.add('done');el.classList.add('done');
+    mDone++;
+    if(mDone===mRound.length){
+      const fb=document.getElementById('mFb');
+      fb.className='t-feedback good';
+      fb.textContent=`🏆 All matched in ${mTries} tries!${mTries===mRound.length?' PERFECT GAME!':''}`;
+    }
+  }else{
+    mSel.classList.remove('sel');
+    el.classList.add('shake');mSel.classList.add('shake');
+    const a=el,b=mSel;
+    setTimeout(()=>{a.classList.remove('shake');b.classList.remove('shake')},350);
+  }
+  mSel=null;
+  updateMatchMeta();
+}
+
+// ════════ FILL IN THE BLANK ════════
+let bQs=[],bIdx=0,bScore=0;
+
+function buildBlankQs(){
+  const pool=[...SUTRAS,...STAVANS];
+  const qs=[];
+  shuffle(pool).forEach(item=>{
+    if(qs.length>=10)return;
+    const lines=item.hinglish.split('\n').map(l=>l.trim()).filter(l=>l.split(/\s+/).length>=4);
+    if(!lines.length)return;
+    const line=lines[Math.floor(Math.random()*lines.length)];
+    const words=line.split(/\s+/).filter(w=>w.replace(/[^a-zA-Z]/g,'').length>=4);
+    if(!words.length)return;
+    const word=words[Math.floor(Math.random()*words.length)];
+    const clean=w=>w.replace(/[^a-zA-Z-]/g,'');
+    // distractors: words of similar length from other items
+    const others=shuffle(pool.filter(p=>p.id!==item.id)
+      .flatMap(p=>p.hinglish.split(/\s+/))
+      .map(clean)
+      .filter(w=>w.length>=4&&w.toLowerCase()!==clean(word).toLowerCase()))
+      .filter((w,i,a)=>a.findIndex(x=>x.toLowerCase()===w.toLowerCase())===i)
+      .slice(0,3);
+    if(others.length<3)return;
+    qs.push({
+      q:`From "${item.title}" — which word completes the line?`,
+      quote:line.replace(word,'ْ____'.replace('ْ','')),
+      opts:shuffle([clean(word),...others]),
+      ans:clean(word)
+    });
+  });
+  return qs.slice(0,10);
+}
+
+function startBlank(){
+  bQs=buildBlankQs();bIdx=0;bScore=0;
+  if(!bQs.length){alert('Not enough data to build questions.');return}
+  showBlank();
+}
+
+function showBlank(){
+  const q=bQs[bIdx];
+  document.getElementById('blankCard').innerHTML=`
+    <div class="t-bar"><i style="width:${bIdx/bQs.length*100}%"></i></div>
+    <div class="t-meta"><span>Round ${bIdx+1} / ${bQs.length} · Score: ${bScore}</span></div>
+    <div class="t-q">${esc(q.q)}</div>
+    <div class="t-quote">${esc(q.quote)}</div>
+    <div class="t-opts">${q.opts.map(o=>`<button class="t-opt" onclick="answerBlank(this,'${o.replace(/'/g,"\\'")}')">${esc(o)}</button>`).join('')}</div>
+    <div class="t-feedback" id="bFb"></div>`;
+}
+
+function answerBlank(btn,choice){
+  const q=bQs[bIdx];
+  document.querySelectorAll('#blankCard .t-opt').forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===q.ans)b.classList.add('correct');
+  });
+  const fb=document.getElementById('bFb');
+  if(choice===q.ans){bScore+=100;fb.textContent='✓ Correct! +100';fb.className='t-feedback good'}
+  else{btn.classList.add('wrong');fb.textContent=`✗ It was: ${q.ans}`;fb.className='t-feedback bad'}
+  setTimeout(()=>{
+    bIdx++;
+    if(bIdx<bQs.length)showBlank();
+    else document.getElementById('blankCard').innerHTML=`
+      <div class="t-result">
+        <div style="font-size:.85rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase">Final Score</div>
+        <div class="score">${bScore}</div>
+        <div class="grade">${bScore>=800?'🏆 Shabdacharya — master of words!':bScore>=500?'🌟 Very good!':'📿 Keep reciting — it sinks in!'}</div>
+        <button class="big-btn" onclick="startBlank()">↻ Play Again</button>
+      </div>`;
+  },1600);
+}
+
+// ════════ WORD SCRAMBLE ════════
+let sQs=[],sIdx=0,sScore=0,sHintUsed=false;
+
+function buildScrambleQs(){
+  const names=[
+    ...TIRTHANKARAS.map(t=>({word:t.name.split(' ')[0].replace(/[()]/g,''),hint:`Tirthankara #${t.n} — symbol: ${t.symbol}`})),
+    ...SUTRAS.map(s=>({word:s.title.split(' ')[0].replace(/[()]/g,''),hint:`A sutra: "${s.meaning.slice(0,70)}…"`})),
+  ].filter(x=>x.word.length>=5&&/^[A-Za-z]+$/.test(x.word));
+  return shuffle(names).slice(0,8);
+}
+
+function scrambleWord(w){
+  let s=w;
+  for(let k=0;k<5&&s===w;k++) s=shuffle(w.split('')).join('');
+  return s.toUpperCase();
+}
+
+function startScramble(){
+  sQs=buildScrambleQs();sIdx=0;sScore=0;
+  showScramble();
+}
+
+function showScramble(){
+  sHintUsed=false;
+  const q=sQs[sIdx];
+  document.getElementById('scrambleCard').innerHTML=`
+    <div class="t-bar"><i style="width:${sIdx/sQs.length*100}%"></i></div>
+    <div class="t-meta"><span>Round ${sIdx+1} / ${sQs.length} · Score: ${sScore}</span></div>
+    <div class="t-q" style="text-align:center">Unscramble this name:</div>
+    <div class="sc-word">${scrambleWord(q.word)}</div>
+    <input class="sc-input" id="scIn" placeholder="Type your answer…" autocomplete="off"
+      onkeydown="if(event.key==='Enter')checkScramble()">
+    <div class="sc-hint" id="scHint"></div>
+    <div class="fc-controls">
+      <button class="big-btn" onclick="checkScramble()">Check ⏎</button>
+      <button class="big-btn fc-btn-alt" onclick="showHint()">💡 Hint (−50)</button>
+      <button class="big-btn fc-btn-alt" onclick="skipScramble()">Skip →</button>
+    </div>
+    <div class="t-feedback" id="sFb"></div>`;
+  document.getElementById('scIn').focus();
+}
+
+function showHint(){
+  sHintUsed=true;
+  document.getElementById('scHint').textContent=sQs[sIdx].hint;
+}
+
+function checkScramble(){
+  const guess=document.getElementById('scIn').value.trim().toLowerCase();
+  const q=sQs[sIdx];
+  const fb=document.getElementById('sFb');
+  if(guess===q.word.toLowerCase()){
+    const pts=sHintUsed?50:100;
+    sScore+=pts;
+    fb.textContent=`✓ ${q.word}! +${pts}`;fb.className='t-feedback good';
+    setTimeout(nextScramble,1200);
+  }else{
+    fb.textContent='✗ Not quite — try again!';fb.className='t-feedback bad';
+  }
+}
+
+function skipScramble(){
+  const fb=document.getElementById('sFb');
+  fb.textContent=`It was: ${sQs[sIdx].word}`;fb.className='t-feedback bad';
+  setTimeout(nextScramble,1400);
+}
+
+function nextScramble(){
+  sIdx++;
+  if(sIdx<sQs.length)showScramble();
+  else document.getElementById('scrambleCard').innerHTML=`
+    <div class="t-result">
+      <div style="font-size:.85rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase">Final Score</div>
+      <div class="score">${sScore}</div>
+      <div class="grade">${sScore>=700?'🏆 Akshara-Siddha!':sScore>=400?'🌟 Sharp eyes!':'📿 Practice makes perfect!'}</div>
+      <button class="big-btn" onclick="startScramble()">↻ Play Again</button>
+    </div>`;
+}
+
+// ════════ OUR EXTERNAL GAMES ════════
+// To add your own Kahoot/Blooket/Gimkit games: create the game on the
+// platform, copy its share link, and add an entry here:
+const MY_GAMES=[
+  // {name:'Jain Sutras Kahoot', platform:'Kahoot', url:'https://kahoot.it/challenge/XXXXXXX', desc:'Test your sutra knowledge!'},
+];
+
+document.getElementById('myGamesList').innerHTML=MY_GAMES.length
+  ? `<div class="ext-grid">${MY_GAMES.map(g=>`
+      <a class="ext-card" href="${g.url}" target="_blank" rel="noopener">
+        <div class="ext-logo" style="background:var(--saffron)">☸</div>
+        <div><div class="ext-name">${esc(g.name)}</div><div class="ext-desc">${esc(g.platform)} — ${esc(g.desc)}</div></div>
+      </a>`).join('')}</div>`
+  : `<div class="ext-empty">No custom games yet — when you create a Kahoot, Blooket or Gimkit,
+     its link gets added to the MY_GAMES list in this page (or ask Claude to add it).</div>`;
 
 document.addEventListener('keydown',e=>{
   if(e.key==='Enter'&&document.getElementById('panel-flash').classList.contains('on')
