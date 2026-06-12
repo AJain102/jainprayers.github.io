@@ -12,6 +12,18 @@ header p{font-size:.72rem !important}
 /* tighter nav buttons */
 nav .nv{padding:.7rem 1.1rem !important;font-size:.8rem !important}
 
+/* square corners everywhere — match the original boxy look */
+.card,.step,.topic,.tirth,.daily-card,.form-card,.preview-card,.output-card,
+.sun-box,.d-fact,.d-story,.t-card,.t-quote,.mode-tabs,.mode-tab,.big-btn,
+.t-opt,.m-tile,.sc-input,.share-btn,.loc-btn,.lang-toggle,.lb,.idx-card,
+.cat-group,.bilin,.inav-btn,.d-btn,.meaning-box,.note,.tirth-loc,.tirth-tag,
+.d-num,.t-num,.srch,select,textarea,input[type=text],.type-tabs,.type-tab,
+.btn,.fb-card,.fb-btn,.fc-btn-alt,.t-bar,.t-bar i,.pat-input,.pat-save,
+.pat-clear,.pat-toggle,.alpha-group,.tag,.instructions,.success-badge{
+  border-radius:0 !important;
+}
+.d-num,.t-num{border-radius:0 !important}
+
 /* dropdown */
 .dropdown{position:relative;display:inline-block}
 .dropdown .drop-menu{display:none;position:absolute;top:100%;right:0;background:var(--ink,#1C1208);border:1px solid var(--gold,#C8960C);border-top:none;min-width:195px;z-index:300;box-shadow:0 8px 20px rgba(0,0,0,.4)}

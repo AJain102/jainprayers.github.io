@@ -29,7 +29,7 @@ nav{background:var(--ink);display:flex;justify-content:center;position:sticky;to
 .home-intro p{color:var(--muted);font-style:italic;font-size:.92rem;max-width:550px;margin:0 auto}
 .search-bar{display:flex;gap:.8rem;margin:.65rem 0 .9rem}
 .srch-wrap{flex:1;position:relative}
-.srch-wrap::before{content:'🔍';position:absolute;left:.7rem;top:50%;transform:translateY(-50%);font-size:.78rem;opacity:.45}
+.srch-wrap::before{content:'';position:absolute;left:.7rem;top:50%;transform:translateY(-50%);font-size:.78rem;opacity:.45}
 .srch{width:100%;padding:.55rem 1rem .55rem 2.2rem;border:1.5px solid var(--border);border-radius:2px;font-family:'Noto Sans',Arial,sans-serif;font-size:.9rem;background:var(--white);color:var(--ink);outline:none}
 .srch:focus{border-color:var(--saffron)}
 .section-hdr{font-family:'Noto Sans',Arial,sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.8rem;margin:1rem 0 .55rem}
@@ -118,72 +118,72 @@ footer em{color:#9A8060}
 </head>
 <body>
 <header onclick="goHome()">
-  <span class="hdr-om">☸</span>
-  <h1>Jain Stavans &amp; Sutras <span>जैन स्तवन और सूत्र</span></h1>
-  <div class="hdr-line"></div>
-  <p>Sacred hymns, prayers and sutras of the Jain tradition</p>
-  <div class="jai">✦ Jai Jinendra ✦</div>
+<span class="hdr-om">☸</span>
+<h1>Jain Stavans &amp; Sutras <span>जैन स्तवन और सूत्र</span></h1>
+<div class="hdr-line"></div>
+<p>Sacred hymns, prayers and sutras of the Jain tradition</p>
+<div class="jai">✦ Jai Jinendra ✦</div>
 </header>
 <nav>
-  <button class="nv on" id="nb-home" onclick="goHome()">Home</button>
-  <button class="nv" id="nb-stavans" onclick="showList('stavan')">Stavans</button>
-  <button class="nv" id="nb-sutras" onclick="showList('sutra')">Sutras</button>
-  <button class="nv" id="nb-swadyah" onclick="showList('swadyah')">Swadyah</button>
-  <div class="dropdown">
-    <button class="nv" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
-    <div class="drop-menu">
-      <a class="nv" href="tirthankaras.html">Tirthankaras</a>
-      <a class="nv" href="learn.html">Learn</a>
-      <a class="nv" href="tirths.html">Tirth Yatra</a>
-      <a class="nv" href="games.html">Games</a>
-      <a class="nv" href="tools.html">Tools</a>
-      <a class="nv" href="aagamgpt.html">Aagam GPT</a>
-      <a class="nv" href="add.html">➕ Add Content</a>
-    </div>
-  </div>
+<button class="nv on" id="nb-home" onclick="goHome()">Home</button>
+<button class="nv" id="nb-stavans" onclick="showList('stavan')">Stavans</button>
+<button class="nv" id="nb-sutras" onclick="showList('sutra')">Sutras</button>
+<button class="nv" id="nb-swadyah" onclick="showList('swadyah')">Swadyah</button>
+<div class="dropdown">
+<button class="nv" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
+<div class="drop-menu">
+<a class="nv" href="tirthankaras.html">Tirthankaras</a>
+<a class="nv" href="learn.html">Learn</a>
+<a class="nv" href="tirths.html">Tirth Yatra</a>
+<a class="nv" href="games.html">Games</a>
+<a class="nv" href="tools.html">Tools</a>
+<a class="nv" href="aagamgpt.html">Aagam GPT</a>
+<a class="nv" href="add.html">Add Content</a>
+</div>
+</div>
 </nav>
 
 <div class="page active" id="pg-home">
-  <div class="home-intro">
-    <h2>Jai Jinendra!</h2>
-    <p>A collection of Jain Stavans and Sutras — each with Hindi script and English side by side.</p>
-  </div>
-  <div id="dailyCard"></div>
-  <div class="search-bar"><div class="srch-wrap"><input class="srch" id="homeSearch" placeholder="Search all stavans and sutras…" oninput="homeSearchFn()"></div></div>
-  <div id="homeResults"></div>
-  <div id="homeAll">
-    <div class="section-hdr" id="homeFavHdr" style="display:none">★ My Favorites</div>
-    <div class="idx-grid" id="homeFavGrid"></div>
-    <div class="section-hdr">Sutras</div>
-    <div class="idx-grid" id="homeSutraGrid"></div>
-    <div class="section-hdr">Stavans</div>
-    <div class="idx-grid" id="homeStavanGrid"></div>
-    <div class="section-hdr" id="homeSwadyahHdr" style="display:none">Swadyah</div>
-    <div class="idx-grid" id="homeSwadyahGrid"></div>
-  </div>
+<div class="home-intro">
+<h2>Jai Jinendra!</h2>
+<p>A collection of Jain Stavans and Sutras — each with Hindi script and English side by side.</p>
+</div>
+<div id="dailyCard"></div>
+<div class="search-bar"><div class="srch-wrap"><input class="srch" id="homeSearch" placeholder="Search all stavans and sutras…" oninput="homeSearchFn()"></div></div>
+<div id="homeResults"></div>
+<div id="homeAll">
+<div class="section-hdr" id="homeFavHdr" style="display:none">★ My Favorites</div>
+<div class="idx-grid" id="homeFavGrid"></div>
+<div class="section-hdr">Sutras</div>
+<div class="idx-grid" id="homeSutraGrid"></div>
+<div class="section-hdr">Stavans</div>
+<div class="idx-grid" id="homeStavanGrid"></div>
+<div class="section-hdr" id="homeSwadyahHdr" style="display:none">Swadyah</div>
+<div class="idx-grid" id="homeSwadyahGrid"></div>
+</div>
 </div>
 
 <div class="page" id="pg-stavans">
-  <div class="section-hdr">All Stavans</div>
-  <div class="search-bar"><div class="srch-wrap"><input class="srch" id="stavSearch" placeholder="Search stavans…" oninput="listSearch('stavan')"></div></div>
-  <div class="idx-grid" id="stavGrid"></div>
+<div class="section-hdr">All Stavans</div>
+<div class="search-bar"><div class="srch-wrap"><input class="srch" id="stavSearch" placeholder="Search stavans…" oninput="listSearch('stavan')"></div></div>
+<div class="idx-grid" id="stavGrid"></div>
 </div>
 
 <div class="page" id="pg-sutras">
-  <div class="section-hdr">All Sutras</div>
-  <div class="search-bar"><div class="srch-wrap"><input class="srch" id="sutSearch" placeholder="Search sutras…" oninput="listSearch('sutra')"></div></div>
-  <div class="idx-grid" id="sutGrid"></div>
+<div class="section-hdr">All Sutras</div>
+<div class="search-bar"><div class="srch-wrap"><input class="srch" id="sutSearch" placeholder="Search sutras…" oninput="listSearch('sutra')"></div></div>
+<div class="idx-grid" id="sutGrid"></div>
 </div>
 
 <div class="page" id="pg-swadyah">
-  <div class="section-hdr">Swadyah</div>
-  <div class="search-bar"><div class="srch-wrap"><input class="srch" id="swadSearch" placeholder="Search swadyah…" oninput="listSearch('swadyah')"></div></div>
-  <div class="idx-grid" id="swadGrid"></div>
+<div class="section-hdr">Swadyah</div>
+<div class="search-bar"><div class="srch-wrap"><input class="srch" id="swadSearch" placeholder="Search swadyah…" oninput="listSearch('swadyah')"></div></div>
+<div class="idx-grid" id="swadGrid"></div>
 </div>
 
 <footer>
-  <strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain<br>
-  <em>Michami Dukkadam — forgive any errors in this humble effort 🙏</em>
+<strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain<br>
+<em>Michami Dukkadam — forgive any errors in this humble effort </em>
 </footer>
 
 <script src="js/sutras-data.js"></script>
@@ -256,12 +256,12 @@ function makeCard(item) {
   const tagCls = type === 'sutra' ? 't-su' : 't-st';
   const faved  = isFaved(item);
   return `<div class="idx-card" onclick="location.href='${dest}'">
-    <div><div class="idx-title">${item.title}</div><div class="idx-sub">${item.sub}</div></div>
-    <div style="display:flex;align-items:center;gap:.4rem">
-      <span class="fav-star${faved?' faved':''}" title="${faved?'Remove from':'Add to'} favorites" onclick="toggleFav(event,'${type}','${item.id}')">${faved?'★':'☆'}</span>
-      <span class="tag ${tagCls}">${label}</span><span class="idx-arrow">›</span>
-    </div>
-  </div>`;
+<div><div class="idx-title">${item.title}</div><div class="idx-sub">${item.sub}</div></div>
+<div style="display:flex;align-items:center;gap:.4rem">
+<span class="fav-star${faved?' faved':''}" title="${faved?'Remove from':'Add to'} favorites" onclick="toggleFav(event,'${type}','${item.id}')">${faved?'★':'☆'}</span>
+<span class="tag ${tagCls}">${label}</span><span class="idx-arrow">›</span>
+</div>
+</div>`;
 }
 
 // ── Daily prayer ──────────────────────────────────────────────
@@ -275,13 +275,13 @@ function buildDaily() {
   const dest = type === 'sutra' ? `sutras/view.html?id=${item.id}` : `stavans/view.html?id=${item.id}`;
   document.getElementById('dailyCard').innerHTML = `
     <div class="daily-card" onclick="location.href='${dest}'">
-      <div>
-        <div class="daily-lbl">🪔 Today's Prayer — ${now.toLocaleDateString([],{weekday:'long',month:'long',day:'numeric'})}</div>
-        <div class="daily-title">${item.title}</div>
-        <div class="daily-sub">${item.sub}</div>
-      </div>
-      <div class="daily-arrow">›</div>
-    </div>`;
+<div>
+<div class="daily-lbl">Today's Prayer — ${now.toLocaleDateString([],{weekday:'long',month:'long',day:'numeric'})}</div>
+<div class="daily-title">${item.title}</div>
+<div class="daily-sub">${item.sub}</div>
+</div>
+<div class="daily-arrow">›</div>
+</div>`;
 }
 
 function makeGroupedList(items) {
@@ -292,9 +292,9 @@ function makeGroupedList(items) {
   }, {});
   return `<div class="alpha-wrap">${Object.keys(groups).sort().map(l=>`
     <section class="alpha-group">
-      <div class="alpha-head"><span>${l}</span><span class="alpha-count">${groups[l].length}</span></div>
-      <div class="alpha-grid">${groups[l].map(makeCard).join('')}</div>
-    </section>`).join('')}</div>`;
+<div class="alpha-head"><span>${l}</span><span class="alpha-count">${groups[l].length}</span></div>
+<div class="alpha-grid">${groups[l].map(makeCard).join('')}</div>
+</section>`).join('')}</div>`;
 }
 
 // ── Sutra category accordion ──────────────────────────────────
@@ -308,20 +308,20 @@ function buildSutraCategories(q) {
   grid.innerHTML = SUTRA_CATEGORIES.map(cat => {
     const catSutras = cat.sutras.map(id => SUTRAS.find(s=>s.id===id)).filter(Boolean);
     return `<div class="cat-group">
-      <div class="cat-header" onclick="toggleCat('${cat.id}')">
-        <div>
-          <div class="cat-title">${cat.title}</div>
-          <div class="cat-sub">${cat.sub}</div>
-        </div>
-        <div class="cat-meta">
-          <span class="cat-count">${catSutras.length} sutra${catSutras.length!==1?'s':''}</span>
-          <span class="cat-arrow" id="arr-${cat.id}">›</span>
-        </div>
+<div class="cat-header" onclick="toggleCat('${cat.id}')">
+<div>
+<div class="cat-title">${cat.title}</div>
+<div class="cat-sub">${cat.sub}</div>
+</div>
+<div class="cat-meta">
+<span class="cat-count">${catSutras.length} sutra${catSutras.length!==1?'s':''}</span>
+<span class="cat-arrow" id="arr-${cat.id}">›</span>
+</div>
+</div>
+<div class="cat-body" id="cat-${cat.id}">
+${catSutras.map(makeCard).join('')}
       </div>
-      <div class="cat-body" id="cat-${cat.id}">
-        ${catSutras.map(makeCard).join('')}
-      </div>
-    </div>`;
+</div>`;
   }).join('');
 }
 

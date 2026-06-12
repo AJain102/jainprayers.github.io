@@ -99,108 +99,108 @@ footer strong{color:var(--gold)}
 </head>
 <body>
 <header onclick="location.href='index.html'">
-  <span class="hdr-om">☸</span>
-  <h1>Jain Games <span>खेल-खेल में ज्ञान</span></h1>
-  <div class="hdr-line"></div>
-  <p>Learn the prayers and the tradition — by playing</p>
+<span class="hdr-om">☸</span>
+<h1>Jain Games <span>खेल-खेल में ज्ञान</span></h1>
+<div class="hdr-line"></div>
+<p>Learn the prayers and the tradition — by playing</p>
 </header>
 <nav>
-  <a class="nv" href="index.html">Home</a>
-  <a class="nv" href="index.html#stavans">Stavans</a>
-  <a class="nv" href="index.html#sutras">Sutras</a>
-  <a class="nv" href="index.html#swadyah">Swadyah</a>
-  <div class="dropdown">
-    <button class="nv on" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
-    <div class="drop-menu">
-      <a class="nv" href="tirthankaras.html">Tirthankaras</a>
-      <a class="nv" href="learn.html">Learn</a>
-      <a class="nv" href="tirths.html">Tirth Yatra</a>
-      <a class="nv on" href="games.html">Games</a>
-      <a class="nv" href="tools.html">Tools</a>
-      <a class="nv" href="aagamgpt.html">Aagam GPT</a>
-      <a class="nv" href="add.html">➕ Add Content</a>
-    </div>
-  </div>
+<a class="nv" href="index.html">Home</a>
+<a class="nv" href="index.html#stavans">Stavans</a>
+<a class="nv" href="index.html#sutras">Sutras</a>
+<a class="nv" href="index.html#swadyah">Swadyah</a>
+<div class="dropdown">
+<button class="nv on" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
+<div class="drop-menu">
+<a class="nv" href="tirthankaras.html">Tirthankaras</a>
+<a class="nv" href="learn.html">Learn</a>
+<a class="nv" href="tirths.html">Tirth Yatra</a>
+<a class="nv on" href="games.html">Games</a>
+<a class="nv" href="tools.html">Tools</a>
+<a class="nv" href="aagamgpt.html">Aagam GPT</a>
+<a class="nv" href="add.html">Add Content</a>
+</div>
+</div>
 </nav>
 
 <main>
-  <div class="mode-tabs">
-    <button class="mode-tab on" onclick="setMode('trivia',this)">🎯 Trivia</button>
-    <button class="mode-tab" onclick="setMode('flash',this)">🃏 Memorize</button>
-    <button class="mode-tab" onclick="setMode('match',this)">🧩 Match</button>
-    <button class="mode-tab" onclick="setMode('blank',this)">✏️ Fill Blank</button>
-    <button class="mode-tab" onclick="setMode('scramble',this)">🔀 Scramble</button>
-  </div>
+<div class="mode-tabs">
+<button class="mode-tab on" onclick="setMode('trivia',this)">Trivia</button>
+<button class="mode-tab" onclick="setMode('flash',this)">Memorize</button>
+<button class="mode-tab" onclick="setMode('match',this)">Match</button>
+<button class="mode-tab" onclick="setMode('blank',this)">Fill Blank</button>
+<button class="mode-tab" onclick="setMode('scramble',this)">Scramble</button>
+</div>
 
   <!-- ── TRIVIA ── -->
-  <div class="panel on" id="panel-trivia">
-    <div class="card" id="triviaCard">
-      <h2>Jain Trivia Challenge</h2>
-      <p>10 questions — identify sutras and stavans from their lines, match meanings,
+<div class="panel on" id="panel-trivia">
+<div class="card" id="triviaCard">
+<h2>Jain Trivia Challenge</h2>
+<p>10 questions — identify sutras and stavans from their lines, match meanings,
       and name the Tirthankaras by their symbols. Answer fast for more points (Kahoot style!).</p>
-      <button class="big-btn" onclick="startTrivia()">▶ Start Quiz</button>
-    </div>
-  </div>
+<button class="big-btn" onclick="startTrivia()">▶ Start Quiz</button>
+</div>
+</div>
 
   <!-- ── FLASHCARDS ── -->
-  <div class="panel" id="panel-flash">
-    <div class="card">
-      <h2>Memorize a Path</h2>
-      <p style="margin-bottom:1rem">Pick a sutra or stavan. Lines appear one at a time —
+<div class="panel" id="panel-flash">
+<div class="card">
+<h2>Memorize a Path</h2>
+<p style="margin-bottom:1rem">Pick a sutra or stavan. Lines appear one at a time —
       try to recall the next line <em>before</em> revealing it.</p>
-      <select id="fcType" onchange="fillFcItems()">
-        <option value="sutra">Sutras</option>
-        <option value="stavan">Stavans</option>
-      </select>
-      <select id="fcItem"></select>
-      <button class="big-btn" onclick="startFlash()">▶ Start Memorizing</button>
-    </div>
-    <div class="card" id="fcStage" style="display:none">
-      <div class="t-meta"><span id="fcTitle"></span><span id="fcCount"></span></div>
-      <div class="fc-stage" id="fcLines"><div class="fc-hint">Press "Reveal next line" to begin</div></div>
-      <div class="fc-controls">
-        <button class="big-btn" id="fcNext" onclick="revealNext()">Reveal next line ⏎</button>
-        <button class="big-btn fc-btn-alt" onclick="toggleTrans()" id="fcTransBtn">Show transliteration</button>
-        <button class="big-btn fc-btn-alt" onclick="resetFlash()">↻ Restart</button>
-      </div>
-      <div class="fc-progress" id="fcProg"></div>
-    </div>
-  </div>
+<select id="fcType" onchange="fillFcItems()">
+<option value="sutra">Sutras</option>
+<option value="stavan">Stavans</option>
+</select>
+<select id="fcItem"></select>
+<button class="big-btn" onclick="startFlash()">▶ Start Memorizing</button>
+</div>
+<div class="card" id="fcStage" style="display:none">
+<div class="t-meta"><span id="fcTitle"></span><span id="fcCount"></span></div>
+<div class="fc-stage" id="fcLines"><div class="fc-hint">Press "Reveal next line" to begin</div></div>
+<div class="fc-controls">
+<button class="big-btn" id="fcNext" onclick="revealNext()">Reveal next line ⏎</button>
+<button class="big-btn fc-btn-alt" onclick="toggleTrans()" id="fcTransBtn">Show transliteration</button>
+<button class="big-btn fc-btn-alt" onclick="resetFlash()">↻ Restart</button>
+</div>
+<div class="fc-progress" id="fcProg"></div>
+</div>
+</div>
 
   <!-- ── MATCH ── -->
-  <div class="panel" id="panel-match">
-    <div class="card">
-      <h2>Tirthankara Match</h2>
-      <p>Match each Tirthankara to their symbol (lanchan). Click a name, then its symbol. Fewest tries wins!</p>
-      <button class="big-btn" onclick="startMatch()">▶ New Game</button>
-    </div>
-    <div class="card" id="matchStage" style="display:none">
-      <div class="t-meta"><span id="matchScore"></span><span id="matchTries"></span></div>
-      <div class="m-cols">
-        <div class="m-col" id="mNames"></div>
-        <div class="m-col" id="mSymbols"></div>
-      </div>
-      <div class="t-feedback" id="mFb"></div>
-    </div>
-  </div>
+<div class="panel" id="panel-match">
+<div class="card">
+<h2>Tirthankara Match</h2>
+<p>Match each Tirthankara to their symbol (lanchan). Click a name, then its symbol. Fewest tries wins!</p>
+<button class="big-btn" onclick="startMatch()">▶ New Game</button>
+</div>
+<div class="card" id="matchStage" style="display:none">
+<div class="t-meta"><span id="matchScore"></span><span id="matchTries"></span></div>
+<div class="m-cols">
+<div class="m-col" id="mNames"></div>
+<div class="m-col" id="mSymbols"></div>
+</div>
+<div class="t-feedback" id="mFb"></div>
+</div>
+</div>
 
   <!-- ── FILL BLANK ── -->
-  <div class="panel" id="panel-blank">
-    <div class="card" id="blankCard">
-      <h2>Fill in the Blank</h2>
-      <p>A line from a sutra or stavan appears with one word missing — pick the right word. 10 rounds.</p>
-      <button class="big-btn" onclick="startBlank()">▶ Start</button>
-    </div>
-  </div>
+<div class="panel" id="panel-blank">
+<div class="card" id="blankCard">
+<h2>Fill in the Blank</h2>
+<p>A line from a sutra or stavan appears with one word missing — pick the right word. 10 rounds.</p>
+<button class="big-btn" onclick="startBlank()">▶ Start</button>
+</div>
+</div>
 
   <!-- ── SCRAMBLE ── -->
-  <div class="panel" id="panel-scramble">
-    <div class="card" id="scrambleCard">
-      <h2>Word Scramble</h2>
-      <p>Unscramble the name of a sutra, stavan, or Tirthankara. 8 rounds — use the hint if you're stuck!</p>
-      <button class="big-btn" onclick="startScramble()">▶ Start</button>
-    </div>
-  </div>
+<div class="panel" id="panel-scramble">
+<div class="card" id="scrambleCard">
+<h2>Word Scramble</h2>
+<p>Unscramble the name of a sutra, stavan, or Tirthankara. 8 rounds — use the hint if you're stuck!</p>
+<button class="big-btn" onclick="startScramble()">▶ Start</button>
+</div>
+</div>
 
 </main>
 
@@ -299,14 +299,14 @@ function showQuestion(){
   tLeft=QUESTION_TIME;
   document.getElementById('triviaCard').innerHTML=`
     <div class="t-bar"><i style="width:${(tIdx)/tQs.length*100}%"></i></div>
-    <div class="t-meta">
-      <span>Question ${tIdx+1} / ${tQs.length} &nbsp;·&nbsp; Score: ${tScore}</span>
-      <span class="t-timer" id="tTimer">${tLeft}</span>
-    </div>
-    <div class="t-q">${esc(q.q)}</div>
-    ${q.quote?`<div class="t-quote">${esc(q.quote)}</div>`:''}
+<div class="t-meta">
+<span>Question ${tIdx+1} / ${tQs.length} &nbsp;·&nbsp; Score: ${tScore}</span>
+<span class="t-timer" id="tTimer">${tLeft}</span>
+</div>
+<div class="t-q">${esc(q.q)}</div>
+${q.quote?`<div class="t-quote">${esc(q.quote)}</div>`:''}
     <div class="t-opts">${q.opts.map(o=>`<button class="t-opt" onclick="answer(this,'${o.replace(/'/g,"\\'")}')">${esc(o)}</button>`).join('')}</div>
-    <div class="t-feedback" id="tFb"></div>`;
+<div class="t-feedback" id="tFb"></div>`;
   tTimer=setInterval(()=>{
     tLeft--;
     const el=document.getElementById('tTimer');
@@ -341,7 +341,7 @@ function timeUp(){
     if(b.textContent===q.ans)b.classList.add('correct');
   });
   const fb=document.getElementById('tFb');
-  fb.textContent=`⏰ Time's up! The answer was: ${q.ans}`;fb.className='t-feedback bad';
+  fb.textContent=` Time's up! The answer was: ${q.ans}`;fb.className='t-feedback bad';
   setTimeout(nextQuestion,1800);
 }
 
@@ -354,14 +354,14 @@ function nextQuestion(){
 function showResult(){
   const max=tQs.length*(100+QUESTION_TIME*10);
   const pct=tScore/max;
-  const grade=pct>.8?'🏆 Maha-Gyani! Outstanding!':pct>.6?'🌟 Gyani — very impressive!':pct>.4?'📿 Sadhak — keep practicing!':pct>.2?'🌱 Shishya — a good start!':'🙏 Michami Dukkadam — try again!';
+  const grade=pct>.8?'Maha-Gyani! Outstanding!':pct>.6?'Gyani — very impressive!':pct>.4?'Sadhak — keep practicing!':pct>.2?'Shishya — a good start!':'Michami Dukkadam — try again!';
   document.getElementById('triviaCard').innerHTML=`
     <div class="t-result">
-      <div style="font-size:.85rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase">Final Score</div>
-      <div class="score">${tScore}</div>
-      <div class="grade">${grade}</div>
-      <button class="big-btn" onclick="startTrivia()">↻ Play Again</button>
-    </div>`;
+<div style="font-size:.85rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase">Final Score</div>
+<div class="score">${tScore}</div>
+<div class="grade">${grade}</div>
+<button class="big-btn" onclick="startTrivia()">↻ Play Again</button>
+</div>`;
 }
 
 // ════════ FLASHCARDS ════════
@@ -424,9 +424,9 @@ function startMatch(){
   mRound=shuffle(TIRTHANKARAS).slice(0,6);
   document.getElementById('matchStage').style.display='block';
   document.getElementById('mNames').innerHTML=shuffle(mRound).map(t=>
-    `<div class="m-tile" data-n="${t.n}" data-side="name" onclick="pickTile(this)">${esc(t.name)}</div>`).join('');
+`<div class="m-tile" data-n="${t.n}" data-side="name" onclick="pickTile(this)">${esc(t.name)}</div>`).join('');
   document.getElementById('mSymbols').innerHTML=shuffle(mRound).map(t=>
-    `<div class="m-tile" data-n="${t.n}" data-side="sym" onclick="pickTile(this)">${esc(t.symbol)}</div>`).join('');
+`<div class="m-tile" data-n="${t.n}" data-side="sym" onclick="pickTile(this)">${esc(t.symbol)}</div>`).join('');
   document.getElementById('mFb').textContent='';
   updateMatchMeta();
   document.getElementById('matchStage').scrollIntoView({behavior:'smooth'});
@@ -452,7 +452,7 @@ function pickTile(el){
     if(mDone===mRound.length){
       const fb=document.getElementById('mFb');
       fb.className='t-feedback good';
-      fb.textContent=`🏆 All matched in ${mTries} tries!${mTries===mRound.length?' PERFECT GAME!':''}`;
+      fb.textContent=` All matched in ${mTries} tries!${mTries===mRound.length?' PERFECT GAME!':''}`;
     }
   }else{
     mSel.classList.remove('sel');
@@ -507,11 +507,11 @@ function showBlank(){
   const q=bQs[bIdx];
   document.getElementById('blankCard').innerHTML=`
     <div class="t-bar"><i style="width:${bIdx/bQs.length*100}%"></i></div>
-    <div class="t-meta"><span>Round ${bIdx+1} / ${bQs.length} · Score: ${bScore}</span></div>
-    <div class="t-q">${esc(q.q)}</div>
-    <div class="t-quote">${esc(q.quote)}</div>
-    <div class="t-opts">${q.opts.map(o=>`<button class="t-opt" onclick="answerBlank(this,'${o.replace(/'/g,"\\'")}')">${esc(o)}</button>`).join('')}</div>
-    <div class="t-feedback" id="bFb"></div>`;
+<div class="t-meta"><span>Round ${bIdx+1} / ${bQs.length} · Score: ${bScore}</span></div>
+<div class="t-q">${esc(q.q)}</div>
+<div class="t-quote">${esc(q.quote)}</div>
+<div class="t-opts">${q.opts.map(o=>`<button class="t-opt" onclick="answerBlank(this,'${o.replace(/'/g,"\\'")}')">${esc(o)}</button>`).join('')}</div>
+<div class="t-feedback" id="bFb"></div>`;
 }
 
 function answerBlank(btn,choice){
@@ -528,11 +528,11 @@ function answerBlank(btn,choice){
     if(bIdx<bQs.length)showBlank();
     else document.getElementById('blankCard').innerHTML=`
       <div class="t-result">
-        <div style="font-size:.85rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase">Final Score</div>
-        <div class="score">${bScore}</div>
-        <div class="grade">${bScore>=800?'🏆 Shabdacharya — master of words!':bScore>=500?'🌟 Very good!':'📿 Keep reciting — it sinks in!'}</div>
-        <button class="big-btn" onclick="startBlank()">↻ Play Again</button>
-      </div>`;
+<div style="font-size:.85rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase">Final Score</div>
+<div class="score">${bScore}</div>
+<div class="grade">${bScore>=800?'Shabdacharya — master of words!':bScore>=500?'Very good!':'Keep reciting — it sinks in!'}</div>
+<button class="big-btn" onclick="startBlank()">↻ Play Again</button>
+</div>`;
   },1600);
 }
 
@@ -563,18 +563,18 @@ function showScramble(){
   const q=sQs[sIdx];
   document.getElementById('scrambleCard').innerHTML=`
     <div class="t-bar"><i style="width:${sIdx/sQs.length*100}%"></i></div>
-    <div class="t-meta"><span>Round ${sIdx+1} / ${sQs.length} · Score: ${sScore}</span></div>
-    <div class="t-q" style="text-align:center">Unscramble this name:</div>
-    <div class="sc-word">${scrambleWord(q.word)}</div>
-    <input class="sc-input" id="scIn" placeholder="Type your answer…" autocomplete="off"
+<div class="t-meta"><span>Round ${sIdx+1} / ${sQs.length} · Score: ${sScore}</span></div>
+<div class="t-q" style="text-align:center">Unscramble this name:</div>
+<div class="sc-word">${scrambleWord(q.word)}</div>
+<input class="sc-input" id="scIn" placeholder="Type your answer…" autocomplete="off"
       onkeydown="if(event.key==='Enter')checkScramble()">
-    <div class="sc-hint" id="scHint"></div>
-    <div class="fc-controls">
-      <button class="big-btn" onclick="checkScramble()">Check ⏎</button>
-      <button class="big-btn fc-btn-alt" onclick="showHint()">💡 Hint (−50)</button>
-      <button class="big-btn fc-btn-alt" onclick="skipScramble()">Skip →</button>
-    </div>
-    <div class="t-feedback" id="sFb"></div>`;
+<div class="sc-hint" id="scHint"></div>
+<div class="fc-controls">
+<button class="big-btn" onclick="checkScramble()">Check ⏎</button>
+<button class="big-btn fc-btn-alt" onclick="showHint()">Hint (−50)</button>
+<button class="big-btn fc-btn-alt" onclick="skipScramble()">Skip →</button>
+</div>
+<div class="t-feedback" id="sFb"></div>`;
   document.getElementById('scIn').focus();
 }
 
@@ -608,11 +608,11 @@ function nextScramble(){
   if(sIdx<sQs.length)showScramble();
   else document.getElementById('scrambleCard').innerHTML=`
     <div class="t-result">
-      <div style="font-size:.85rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase">Final Score</div>
-      <div class="score">${sScore}</div>
-      <div class="grade">${sScore>=700?'🏆 Akshara-Siddha!':sScore>=400?'🌟 Sharp eyes!':'📿 Practice makes perfect!'}</div>
-      <button class="big-btn" onclick="startScramble()">↻ Play Again</button>
-    </div>`;
+<div style="font-size:.85rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase">Final Score</div>
+<div class="score">${sScore}</div>
+<div class="grade">${sScore>=700?'Akshara-Siddha!':sScore>=400?'Sharp eyes!':'Practice makes perfect!'}</div>
+<button class="big-btn" onclick="startScramble()">↻ Play Again</button>
+</div>`;
 }
 
 document.addEventListener('keydown',e=>{

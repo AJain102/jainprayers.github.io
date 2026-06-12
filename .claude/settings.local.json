@@ -6,7 +6,28 @@
       "Bash(git commit -m ' *)",
       "Bash(git pull *)",
       "Bash(git push *)",
-      "Bash(gh pr create --title 'Add individual sutra pages, Swadyah tab, and improved bilingual layout' --body ' *)"
+      "Bash(gh pr create --title 'Add individual sutra pages, Swadyah tab, and improved bilingual layout' --body ' *)",
+      "Bash(powershell -Command ' *)",
+      "Bash(git commit -m 'Add Aagam GPT page with iframe embed + fallback, link in all navs *)",
+      "WebFetch(domain:jainsite.com)",
+      "Bash(node -e ' *)",
+      "PowerShell(\\(Get-Command node -ErrorAction SilentlyContinue\\).Source; \\(Get-Command npx -ErrorAction SilentlyContinue\\).Source)",
+      "Bash(git commit -m 'Add 12 Pratikraman/Chaityavandan sutras, reorder categories by recitation *)",
+      "Bash(git commit -m 'Add Games \\(trivia + memorize\\), Tools \\(pachkhan timer + festivals\\), daily prayer, favorites *)",
+      "Bash(git commit -m 'Add Match, Fill-Blank, Scramble games + Kahoot/Blooket/Gimkit links *)",
+      "Bash(py --version)",
+      "Bash(python -c \"import openpyxl; print\\(openpyxl.__version__\\)\")",
+      "Bash(pip install *)",
+      "Bash(python make_kahoots.py)",
+      "Bash(python -c ' *)",
+      "Bash(git commit -m 'Add 5 ready-to-import Kahoot quiz spreadsheets + download cards on Games page *)",
+      "Bash(python -)",
+      "Bash(git rm *)",
+      "Bash(git commit -q -m 'Remove Kahoot+ tab, downloads, and generator script *)",
+      "WebSearch",
+      "Bash(git commit -q -m 'Festival calendar: exact 2026 dates, countdown badges, upcoming-first sort *)",
+      "Bash(git commit -q -m 'Add Tirthankara pages, Learn section, WhatsApp share buttons *)",
+      "Bash(git commit -q -m 'Add Tirth Yatra page; dropdown nav + compact header on all pages *)"
     ]
   }
 }

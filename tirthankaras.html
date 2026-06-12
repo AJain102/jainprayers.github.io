@@ -56,33 +56,33 @@ footer strong{color:var(--gold)}
 </head>
 <body>
 <header onclick="location.href='index.html'">
-  <span class="hdr-om">☸</span>
-  <h1>The 24 Tirthankaras <span>चौबीस तीर्थंकर</span></h1>
-  <div class="hdr-line"></div>
-  <p>The ford-makers who showed the path across the ocean of sansara</p>
+<span class="hdr-om">☸</span>
+<h1>The 24 Tirthankaras <span>चौबीस तीर्थंकर</span></h1>
+<div class="hdr-line"></div>
+<p>The ford-makers who showed the path across the ocean of sansara</p>
 </header>
 <nav>
-  <a class="nv" href="index.html">Home</a>
-  <a class="nv" href="index.html#stavans">Stavans</a>
-  <a class="nv" href="index.html#sutras">Sutras</a>
-  <a class="nv" href="index.html#swadyah">Swadyah</a>
-  <div class="dropdown">
-    <button class="nv on" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
-    <div class="drop-menu">
-      <a class="nv on" href="tirthankaras.html">Tirthankaras</a>
-      <a class="nv" href="learn.html">Learn</a>
-      <a class="nv" href="tirths.html">Tirth Yatra</a>
-      <a class="nv" href="games.html">Games</a>
-      <a class="nv" href="tools.html">Tools</a>
-      <a class="nv" href="aagamgpt.html">Aagam GPT</a>
-      <a class="nv" href="add.html">➕ Add Content</a>
-    </div>
-  </div>
+<a class="nv" href="index.html">Home</a>
+<a class="nv" href="index.html#stavans">Stavans</a>
+<a class="nv" href="index.html#sutras">Sutras</a>
+<a class="nv" href="index.html#swadyah">Swadyah</a>
+<div class="dropdown">
+<button class="nv on" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
+<div class="drop-menu">
+<a class="nv on" href="tirthankaras.html">Tirthankaras</a>
+<a class="nv" href="learn.html">Learn</a>
+<a class="nv" href="tirths.html">Tirth Yatra</a>
+<a class="nv" href="games.html">Games</a>
+<a class="nv" href="tools.html">Tools</a>
+<a class="nv" href="aagamgpt.html">Aagam GPT</a>
+<a class="nv" href="add.html">Add Content</a>
+</div>
+</div>
 </nav>
 
 <main>
-  <div id="gridView" class="t-grid"></div>
-  <div id="detailView" class="detail"></div>
+<div id="gridView" class="t-grid"></div>
+<div id="detailView" class="detail"></div>
 </main>
 
 <footer><strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain</footer>
@@ -93,9 +93,9 @@ function esc(t){return String(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').
 
 document.getElementById('gridView').innerHTML=TIRTHANKARAS.map(t=>`
   <div class="t-card" onclick="showDetail(${t.n})">
-    <div class="t-num">${t.n}</div>
-    <div><div class="t-name">${esc(t.name)}</div><div class="t-lanchan">☸ ${esc(t.lanchan)}</div></div>
-  </div>`).join('');
+<div class="t-num">${t.n}</div>
+<div><div class="t-name">${esc(t.name)}</div><div class="t-lanchan">☸ ${esc(t.lanchan)}</div></div>
+</div>`).join('');
 
 function showDetail(n){
   const t=TIRTHANKARAS.find(x=>x.n===n);
@@ -104,25 +104,25 @@ function showDetail(n){
   const next=TIRTHANKARAS.find(x=>x.n===n+1);
   document.getElementById('detailView').innerHTML=`
     <div class="breadcrumb"><a onclick="showGrid()">← All 24 Tirthankaras</a></div>
-    <div class="d-head">
-      <div class="d-num">${t.n}</div>
-      <h2>${esc(t.name)}</h2>
-      <div class="d-sans">${esc(t.sanskrit)}</div>
-      <div class="d-divider"></div>
-    </div>
-    <div class="d-facts">
-      <div class="d-fact"><div class="lbl">Lanchan (Symbol)</div><div class="val">${esc(t.lanchan)}</div></div>
-      <div class="d-fact"><div class="lbl">Complexion</div><div class="val">${esc(t.color)}</div></div>
-      <div class="d-fact"><div class="lbl">Father</div><div class="val">${esc(t.father)}</div></div>
-      <div class="d-fact"><div class="lbl">Mother</div><div class="val">${esc(t.mother)}</div></div>
-      <div class="d-fact"><div class="lbl">Birthplace</div><div class="val">${esc(t.birthplace)}</div></div>
-      <div class="d-fact"><div class="lbl">Moksha Kalyanak</div><div class="val">${esc(t.moksha)}</div></div>
-    </div>
-    <div class="d-story"><div class="lbl">✦ About</div>${esc(t.fact)}</div>
-    <div class="d-nav">
-      <button class="d-btn" ${prev?'':'disabled'} onclick="showDetail(${n-1})">◀ ${prev?esc(prev.name):'—'}</button>
-      <button class="d-btn" ${next?'':'disabled'} onclick="showDetail(${n+1})">${next?esc(next.name):'—'} ▶</button>
-    </div>`;
+<div class="d-head">
+<div class="d-num">${t.n}</div>
+<h2>${esc(t.name)}</h2>
+<div class="d-sans">${esc(t.sanskrit)}</div>
+<div class="d-divider"></div>
+</div>
+<div class="d-facts">
+<div class="d-fact"><div class="lbl">Lanchan (Symbol)</div><div class="val">${esc(t.lanchan)}</div></div>
+<div class="d-fact"><div class="lbl">Complexion</div><div class="val">${esc(t.color)}</div></div>
+<div class="d-fact"><div class="lbl">Father</div><div class="val">${esc(t.father)}</div></div>
+<div class="d-fact"><div class="lbl">Mother</div><div class="val">${esc(t.mother)}</div></div>
+<div class="d-fact"><div class="lbl">Birthplace</div><div class="val">${esc(t.birthplace)}</div></div>
+<div class="d-fact"><div class="lbl">Moksha Kalyanak</div><div class="val">${esc(t.moksha)}</div></div>
+</div>
+<div class="d-story"><div class="lbl">✦ About</div>${esc(t.fact)}</div>
+<div class="d-nav">
+<button class="d-btn" ${prev?'':'disabled'} onclick="showDetail(${n-1})">◀ ${prev?esc(prev.name):'—'}</button>
+<button class="d-btn" ${next?'':'disabled'} onclick="showDetail(${n+1})">${next?esc(next.name):'—'} ▶</button>
+</div>`;
   document.getElementById('gridView').style.display='none';
   document.getElementById('detailView').style.display='block';
   history.replaceState(null,'','?n='+n);

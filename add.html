@@ -101,139 +101,140 @@ footer{text-align:center;padding:1.2rem;background:var(--ink);color:#7A6845;font
 footer strong{color:var(--gold)}
 footer em{color:#9A8060}
 </style>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 <header onclick="location.href='index.html'">
-  <span class="hdr-om">☸</span>
-  <h1>Jain Stavans &amp; Sutras <span>जैन स्तवन और सूत्र</span></h1>
-  <div class="hdr-line"></div>
-  <p>Sacred hymns, prayers and sutras of the Jain tradition</p>
-  <div class="jai">✦ Jai Jinendra ✦</div>
+<span class="hdr-om">☸</span>
+<h1>Jain Stavans &amp; Sutras <span>जैन स्तवन और सूत्र</span></h1>
+<div class="hdr-line"></div>
+<p>Sacred hymns, prayers and sutras of the Jain tradition</p>
+<div class="jai">✦ Jai Jinendra ✦</div>
 </header>
 <nav>
-  <a class="nv" href="index.html">← Back to Site</a>
-  <span class="nv on">➕ Add Content</span>
+<a class="nv" href="index.html">← Back to Site</a>
+<span class="nv on">Add Content</span>
 </nav>
 
 <!-- GitHub token bar -->
 <div class="pat-bar">
-  <div class="pat-status">
-    <span class="pat-dot" id="patDot"></span>
-    <span id="patLabel">No GitHub token set</span>
-  </div>
-  <button class="pat-toggle" onclick="togglePatForm()">⚙ Configure</button>
-  <div class="pat-form" id="patForm">
-    <input class="pat-input" id="patInput" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
-    <button class="pat-save" onclick="savePat()">Save</button>
-    <button class="pat-clear" onclick="clearPat()">Clear</button>
-    <a class="pat-link" href="https://github.com/settings/tokens/new?scopes=public_repo&description=JainPrayers" target="_blank">Get a token ↗</a>
-  </div>
+<div class="pat-status">
+<span class="pat-dot" id="patDot"></span>
+<span id="patLabel">No GitHub token set</span>
+</div>
+<button class="pat-toggle" onclick="togglePatForm()">Configure</button>
+<div class="pat-form" id="patForm">
+<input class="pat-input" id="patInput" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+<button class="pat-save" onclick="savePat()">Save</button>
+<button class="pat-clear" onclick="clearPat()">Clear</button>
+<a class="pat-link" href="https://github.com/settings/tokens/new?scopes=public_repo&description=JainPrayers" target="_blank">Get a token ↗</a>
+</div>
 </div>
 
 <main>
 
   <!-- STEP 1: Type -->
-  <div class="step">
-    <div class="step-hdr">Step 1 — What are you adding?</div>
-    <div class="type-tabs">
-      <button class="type-tab on" onclick="setType('stavan',this)">✦ Stavan</button>
-      <button class="type-tab" onclick="setType('sutra',this)">☸ Sutra</button>
-      <button class="type-tab" onclick="setType('swadyah',this)">📖 Swadyah</button>
-    </div>
-    <div class="cat-row" id="catRow">
-      <div class="field">
-        <label>Category <span class="hint">which subtopic does this sutra belong to?</span></label>
-        <select id="category">
-          <option value="samayik">Samayik Path</option>
-          <option value="pratikraman">Pratikraman Path</option>
-          <option value="chaityavandan">Chaityavandan</option>
-          <option value="kalpasutra">Kalpa Sutra</option>
-          <option value="uvasaggaharam">Uvasaggaharam</option>
-          <option value="ghantakarna">Om Ghantakarna Mahavir</option>
-          <option value="chintamani">Chintamani Parshvanath</option>
-          <option value="mahavir-ashtak">Mahavir Ashtak</option>
-          <option value="pratyakhyan">Pratyakhyan (Pachikhan)</option>
-          <option value="bhaktamar">Bhaktamar Stotra</option>
-          <option value="other">Other (new category — add manually)</option>
-        </select>
-      </div>
-    </div>
-  </div>
+<div class="step">
+<div class="step-hdr">Step 1 — What are you adding?</div>
+<div class="type-tabs">
+<button class="type-tab on" onclick="setType('stavan',this)">✦ Stavan</button>
+<button class="type-tab" onclick="setType('sutra',this)">☸ Sutra</button>
+<button class="type-tab" onclick="setType('swadyah',this)">Swadyah</button>
+</div>
+<div class="cat-row" id="catRow">
+<div class="field">
+<label>Category <span class="hint">which subtopic does this sutra belong to?</span></label>
+<select id="category">
+<option value="samayik">Samayik Path</option>
+<option value="pratikraman">Pratikraman Path</option>
+<option value="chaityavandan">Chaityavandan</option>
+<option value="kalpasutra">Kalpa Sutra</option>
+<option value="uvasaggaharam">Uvasaggaharam</option>
+<option value="ghantakarna">Om Ghantakarna Mahavir</option>
+<option value="chintamani">Chintamani Parshvanath</option>
+<option value="mahavir-ashtak">Mahavir Ashtak</option>
+<option value="pratyakhyan">Pratyakhyan (Pachikhan)</option>
+<option value="bhaktamar">Bhaktamar Stotra</option>
+<option value="other">Other (new category — add manually)</option>
+</select>
+</div>
+</div>
+</div>
 
   <!-- STEP 2: Details -->
-  <div class="step">
-    <div class="step-hdr">Step 2 — Fill in the details</div>
-    <div class="field">
-      <label>Title <span class="hint">in English</span></label>
-      <input type="text" id="title" placeholder="e.g. Navkar Mantra" oninput="autoId()">
-    </div>
-    <div class="field">
-      <label>ID <span class="hint">unique, lowercase, no spaces — auto-filled from title, you can edit</span></label>
-      <input type="text" id="itemId" placeholder="e.g. navkar-mantra">
-    </div>
-    <div class="field">
-      <label>Subtitle <span class="hint">in Hindi / Devanagari script</span></label>
-      <input type="text" id="sub" class="deva" placeholder="e.g. णमो अरिहंताणं">
-    </div>
-    <div class="field">
-      <label>Hindi / Prakrit Text <span class="hint">one line per verse line; blank lines become spacers</span></label>
-      <textarea id="hindi" rows="12" class="deva" placeholder="Paste the full Hindi or Prakrit text here…"></textarea>
-    </div>
-    <div class="field">
-      <label>Transliteration / English <span class="hint">Roman script, line-for-line matching the Hindi above</span></label>
-      <textarea id="hinglish" rows="12" placeholder="Paste the transliteration or English meaning here…"></textarea>
-    </div>
-    <div class="field">
-      <label>Meaning / Description <span class="hint">1–3 sentences — what this is and when it is recited</span></label>
-      <textarea id="meaning" rows="3" placeholder="Brief description…"></textarea>
-    </div>
-    <div class="btn-row">
-      <button class="btn btn-preview" onclick="showPreview()">👁 Preview</button>
-    </div>
-  </div>
+<div class="step">
+<div class="step-hdr">Step 2 — Fill in the details</div>
+<div class="field">
+<label>Title <span class="hint">in English</span></label>
+<input type="text" id="title" placeholder="e.g. Navkar Mantra" oninput="autoId()">
+</div>
+<div class="field">
+<label>ID <span class="hint">unique, lowercase, no spaces — auto-filled from title, you can edit</span></label>
+<input type="text" id="itemId" placeholder="e.g. navkar-mantra">
+</div>
+<div class="field">
+<label>Subtitle <span class="hint">in Hindi / Devanagari script</span></label>
+<input type="text" id="sub" class="deva" placeholder="e.g. णमो अरिहंताणं">
+</div>
+<div class="field">
+<label>Hindi / Prakrit Text <span class="hint">one line per verse line; blank lines become spacers</span></label>
+<textarea id="hindi" rows="12" class="deva" placeholder="Paste the full Hindi or Prakrit text here…"></textarea>
+</div>
+<div class="field">
+<label>Transliteration / English <span class="hint">Roman script, line-for-line matching the Hindi above</span></label>
+<textarea id="hinglish" rows="12" placeholder="Paste the transliteration or English meaning here…"></textarea>
+</div>
+<div class="field">
+<label>Meaning / Description <span class="hint">1–3 sentences — what this is and when it is recited</span></label>
+<textarea id="meaning" rows="3" placeholder="Brief description…"></textarea>
+</div>
+<div class="btn-row">
+<button class="btn btn-preview" onclick="showPreview()">Preview</button>
+</div>
+</div>
 
   <!-- PREVIEW -->
-  <div id="previewSection">
-    <div class="preview-card">
-      <div class="preview-hdr">
-        <span>Preview — this is exactly how it will appear on site</span>
-        <button class="btn btn-preview" style="padding:.35rem .9rem;font-size:.8rem" onclick="showPreview()">↻ Refresh</button>
-      </div>
-      <div class="preview-title-block">
-        <h2 id="pvTitle"></h2>
-        <div class="preview-sub" id="pvSub"></div>
-        <div class="preview-divider"></div>
-      </div>
-      <div class="lang-toggle">
-        <button class="lb on" onclick="setPreviewLang('both',this)">Hindi + English</button>
-        <button class="lb" onclick="setPreviewLang('hindi',this)">Hindi Only</button>
-        <button class="lb" onclick="setPreviewLang('hinglish',this)">English Only</button>
-      </div>
-      <div class="bilin-wrap">
-        <div class="bilin lm-both" id="pvBilin">
-          <div class="sync-labels">
-            <div class="sync-label">Hindi / Prakrit</div>
-            <div class="sync-label">Transliteration / English</div>
-          </div>
-          <div class="sync-lines" id="pvLines"></div>
-        </div>
-      </div>
-      <div id="pvMeaning"></div>
-      <div class="preview-actions">
-        <button class="btn btn-preview" onclick="document.getElementById('title').focus();document.getElementById('title').scrollIntoView({behavior:'smooth'})">← Edit</button>
-        <button class="btn btn-publish" id="publishBtn" onclick="publish()">✓ Publish to Site</button>
-      </div>
-    </div>
-  </div>
+<div id="previewSection">
+<div class="preview-card">
+<div class="preview-hdr">
+<span>Preview — this is exactly how it will appear on site</span>
+<button class="btn btn-preview" style="padding:.35rem .9rem;font-size:.8rem" onclick="showPreview()">↻ Refresh</button>
+</div>
+<div class="preview-title-block">
+<h2 id="pvTitle"></h2>
+<div class="preview-sub" id="pvSub"></div>
+<div class="preview-divider"></div>
+</div>
+<div class="lang-toggle">
+<button class="lb on" onclick="setPreviewLang('both',this)">Hindi + English</button>
+<button class="lb" onclick="setPreviewLang('hindi',this)">Hindi Only</button>
+<button class="lb" onclick="setPreviewLang('hinglish',this)">English Only</button>
+</div>
+<div class="bilin-wrap">
+<div class="bilin lm-both" id="pvBilin">
+<div class="sync-labels">
+<div class="sync-label">Hindi / Prakrit</div>
+<div class="sync-label">Transliteration / English</div>
+</div>
+<div class="sync-lines" id="pvLines"></div>
+</div>
+</div>
+<div id="pvMeaning"></div>
+<div class="preview-actions">
+<button class="btn btn-preview" onclick="document.getElementById('title').focus();document.getElementById('title').scrollIntoView({behavior:'smooth'})">← Edit</button>
+<button class="btn btn-publish" id="publishBtn" onclick="publish()">✓ Publish to Site</button>
+</div>
+</div>
+</div>
 
   <!-- STATUS -->
-  <div id="statusSection"></div>
+<div id="statusSection"></div>
 
 </main>
 
 <footer>
-  <strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain<br>
-  <em>Michami Dukkadam — forgive any errors in this humble effort 🙏</em>
+<strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain<br>
+<em>Michami Dukkadam — forgive any errors in this humble effort </em>
 </footer>
 
 <script>
@@ -428,12 +429,12 @@ async function publish() {
 
     setStatus('success', `
       <strong>✓ Published!</strong><br>
-      <em>${title}</em> has been committed to <code>${filePath}</code>.<br>
-      GitHub Pages will rebuild in about 60 seconds — then it will appear on the site automatically.<br><br>
-      <a href="index.html" style="color:inherit;font-weight:700">← Back to site</a>
-      &nbsp;|&nbsp;
+<em>${title}</em> has been committed to <code>${filePath}</code>.<br>
+GitHub Pages will rebuild in about 60 seconds — then it will appear on the site automatically.<br><br>
+<a href="index.html" style="color:inherit;font-weight:700">← Back to site</a>
+&nbsp;|&nbsp;
       <a href="#" onclick="resetForm();return false" style="color:inherit;font-weight:700">Add another</a>
-    `);
+`);
   } catch(err) {
     setStatus('error', `<strong>✗ Error:</strong> ${esc(err.message)}<br><small>Check your GitHub token has <code>public_repo</code> scope and that the repo name is correct.</small>`);
   } finally {

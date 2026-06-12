@@ -57,61 +57,61 @@ footer strong{color:var(--gold)}
 </head>
 <body>
 <header onclick="location.href='index.html'">
-  <span class="hdr-om">☸</span>
-  <h1>Daily Tools <span>दैनिक साधना</span></h1>
-  <div class="hdr-line"></div>
-  <p>Pachkhan times and the festival calendar</p>
+<span class="hdr-om">☸</span>
+<h1>Daily Tools <span>दैनिक साधना</span></h1>
+<div class="hdr-line"></div>
+<p>Pachkhan times and the festival calendar</p>
 </header>
 <nav>
-  <a class="nv" href="index.html">Home</a>
-  <a class="nv" href="index.html#stavans">Stavans</a>
-  <a class="nv" href="index.html#sutras">Sutras</a>
-  <a class="nv" href="index.html#swadyah">Swadyah</a>
-  <div class="dropdown">
-    <button class="nv on" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
-    <div class="drop-menu">
-      <a class="nv" href="tirthankaras.html">Tirthankaras</a>
-      <a class="nv" href="learn.html">Learn</a>
-      <a class="nv" href="tirths.html">Tirth Yatra</a>
-      <a class="nv" href="games.html">Games</a>
-      <a class="nv on" href="tools.html">Tools</a>
-      <a class="nv" href="aagamgpt.html">Aagam GPT</a>
-      <a class="nv" href="add.html">➕ Add Content</a>
-    </div>
-  </div>
+<a class="nv" href="index.html">Home</a>
+<a class="nv" href="index.html#stavans">Stavans</a>
+<a class="nv" href="index.html#sutras">Sutras</a>
+<a class="nv" href="index.html#swadyah">Swadyah</a>
+<div class="dropdown">
+<button class="nv on" onclick="toggleDrop(this)">More <span class="drop-caret">▼</span></button>
+<div class="drop-menu">
+<a class="nv" href="tirthankaras.html">Tirthankaras</a>
+<a class="nv" href="learn.html">Learn</a>
+<a class="nv" href="tirths.html">Tirth Yatra</a>
+<a class="nv" href="games.html">Games</a>
+<a class="nv on" href="tools.html">Tools</a>
+<a class="nv" href="aagamgpt.html">Aagam GPT</a>
+<a class="nv" href="add.html">Add Content</a>
+</div>
+</div>
 </nav>
 
 <main>
-  <!-- ── PACHKHAN TIMER ── -->
-  <div class="card">
-    <h2>⏰ Pachkhan Times for Today</h2>
-    <div class="sub-note">Times are calculated from your local sunrise and sunset.</div>
-    <div class="loc-row">
-      <button class="loc-btn" onclick="getLocation()">📍 Use my location</button>
-      <span class="loc-status" id="locStatus">Using default location (Dallas, TX) — tap the button for your exact times.</span>
-    </div>
-    <div class="sun-row">
-      <div class="sun-box"><div class="lbl">🌅 Sunrise</div><div class="val" id="sunrise">—</div></div>
-      <div class="sun-box"><div class="lbl">🌇 Sunset</div><div class="val" id="sunset">—</div></div>
-    </div>
-    <table id="pachkhanTable">
-      <thead><tr><th>Pachkhan</th><th>Time</th><th>What it means</th></tr></thead>
-      <tbody></tbody>
-    </table>
-    <div class="note">Navkarsi = sunrise + 48 minutes. Porsi = sunrise + ¼ of the day's length;
+<!-- ── PACHKHAN TIMER ── -->
+<div class="card">
+<h2> Pachkhan Times for Today</h2>
+<div class="sub-note">Times are calculated from your local sunrise and sunset.</div>
+<div class="loc-row">
+<button class="loc-btn" onclick="getLocation()">Use my location</button>
+<span class="loc-status" id="locStatus">Using default location (Dallas, TX) — tap the button for your exact times.</span>
+</div>
+<div class="sun-row">
+<div class="sun-box"><div class="lbl">Sunrise</div><div class="val" id="sunrise">—</div></div>
+<div class="sun-box"><div class="lbl">Sunset</div><div class="val" id="sunset">—</div></div>
+</div>
+<table id="pachkhanTable">
+<thead><tr><th>Pachkhan</th><th>Time</th><th>What it means</th></tr></thead>
+<tbody></tbody>
+</table>
+<div class="note">Navkarsi = sunrise + 48 minutes. Porsi = sunrise + ¼ of the day's length;
     Sadh-Porsi = +⅜; Purimaddh = +½; Avaddh = +¾. Chauvihar begins at sunset.
     Times are astronomical estimates — confirm with your local sangh's panchang for vrat purposes.</div>
-  </div>
+</div>
 
   <!-- ── FESTIVAL CALENDAR ── -->
-  <div class="card">
-    <h2>🪔 Jain Festival Calendar</h2>
-    <div class="sub-note">2026 dates from Jain panchang sources, sorted by what's coming next.</div>
-    <div id="festList"></div>
-    <div class="note">Dates marked <strong>*</strong> are estimates from the lunar calendar.
+<div class="card">
+<h2> Jain Festival Calendar</h2>
+<div class="sub-note">2026 dates from Jain panchang sources, sorted by what's coming next.</div>
+<div id="festList"></div>
+<div class="note">Dates marked <strong>*</strong> are estimates from the lunar calendar.
     All dates can shift by a tithi depending on your location and tradition (Shvetambar / Digambar) —
     always confirm with your local sangh or panchang.</div>
-  </div>
+</div>
 </main>
 
 <footer><strong>Jain Stavans &amp; Sutras</strong> — Curated by Ansh Jain</footer>
@@ -231,13 +231,13 @@ const sorted=[...FESTIVALS].sort((a,b)=>{
 document.getElementById('festList').innerHTML=sorted.map(f=>{
   const past=new Date((f.end||f.date)+'T23:59:59')<new Date();
   return`<div class="fest"${past?' style="opacity:.5"':''}>
-    <div class="fest-when">${festWhen(f)}</div>
-    <div>
-      <div class="fest-name">${f.name}${festBadge(f)}</div>
-      <div class="fest-sub">${f.sub}</div>
-      <div class="fest-desc">${f.desc}</div>
-    </div>
-  </div>`}).join('');
+<div class="fest-when">${festWhen(f)}</div>
+<div>
+<div class="fest-name">${f.name}${festBadge(f)}</div>
+<div class="fest-sub">${f.sub}</div>
+<div class="fest-desc">${f.desc}</div>
+</div>
+</div>`}).join('');
 </script>
 <script src="js/nav.js"></script>
 </body>
