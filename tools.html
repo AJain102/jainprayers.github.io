@@ -95,9 +95,10 @@ footer strong{color:var(--gold)}
   <!-- ── FESTIVAL CALENDAR ── -->
   <div class="card">
     <h2>🪔 Jain Festival Calendar</h2>
-    <div class="sub-note">Major festivals through the year. Jain festivals follow the lunar calendar, so exact dates shift each year.</div>
+    <div class="sub-note">2026 dates from Jain panchang sources, sorted by what's coming next.</div>
     <div id="festList"></div>
-    <div class="note">Exact dates vary by year and by tradition (Shvetambar / Digambar) —
+    <div class="note">Dates marked <strong>*</strong> are estimates from the lunar calendar.
+    All dates can shift by a tithi depending on your location and tradition (Shvetambar / Digambar) —
     always confirm with your local sangh or panchang.</div>
   </div>
 </main>
@@ -173,29 +174,59 @@ renderPachkhan();
 setInterval(renderPachkhan,60000);
 
 // ════════ FESTIVALS ════════
+// 2026 dates verified from Jain panchang sources (drikpanchang, jainknowledge,
+// JCNC). Lunar dates — update this list each year. approx:true = estimated.
 const FESTIVALS=[
- {when:'March – April',name:'Mahavir Janma Kalyanak (Mahavir Jayanti)',sub:'महावीर जन्म कल्याणक',desc:'Birth of Bhagwan Mahavir, the 24th Tirthankara — Chaitra Shukla 13. Celebrated with processions, temple worship, and readings of his life.'},
- {when:'March – April',name:'Chaitri Ayambil Oli',sub:'चैत्री आयंबिल ओली',desc:'Nine days of Ayambil tapasya (one bland meal a day) devoted to the Navpad — the nine supreme posts of the Siddhachakra.'},
- {when:'April – May',name:'Akshaya Tritiya',sub:'अक्षय तृतीया',desc:'Vaishakh Shukla 3 — the day Rishabhdev broke his year-long fast with sugarcane juice. Varshitap practitioners complete their fast today.'},
- {when:'August – September',name:'Paryushan Mahaparva (Shvetambar)',sub:'पर्युषण महापर्व',desc:'The 8 most sacred days of the year: fasting, Pratikraman, and the reading of the Kalpa Sutra. A festival of the soul.'},
- {when:'August – September',name:'Samvatsari',sub:'संवत्सरी',desc:'The final day of Paryushan — the great day of universal forgiveness. "Michami Dukkadam" is exchanged with all.'},
- {when:'September',name:'Das Lakshan Parva (Digambar)',sub:'दस लक्षण पर्व',desc:'Ten days following Paryushan celebrating the ten supreme dharmas: forgiveness, humility, honesty, purity, truth, restraint, penance, renunciation, detachment, celibacy.'},
- {when:'September',name:'Kshamavani (Digambar)',sub:'क्षमावाणी',desc:'The Digambar day of forgiveness, after Das Lakshan — "Uttam Kshama!" is exchanged.'},
- {when:'September – October',name:'Ashwin Ayambil Oli',sub:'आश्विन आयंबिल ओली',desc:'The second nine-day Navpad Oli of the year, ending on Sharad Purnima.'},
- {when:'October – November',name:'Diwali — Mahavir Nirvan Kalyanak',sub:'महावीर निर्वाण कल्याणक',desc:'Kartik Amavasya — Bhagwan Mahavir attained moksha at Pavapuri. Jains light lamps for the light of knowledge that left the world.'},
- {when:'October – November',name:'Gyan Panchami',sub:'ज्ञान पंचमी',desc:'Kartik Shukla 5 — the day of knowledge. Scriptures are cleaned, venerated, and studied.'},
- {when:'November',name:'Kartik Purnima',sub:'कार्तिक पूर्णिमा',desc:'End of Chaturmas — monks resume travel. Major pilgrimage day to Shatrunjay (Palitana).'},
- {when:'November – December',name:'Maun Agyaras',sub:'मौन अग्यारस',desc:'Margashirsha Shukla 11 — a day of complete silence, fasting and meditation, honouring 150 kalyanaks of the Tirthankaras.'},
+ {date:'2026-03-31',name:'Mahavir Janma Kalyanak (Mahavir Jayanti)',sub:'महावीर जन्म कल्याणक',desc:'Birth of Bhagwan Mahavir, the 24th Tirthankara — Chaitra Shukla 13. Celebrated with processions, temple worship, and readings of his life.'},
+ {date:'2026-04-19',name:'Akshaya Tritiya',sub:'अक्षय तृतीया',desc:'Vaishakh Shukla 3 — the day Rishabhdev broke his year-long fast with sugarcane juice. Varshitap practitioners complete their fast today.'},
+ {date:'2026-09-08',end:'2026-09-15',name:'Paryushan Mahaparva (Shvetambar)',sub:'पर्युषण महापर्व',desc:'The 8 most sacred days of the year: fasting, Pratikraman, and the reading of the Kalpa Sutra. A festival of the soul.'},
+ {date:'2026-09-15',name:'Samvatsari',sub:'संवत्सरी',desc:'The final day of Paryushan — the great day of universal forgiveness. "Michami Dukkadam" is exchanged with all.'},
+ {date:'2026-09-16',end:'2026-09-25',approx:true,name:'Das Lakshan Parva (Digambar)',sub:'दस लक्षण पर्व',desc:'Ten days following Paryushan celebrating the ten supreme dharmas — forgiveness, humility, honesty, purity, truth, restraint, penance, renunciation, detachment, celibacy.'},
+ {date:'2026-09-26',approx:true,name:'Kshamavani (Digambar)',sub:'क्षमावाणी',desc:'The Digambar day of forgiveness, after Das Lakshan — "Uttam Kshama!" is exchanged.'},
+ {date:'2026-10-17',end:'2026-10-25',approx:true,name:'Ashwin Ayambil Oli',sub:'आश्विन आयंबिल ओली',desc:'The second nine-day Navpad Oli of the year, ending on Sharad Purnima.'},
+ {date:'2026-11-08',name:'Diwali — Mahavir Nirvan Kalyanak',sub:'महावीर निर्वाण कल्याणक',desc:'Kartik Amavasya — Bhagwan Mahavir attained moksha at Pavapuri. Jains light lamps for the light of knowledge that left the world.'},
+ {date:'2026-11-13',approx:true,name:'Gyan Panchami',sub:'ज्ञान पंचमी',desc:'Kartik Shukla 5 — the day of knowledge. Scriptures are cleaned, venerated, and studied.'},
+ {date:'2026-11-24',approx:true,name:'Kartik Purnima',sub:'कार्तिक पूर्णिमा',desc:'End of Chaturmas — monks resume travel. Major pilgrimage day to Shatrunjay (Palitana).'},
+ {date:'2026-12-20',approx:true,name:'Maun Agyaras',sub:'मौन अग्यारस',desc:'Margashirsha Shukla 11 — a day of complete silence, fasting and meditation, honouring 150 kalyanaks of the Tirthankaras.'},
 ];
-document.getElementById('festList').innerHTML=FESTIVALS.map(f=>`
-  <div class="fest">
-    <div class="fest-when">${f.when}</div>
+
+function festWhen(f){
+  const opts={month:'short',day:'numeric'};
+  const d1=new Date(f.date+'T00:00:00');
+  let s=d1.toLocaleDateString([],opts);
+  if(f.end)s+=' – '+new Date(f.end+'T00:00:00').toLocaleDateString([],opts);
+  s+=', '+d1.getFullYear();
+  return s+(f.approx?' *':'');
+}
+
+function festBadge(f){
+  const now=new Date();now.setHours(0,0,0,0);
+  const start=new Date(f.date+'T00:00:00');
+  const end=new Date((f.end||f.date)+'T23:59:59');
+  if(now>end)return'<span style="color:var(--muted);font-weight:400;font-size:.78rem"> · passed</span>';
+  if(now>=start)return'<span style="color:#2d6a4f;font-size:.78rem"> · happening now!</span>';
+  const days=Math.ceil((start-now)/86400000);
+  return`<span style="color:var(--gold);font-size:.78rem"> · in ${days} day${days!==1?'s':''}</span>`;
+}
+
+const sorted=[...FESTIVALS].sort((a,b)=>{
+  const now=new Date();now.setHours(0,0,0,0);
+  const aPast=new Date((a.end||a.date)+'T23:59:59')<now;
+  const bPast=new Date((b.end||b.date)+'T23:59:59')<now;
+  if(aPast!==bPast)return aPast?1:-1;          // upcoming first
+  return new Date(a.date)-new Date(b.date);
+});
+
+document.getElementById('festList').innerHTML=sorted.map(f=>{
+  const past=new Date((f.end||f.date)+'T23:59:59')<new Date();
+  return`<div class="fest"${past?' style="opacity:.5"':''}>
+    <div class="fest-when">${festWhen(f)}</div>
     <div>
-      <div class="fest-name">${f.name}</div>
+      <div class="fest-name">${f.name}${festBadge(f)}</div>
       <div class="fest-sub">${f.sub}</div>
       <div class="fest-desc">${f.desc}</div>
     </div>
-  </div>`).join('');
+  </div>`}).join('');
 </script>
 </body>
 </html>
